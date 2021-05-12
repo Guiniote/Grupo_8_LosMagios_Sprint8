@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <link rel="stylesheet" href="/css/styles_editProducts.css">
+    <%- include('../partials/head') %>
+    </head>
+<body>
+    <%- include('../partials/header') %>
+
+    <main>
+        <form action="/products/editProducts/<%= product.id %>?_method=PUT" method="POST">
+            <div class="edit">
+            <h3 class="form_h3">Editar articulo</h3>
+            <label class="form_texto" for="name">Nombre:</label>
+            <input class="write_upload" type="text" name="name" id="name" value="<%= product.name %>">
+            <label class="form_texto" for="description">Descripción:</label>
+            <input class="write_upload" type="text" name="description" id="description" value="<%= product.description %>">
+            <label class="form_texto" for="image">Imagen:</label>
+            <input class="write_upload" type="file" name="image" value="<%= product.image %>">
+            <label class="form_texto" for="category">Categoría:</label>
+            <input class="write_upload" type="text" name="category" id="category" value="<%= product.category %>">
+            <label class="form_texto" for="Colors">Colores:</label>
+            <input class="write_upload" type="color" name="Colors" id="Colors" list="listacoloresperfil" value="<%= product.Colors %>">
+            <label class="form_texto" for="price">Precio:</label>
+            <input class="write_upload" type="text" name="price" id="price" value="<%= product.price %>">
+            <div class="botones_input">
+                <input class="enviaData" type="submit" value="Confirmar Edicion">
+            </div>
+        </form>
+        <form class="form is-inline" action="/products/productDetail/<%= product.id %>?_method=DELETE" method="POST">
+            <div class="botones_input"></div>
+                <button type="submit" class="enviaData">Borrar</button>
+            </div>
+        </form>
+
+        <!-- opciones de colores para elegir al producto -->
+        <datalist id="listacoloresperfil">
+            <option value="#23049d">
+            <option value="#999b84">
+            <option value="#ffff00">
+            <option value="#ffffff">
+        </datalist>
+</main>
+
+
+
+<%- include('../partials/footer') %>
+</body>
+</html>

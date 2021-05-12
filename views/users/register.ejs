@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include('../partials/head') %>
+
+    <link rel="stylesheet" href="/css/styles_register.css">
+    <title>Wedo Studio</title>
+</head>
+
+<body>
+
+    <%- include('../partials/header') %>
+
+    <main>
+
+        <form method="POST" action="/register" enctype="multipart/form-data">
+            <div class="box-register">
+                <h3 class="form_h3">Crear Cuenta</h3>
+
+
+                <!--nombre-->
+                <label class="form_texto" for="Nombre">Nombre</label>
+                <input class="write_register" type="text" name="nombre" id="nombre">
+                <!--Apellido-->
+                <label class="form_texto" for="Apellido">Apellido</label>
+                <input class="write_register" type="text" name="Apellido" id="Apellido">
+                <!--mail-->
+                <label class="form_texto" for="email">E-Mail</label>
+                <input class="write_register" type="email" name="email" id="email">
+                <!--contraseña-->
+                <label class="form_texto" for="Password">Contraseña</label>
+                <input class="write_register" type="password" name="contraseña" id="contraseña"
+                    placeholder="Al menos 6 caracteres" minlength="6" required>
+                <!--contraseña-->
+                <!-- <label class="form_texto" for="repPassword">Repetir Contraseña</label>
+                <input class="write_register" type="password" name="contraseña" id="contraseña"
+                    placeholder="Al menos 6 caracteres" minlength="6" required>
+                    -->
+                <!--texto abajo-->
+                <button type="submit" class="btn btn-primary">Registrarse</button>
+                <!--<input class="regiter_h4" type="submit" value="Crea tu cuenta">
+                -->
+
+                <a class="form-login" href="/users/login">¿Ya tenés cuenta? Ingresar></a>
+            </div>
+        </form>
+    </main>
+
+    <%- include('../partials/footer') %>
+
+</body>
+</html>

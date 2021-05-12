@@ -1,0 +1,33 @@
+{
+  "name": "grupo_8_losmagios",
+  "version": "1.0.0",
+  "description": "**We Do Studios**",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Guiniote/Grupo_8_LosMagios.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Guiniote/Grupo_8_LosMagios/issues"
+  },
+  "homepage": "https://github.com/Guiniote/Grupo_8_LosMagios#readme",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cookie-parser": "^1.4.5",
+    "ejs": "^3.1.5",
+    "express": "^4.17.1",
+    "express-session": "^1.17.1",
+    "express-validator": "^6.8.1",
+    "method-override": "^3.0.0",
+    "multer": "^1.4.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  }
+}

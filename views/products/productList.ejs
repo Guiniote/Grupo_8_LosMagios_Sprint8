@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include('../partials/head') %>
+   
+    <link rel="stylesheet" href="/css/styles_productList.css">
+    <title>Wedo Studio</title>
+</head>
+
+<body class="pl_body_productCart">
+
+    <%- include('../partials/header') %>
+
+    <main>
+        <div class="comandos">
+            <p>Filtrar</p>
+            <p>Ordenar</p>
+        </div>
+        <div class="ordenar">
+            <a href="/products/createProducts">Crear producto</a>
+            <form action="" method="">
+                <label for="order">Ordenar por</label>
+                <select name="order" id="order">
+                    <option value="1">Más relevantes</option>
+                    <option value="2">Menor precio</option>
+                    <option value="3">Mayor precio</option>
+                </select>
+            </form>
+        </div>
+        <div class="pl_main_productCart">
+            <div class="pl_main_items1">
+                <section class="pl_main_items_product">
+                    
+                    <% products.forEach(product => { %>
+                        <%- include('../partials/productList_items', { product }) %>
+                    <% }) %>                
+                    
+                </section>
+                <section class="pl_main_items_total">
+                    <div class="pl_total">
+                        <h3>Nikon d7500</h3>
+                        <p>4 resultados</p>
+                        <div class="marca">
+                            <form action="" method="">
+                                <label for="">Marca</label>
+                                <p>Nikon</p>
+                            </form>
+                        </div>
+                        <div class="precio">
+                            <form action="" method="">
+                                <label for="">Precio</label>
+                                    <input type="text" name="precio_menor" id="" value="Mínimo">
+                                <label for=""> - </label>
+                                    <input type="text" name="precio_mayor" id="" value="Máximo">
+                                <button type="submit">></button>
+                            </form>
+                        </div>
+                    </div>
+                </section>
+            </div>  
+        </div>          
+    </main>
+    
+    <%- include('../partials/footer') %>
+
+</body>
+</html>

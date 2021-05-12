@@ -1,0 +1,251 @@
+* {
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+}
+
+ul {
+    padding: initial;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin: initial;
+    line-height: initial;
+}
+
+footer {
+    width: 100%;
+    font-family: 'roboto';
+    font-size: 14px;
+    background-color: #404040;
+    color: white;
+    display: flex;
+    flex-flow: row wrap;
+    padding: 20px 10px 10px 10px;
+}
+
+    .footer_registro_mail {
+        flex: 1 1 100%;
+        font-size: 16px;
+        order: -1;
+        text-align: center;        
+    }
+
+        .footer_registro_mail input {
+            margin: 5px 0;
+            padding: 3px;
+            width: 40%;
+            height: 30px;
+            border: 2px solid #2289da;
+        }
+
+        .footer_registro_mail button {
+            padding: 3.5px 8px 3.5px 8px;
+            margin-left: 0;
+            background-color: #2289da;
+            color: white;
+            border: none;
+            height: 30px;
+        }
+
+        .footer_registro_mail button:hover {
+            background-color: #844291;
+        }
+
+    .footer_links {
+        flex: 1 1 100%;
+        display:flex;
+        flex-flow: row wrap;
+        justify-content: space-around;
+        margin: 40px 0px 20px 0px;
+    }
+
+        .footer_links li {
+            flex: 1 1 32%;
+            text-align: center; 
+            padding: 7px 0px;
+        }
+
+            .footer_links li a {
+                text-decoration: none;
+                color: white;
+            }
+
+    .footer_redes_sociales {
+        flex: 1 1 100%;
+        display:flex;
+        flex-flow: row wrap;
+        justify-content: space-around;
+        margin: 30px 0px;
+    }
+
+        .footer_redes_sociales li {
+            flex: 1 1 32%;
+            text-align: center;
+        }
+
+            .footer_redes_sociales img {
+                width: 80%;
+                max-width: 80px;
+            }
+
+        .footer_redes_sociales li.footer_whatsapp, .footer_redes_sociales li.footer_youtube {
+            position: relative;
+        }
+
+            .footer_redes_sociales li.footer_whatsapp img {
+                position: absolute;
+                left: 42%;
+            }   
+            
+            .footer_redes_sociales li.footer_youtube img {
+                position: absolute;
+                right: 42%;
+            }
+        
+    .footer_copyright {
+        flex: 1 1 100%;
+        font-size: 11px;
+        color: #a8a1a1;
+        text-align: center;
+        margin: 70px 0px;
+    }
+
+
+@media (min-width: 481px) {
+    
+    .footer_registro_mail input {
+        margin: 0px;
+    }
+
+    .footer_redes_sociales li {
+        flex: 1 1 18%;
+        text-align: center;
+    }        
+    
+        .footer_redes_sociales li.footer_whatsapp, .footer_redes_sociales li.footer_youtube {
+            position: static;
+        }
+
+            .footer_redes_sociales li.footer_whatsapp img {
+                position: static;                
+            }   
+            
+            .footer_redes_sociales li.footer_youtube img {
+                position: static;                
+            }
+    
+    .footer_copyright {
+        margin: 30px 0px 10px 0px;
+    }
+}
+
+
+@media (min-width: 769px) {
+
+    footer {
+        justify-content: space-between;
+        padding: 30px 10px 10px 10px;        
+    }
+        
+        .footer_links {
+            font-size: 16px;
+            flex: 0 1 27%;
+            display: block;
+            margin: 25px 0px 0px 0px;             
+        }
+
+            .footer_links li {
+                text-align: left;
+                padding: 3px 0px;
+            }
+
+        .footer_registro_mail {
+            order: 0;
+            flex: 0 1 45%;
+            max-width: 400px;
+        }
+
+            .footer_registro_mail form {
+                text-align: center;
+            }
+
+                .footer_registro_mail label {
+                    font-size: 18px;
+                }
+
+                .footer_registro_mail input {
+                    margin: 10px 5px;            
+                    font-size: 16px;
+                    width: 60%;
+                }
+
+                .footer_registro_mail button {
+                    font-size: 16px;
+                }
+
+        .footer_redes_sociales {
+            flex: 0 1 27%;
+            display:flex;
+            flex-flow: row wrap;
+            justify-content: flex-end;
+            align-items: flex-end;
+            margin: 20px 0px 0px 0px;
+        }
+
+            .footer_redes_sociales li {
+                flex: 0 1 19%;
+                text-align: center;
+            }
+
+                .footer_redes_sociales img {
+                    width: 80%;
+                    max-width: 60px;
+                }
+    
+        .footer_copyright {
+            flex: 1 1 auto;
+            width: 100%;
+            text-align: right;
+            margin-right: 50px;;
+        }
+
+}
+
+
+@media (min-width: 1224px) {
+
+    .footer_links {
+        font-size: 18px;
+        padding-left: 20px; 
+    }
+
+        .footer_registro_mail label {
+            font-size: 22px;
+        }
+
+        .footer_registro_mail input {
+            font-size: 18px;
+        }
+
+        .footer_registro_mail button {
+            font-size: 18px;
+        }    
+            
+}
+
+
+@media (min-width: 1824px) {
+    
+    .footer_links {
+        padding-left: 30px; 
+    }
+
+        .footer_links li {
+            padding: 4px 0px;
+        }
+    
+        .footer_registro_mail label {
+            font-size: 22px;
+        }
+}

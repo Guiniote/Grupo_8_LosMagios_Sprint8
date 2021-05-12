@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include('../partials/head') %>
+
+    <link rel="stylesheet" href="/css/styles_login.css">
+    <title>Wedo Studio</title>
+</head>
+
+<body>
+
+    <%- include('../partials/header') %>
+
+    <main>
+
+        <form action="/login" method="POST">
+            <div class="box-login">
+                <h3>Login</h3>
+                <!--username-->
+                <label class="user" for="username">Usuario/Email</label>
+                <input class="write" type="text" placeholder="Escribir usuario">
+                <!--password-->
+                <label class="user" for="username">Contraseña</label>
+                <input class="write" type="text" placeholder="Escribir Password">
+                <!--boton-->
+                <input class="new" type="submit" value="Ingresar">
+                <!--texto abajo-->
+                <label><input class="check" type="checkbox" id="cbox1" value="first_checkbox"> Recuerdame</label>
+
+                <a class="registro" href="#">Olvide mi contraseña</a>
+            </div>
+            <div class="box-new">
+                <!--sos nuevo-->
+                <h4>¿Sos Nuevo?</h4>
+                <a class="login_register" href='/users/register'>Registrame</a>
+            </div>
+
+
+        </form>
+    </main>
+    
+    <%- include('../partials/footer') %>
+
+</body>
+</html>

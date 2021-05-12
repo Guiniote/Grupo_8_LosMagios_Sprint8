@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include('../partials/head') %>
+   
+    <link rel="stylesheet" href="/css/styles_productCart.css">
+    <title>Wedo Studio</title>
+</head>
+
+<body class="body__productCart">
+
+    <%- include('../partials/header') %>
+
+    <main class="main__productCart">
+
+        <h2 class="main__h2">Mi compra</h2>
+            <div class="main__barra1">
+                <div class="item1">Item</div>
+                <div class="item2">Descripción</div>
+                <div class="item3">Cantidad</div>
+                <div class="item4">Valor unitario</div>
+                <div class="item5">Subtotal</div>
+                <div class="item6"></div>
+            </div>
+            <div class="main__items1">
+                <div class="main__items__product">
+                    
+                    <%- include('../partials/productCart_items') %>
+
+                    <%- include('../partials/productCart_items') %>
+
+                    <%- include('../partials/productCart_items') %>
+
+                    <%- include('../partials/productCart_items') %>
+                    
+                </div>
+                <div class="div main__items__total">
+                    <div class="total">
+                        <h3 class="total__h3">Total a pagar</h3>
+                        <h3 class="total__h3">$xxxx</h3>
+                        <button class="btn" type="submit"><p>Continuar</p> </button>
+                    </div>
+                </div>
+            </div>
+            <div class="registro">
+                <label for="cupon">Cupón de decuento</label>
+                <input type="text" id="cupon" placeholder="Ingresalo" required>
+                <button class="btn" type="submit">Aplicar</button>
+            </div>
+    </main>
+    
+    <%- include('../partials/footer') %>
+
+</body>
+</html>

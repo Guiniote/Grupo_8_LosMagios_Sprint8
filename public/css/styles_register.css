@@ -1,0 +1,207 @@
+
+*{
+    margin: 0 ;
+    box-sizing: border-box;
+    padding: 0;
+}
+body{
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+    background-image: linear-gradient( #e4dddd, #404040);  
+
+} 
+
+
+button, input {
+    margin: auto;
+}
+
+.navbar-dark .navbar-toggler {
+    margin: initial;
+}
+
+.form_h3 {
+    
+    font-weight: 800;
+
+}
+
+
+.box-register {
+    background-color: #faf4f4;
+    border: 2px solid #2289da;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgb(100, 100, 100);
+  
+    width: 80%;
+    margin: auto;
+    margin-top: 25%;
+    margin-bottom: 10%;
+    
+display: flex;
+   flex-direction: column;
+  justify-content: space-between;
+  transition: all 0.5s;
+  
+  }
+
+.box-register:hover{
+    box-shadow: 2px 2px 10px #a8a1a1;
+}
+
+
+
+
+
+  .form_texto{
+      margin-top: 5px;
+  }
+  .regiter_h4 {
+    background-color: #2289da;
+    border-radius: 5px;
+      width: 25vw;
+      color: white;
+      margin-top: 20px;
+      margin-bottom: 10px;
+     
+      height: 3vh;
+      text-align: center;
+     padding-top: 2px;
+     font-size: 12px;
+     transition: all;
+     border: none;
+     
+      
+  }
+  .regiter_h4:hover{
+    background-color: #844291;
+
+
+  }
+  .form-login {
+      margin-bottom: 10px;
+  }
+  .form_h3 {
+      margin-top: 10px;
+      transition: all 0.5s;
+      
+  }
+
+.form_h3:hover{
+    text-shadow:  2px 2px 10px #a8a1a1;
+}
+
+
+.create {
+    font-size: 16px;
+}
+.write_register{
+    width: 80%;
+    border: 2px solid #2289da;
+}
+   
+
+/*celulares 320*/
+
+
+/*tablets*/
+
+@media only screen and (min-device-width : 481px){
+
+    .regiter_h4{
+        font-size: 14px;
+        height: 5vh;
+        width: 20vw;
+    }
+    .box-register{
+        margin-top: 20%;
+        margin-bottom: 8%;
+       
+    }
+
+
+
+
+}
+/*desktop chicas*/
+@media only screen and (min-device-width : 769px){
+ 
+    .write_register{
+        width: 70vw;
+        height: 4vh;
+
+    }
+    .regiter_h4 {
+        font-size: 18px;
+        width: 15vw;
+    }
+    .box-register{
+        margin-top: 12%;
+        margin-bottom: 4%;
+    }
+
+    
+}
+/*medianas*/
+@media only screen and (min-device-width : 1124px){
+
+    .write_register{
+        width:60vw;
+        height: 4vh;
+    }
+    .regiter_h4 {
+      width: 13vw;
+    }
+    .box-register{
+        margin-top: 8%;
+        margin-bottom: 2%;
+    }
+    .form_texto{
+        font-size: 26px;
+    }
+    .form_h3 {
+        font-size: 36px;
+        font-weight: bold;
+        font-weight: 800;
+
+    }
+
+
+
+}
+
+
+
+/*grandes*/
+@media only screen and (min-device-width : 1824px){
+    .write_register{
+        font-size: 2vh;
+        width: 20vw;
+        height: 4vh;
+       
+    }
+    .regiter_h4 {
+        font-size: 16px;
+        width: 8vw;
+        height: 5vh;
+    }
+    .form_texto{
+        font-size: 15px;
+   
+    }
+    .form_h3{
+        font-size: 25px;
+     font-weight: 900;
+   
+    }
+    .form-login {
+        font-size: 15px;
+    }
+    .box-register{
+        width: 25vw;
+    }
+
+
+
+}
+

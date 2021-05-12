@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include('../partials/head') %>
+
+    <link rel="stylesheet" href="/css/styles_productDetail.css">
+    <title>We Do Studio - Detalle de producto</title>    
+</head>
+
+<body>
+    
+  <%- include('../partials/header') %>
+
+    <main>
+        <section>
+            <div class="sublinks">
+                <div class="root">
+                    <a href="/">Home</a>
+                    <p>/ nombre del producto</p>
+                </div>
+                <div class="edit">
+                    <a href="/products/editProducts/<%= product.id %>">Editar</a>
+                 
+                </div>
+            </div>
+            <article>               
+                <div class="imagenes">
+                    <div class="img_principal">
+                        <img src="/images/<%= product.image %>" alt="Foto artículo 1" width="100%">
+                    </div>                    
+                    <div class="img_secundarias">
+                        <img src="/images/Nikon_2.png" alt="Foto artículo 2" width="100%">
+                        <img src="/images/Nikon_3.png" alt="Foto artículo 3" width="100%">
+                        <img src="/images/Nikon_4.png" alt="Foto artículo 4" width="100%">
+                        <img src="/images/Nikon_5.png" alt="Foto artículo 5" width="100%">
+                    </div>
+                </div>
+                <div class="titulo">
+                    <h1><%= product.name %></h1>
+                    <h4>Nikon</h4>
+                </div>
+                <div class="informacion">
+                    <div class="descripcion">
+                        <h3>Descripcion</h3>
+                        <p><%= product.description %></p>
+                    </div>
+                    <div class="especificaciones">
+                        <h3>Especificaciones técnicas</h3>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa consequatur ducimus in labore ex esse quo sequi expedita deserunt, odio unde laboriosam aspernatur? Eius suscipit reprehenderit animi. Officia, esse qui?</p>
+                    </div>
+                </div>
+                <div class="datos_compra">
+                    <div class="color_y_precio">
+                        <div class="selector_color">
+                            <h3>Color:</h3>
+                            <div class="selector_color_1"></div>
+                            <div class="selector_color_2"></div>
+                            <div class="selector_color_3"></div>
+                        </div>
+                        <h2 class="precio">$ <%= product.price %></h2>
+                    </div>
+                    <form class="compra" action="/products/productCart" method="POST">
+                        <div class="cantidad">
+                            <label for="cantidad">Cantidad:</label>
+                            <select name="cantidad" id="cantidad">
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                                <option value="9">9</option>
+                                <option value="10">10</option>
+                            </select>
+                        </div>   
+                     </form>            
+                         <div class="boton_compra">
+                            <button type="submit">Comprar</button>                    
+                        </div>                         
+                </div>
+                <div class="envios">
+                    <p>Envios a todo el pais</p>
+                    <a href="">Calcular costos de envío</a>
+                </div>
+            </article>
+        </section>
+    </main>
+    
+    <%- include('../partials/footer') %>
+    
+</body>
+</html>

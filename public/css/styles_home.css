@@ -1,0 +1,124 @@
+
+.banner{
+    margin-top: 30px;
+    margin-bottom: 5px;
+}
+
+/* DIV  BANNER */
+.container { 
+    width: 300px;     
+    margin-top: 10px; 
+    margin-bottom: 10px;
+    padding-top: 1em; 
+}
+.container .ism-slider { 
+    margin-left: auto;
+    margin-right: auto; 
+}
+/* FIN BANNER */
+
+main {
+    background-image: linear-gradient( #e4dddd, #404040)
+}
+
+.main-col{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    columns: initial;
+    margin-top: 5px;
+}
+.col{
+    align-items: center;
+    flex-direction: column;
+    flex-grow: initial ;
+    padding-bottom: 20px;
+    margin:  10px;
+    
+
+}
+
+.col h2{
+    text-decoration: none;
+    color: white;
+
+}
+
+.bi {
+    vertical-align: -.125em;
+    fill: currentColor;
+}
+
+
+.rounded-4 { 
+    border-radius: .5rem; 
+}
+
+.rounded-5 { 
+    border-radius: 1rem; 
+}
+
+.text-shadow-1 { 
+    text-shadow: 0 .125rem 1.5rem #000000;
+}
+
+.text-shadow-2 { 
+    text-shadow: 0 .25rem .5rem rgba(0, 0, 0, .25); 
+}
+
+.text-shadow-3 { 
+    text-shadow: 0 .5rem 1.5rem rgba(0, 0, 0, .25); 
+}
+
+.introduccion{
+    background-color: #2289da;
+    width: 100%;
+    padding: 10px;
+    
+}
+
+.introduccion p{
+    text-align: center;
+    color: #000000;
+    font-size: 20px;
+}
+
+.card-cover {
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    border: none;
+}
+
+@media only screen and (min-width: 769px){
+
+.card
+
+/* DIV  BANNER */
+.container { 
+    width: 100%;     
+    margin: auto; 
+    padding-top: 1em; 
+}
+.container .ism-slider { 
+    margin-left: auto;
+    margin-right: auto; 
+}
+/* FIN BANNER */
+
+.main-col{
+    display: flex;
+    flex-direction: row;
+    columns: 3;
+    align-items: stretch;
+}
+
+.col {
+margin: auto;
+}
+
+.introduccion p{
+    font-size: 22px;
+}
+
+}
