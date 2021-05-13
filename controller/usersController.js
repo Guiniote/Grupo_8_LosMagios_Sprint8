@@ -9,9 +9,9 @@ const controller = {
 	register: (req, res) => {
 		return res.render('users/register');
 	},
-	processRegister: (req, res) => {
+	processRegister: (req, res) => {		
 		const resultValidation = validationResult(req);
-
+		
 		if (resultValidation.errors.length > 0) {
 			return res.render('users/register', {
 				errors: resultValidation.mapped(),
@@ -20,7 +20,7 @@ const controller = {
 		}
 
 		let userInDB = User.findByField('email', req.body.email);
-
+		
 		if (userInDB) {
 			return res.render('users/register', {
 				errors: {
@@ -31,7 +31,7 @@ const controller = {
 				oldData: req.body
 			});
 		}
-
+				
 		let userToCreate = {
 			...req.body,
 			password: bcryptjs.hashSync(req.body.password, 10),
