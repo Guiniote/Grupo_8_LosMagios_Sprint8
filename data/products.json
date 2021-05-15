@@ -176,5 +176,14 @@
   "Colors": "#000000",
   "price": "4408.15",
   "id": "20"
+ },
+ {
+  "name": "camara nikon 2021",
+  "description": "camara nueva",
+  "category": "camaras",
+  "colors": "#000000",
+  "price": "100000",
+  "image": "img-1621117942575.jpg",
+  "id": 21
  }
 ]
