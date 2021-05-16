@@ -47,7 +47,9 @@ const controller = {
 		let userToLogin = User.findByField('email', req.body.email);
 		
 		//quitar una vez que esté el registro terminado 
-		userToLogin.password = bcryptjs.hashSync(userToLogin.password, 10);
+		if(userToLogin) {
+			userToLogin.password = bcryptjs.hashSync(userToLogin.password, 10);
+		}
 		//hasta acá
 
 		if(userToLogin) {
@@ -62,23 +64,28 @@ const controller = {
 				}
 
 				return res.redirect('/users/profile');
-			} 
-			return res.render('users/login', {
-				errors: {
-					email: {
-						msg: 'Las credenciales son inválidas'
-					}
-				}
-			});
+			}			
 		}
 
 		return res.render('users/login', {
 			errors: {
 				email: {
-					msg: 'No se encuentra este email en nuestra base de datos'
+					msg: 'Las credenciales son inválidas'
 				}
 			}
 		});
+	},
+
+	profile: (req, res) => {
+		return res.render('users/profile', {
+			user: req.session.userLogged
+		});
+	},
+
+	logout: (req, res) => {
+		res.clearCookie('userEmail');
+		req.session.destroy();
+		return res.redirect('/');
 	}
 }
 

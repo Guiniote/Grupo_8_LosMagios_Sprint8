@@ -144,6 +144,11 @@ h4 {
 .login_register{
     margin-bottom: 2vh;
 }
+
+.validacion {
+    color: red;
+    font-size: 0.8rem;
+}
 /*celulares 360*/
 
 

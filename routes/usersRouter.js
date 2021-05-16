@@ -28,9 +28,8 @@ router.get('/login', (req, res) => {
 
 router.post('/login', controller.loginProcess);
 
-router.get('/profile', (req, res) => {
-    return res.render('users/profile');
-});    
+router.get('/profile', controller.profile);    
+
 /*
 router.get('/register', (req, res) => {
     res.render('users/register');

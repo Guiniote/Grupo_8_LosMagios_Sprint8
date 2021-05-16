@@ -9,6 +9,7 @@ const puerto = process.env.PORT;
 const homeRouter = require('./routes/homeRouter');
 const productsRouter = require('./routes/productsRouter');
 const usersRouter = require('./routes/usersRouter');
+const cookieLogin = require('./middlewares/cookieLogin');
 
 
 app.use(session({
@@ -18,6 +19,7 @@ app.use(session({
 }));
 
 app.use(cookies());
+app.use(cookieLogin);
 
 app.use(methodOverride('_method'));
 app.use(express.static(path.join(__dirname, '/public')));

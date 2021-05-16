@@ -3,7 +3,8 @@
 
     <%- include('../partials/head') %>
 
-    <title>Document</title>
+    <link rel="stylesheet" href="/css/styles_profile.css">
+    <title>Wedo Studio</title>
 </head>
 <body>
 
@@ -14,8 +15,10 @@
     <br>
     <br>
     <br>
-    <h1>Hola soy el profile</h1>
+    <img src="/images/<%= user.image %> ">
+    <h1>Hola <%= user.firstName+' '+user.lastName %> </h1>
     <br>
+    <h3><%= user.email %></h3>
     <br>
     <br>
     

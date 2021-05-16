@@ -23,6 +23,11 @@
                 <label class="user" for="password">Contraseña</label>
                 <input class="write" type="password" name="password" id="password" placeholder="Escribir Password">
                 <!--boton-->
+                <% if (locals.errors && errors.email) { %>
+                    <div class="validacion">
+                        <%= errors.email.msg %>
+                    </div>
+                <% } %>
                 <input class="new" type="submit" value="Ingresar">
                 <!--texto abajo-->
                 <label><input class="check" type="checkbox" name="remember_me" id="remember_me" value="first_checkbox">Recuerdame</label>
