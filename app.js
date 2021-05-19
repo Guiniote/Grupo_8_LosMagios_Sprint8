@@ -11,7 +11,7 @@ const homeRouter = require('./routes/homeRouter');
 const productsRouter = require('./routes/productsRouter');
 const usersRouter = require('./routes/usersRouter');
 
-const cookieLogin = require('./middlewares/cookieLogin');
+const cookieLoginMiddleware = require('./middlewares/cookieLoginMiddleware');
 
 
 
@@ -26,7 +26,7 @@ app.use(session({
 }));
 
 app.use(cookies());
-app.use(cookieLogin);
+app.use(cookieLoginMiddleware);
 app.use(methodOverride('_method'));
 app.use(express.static(path.join(__dirname, '/public')));
 app.use(express.urlencoded({ extended: false }));

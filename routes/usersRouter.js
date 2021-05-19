@@ -1,34 +1,27 @@
 const express = require('express');
 const router = express.Router();
-
-// Controller
-const controller = require('../controller/usersController');
+const usersController = require('../controller/usersController');
 
 // Middlewares
 const uploadFile = require('../middlewares/multerMiddleware');
 const validations = require('../middlewares/validateRegisterMiddleware');
-const guestMiddleware = require('../middlewares/guestMiddleware');
-const authMiddleware = require('../middlewares/authMiddleware');
-
-
-
+const userGuestMiddleware = require('../middlewares/userGuestMiddleware');
+const userLoggedMiddleware = require('../middlewares/userLoggedMiddleware');
 
 
 
 // Formulario de registro
-router.get('/register', guestMiddleware, controller.register);
+router.get('/register', userGuestMiddleware, usersController.register);
 
-// Procesar el registro
-router.post('/register', uploadFile.single('avatar'), validations, controller.processRegister);
+router.post('/register', uploadFile.single('avatar'), validations, usersController.processRegister);
 
-//Reservado para login
-router.get('/login', guestMiddleware, (req, res) => {
-    res.render('users/login');
-});
+// Formulario de login
+router.get('/login', userGuestMiddleware, usersController.login);
 
-router.post('/login', controller.loginProcess);
+router.post('/login', usersController.loginProcess);
 
-router.get('/profile', authMiddleware, controller.profile);    
+// Página de perfil
+router.get('/profile', userLoggedMiddleware, usersController.profile);    
 
 
 

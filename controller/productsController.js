@@ -2,7 +2,7 @@ const jsonDB = require('../model/productsModel');
 const productsModel = jsonDB('products');
 
 
-let productsController = {
+const productsController = {
 
 // Función que muestra el formulario de crear Productos
     create: (req, res) => {

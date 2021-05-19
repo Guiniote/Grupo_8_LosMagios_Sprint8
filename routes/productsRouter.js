@@ -1,43 +1,37 @@
 const express = require('express');
 const router = express.Router();
-const controladorProducts = require('../controller/productsController');
-const authMiddleware = require('../middlewares/authMiddleware');
+const productsController = require('../controller/productsController');
 
-//Declaracion de constantes para funcionamiento de multer 
-const multer = require('multer');
-const path = require('path');
-
-//Agregando multer
-const storage = multer.diskStorage({
-    destination: path.resolve(__dirname, '../public/images'),
-    filename: (req, file, cb) => {
-        cb(null, 'img-' + Date.now() + path.extname(file.originalname));
-    }
-});
-
-const upload = multer({ storage });
+// Middlewares
+const uploadFile = require('../middlewares/multerMiddleware');
+const userLoggedMiddleware = require('../middlewares/userLoggedMiddleware');
 
 
 
-router.get('/productCart', controladorProducts.cart);
+// Carrito
+router.get('/productCart', productsController.cart);
 
-router.post('/productCart', controladorProducts.cart);
+router.post('/productCart', productsController.cart);
 
-router.get('/productList', controladorProducts.list);
+// Lista de productos
+router.get('/productList', productsController.list);
 
-router.get('/productDetail/:id', controladorProducts.show);
+// Detalle de productos
+router.get('/productDetail/:id', productsController.show);
 
-router.get('/createProducts', authMiddleware, controladorProducts.create);
+// Creación de productos
+router.get('/createProducts', userLoggedMiddleware, productsController.create);
 
-router.post('/store', upload.single('image'), controladorProducts.store);
+router.post('/store', uploadFile.single('image'), productsController.store);
 
-router.get('/editProducts/:id', authMiddleware, controladorProducts.edit);
+// Edición de productos
+router.get('/editProducts/:id', userLoggedMiddleware, productsController.edit);
 
-router.put ('/editProducts/:id', controladorProducts.update);
+router.put ('/editProducts/:id', productsController.update);
 
-router.get('/:id', controladorProducts.show)
+router.get('/:id', productsController.show)
 
-router.delete('/productDetail/:id', controladorProducts.destroy);
+router.delete('/productDetail/:id', productsController.destroy);
 
 
 
