@@ -2,21 +2,22 @@ const fs = require('fs');
 const path = require('path');
 
 
-const model = function (name) {    
+const model = function(name) {  
+
     return {
         tablePath: path.resolve(__dirname, '../data/', `${name}.json`),
       
-        readFile: function ( ){
+        readFile: function() {
             let tableContents = fs.readFileSync(this.tablePath, 'utf-8');
             return JSON.parse(tableContents) || [];
         },
 
-        writeFile : function(contents) {
+        writeFile: function(contents) {
             let tableContents = JSON.stringify(contents, null, ' ');
             fs.writeFileSync(this.tablePath, tableContents);
         },
 
-        nextId:function() {
+        nextId: function() {
             let rows = this.readFile();
             let lastRow = rows.pop();
             return lastRow.id ? ++lastRow.id : 1;
@@ -26,12 +27,12 @@ const model = function (name) {
             return this.readFile();
         },
 
-        find:function(id) {
+        find: function(id) {
             let rows = this.readFile();
             return rows.find(product => product.id == id);
         },
 
-        create:function(row) {
+        create: function(row) {
             let rows = this.readFile();
             row.id = this.nextId();
             rows.push(row);
@@ -39,7 +40,7 @@ const model = function (name) {
             return row.id;
         },
 
-        update:function(row) {
+        update: function(row) {
             let rows = this.readFile();
             let updatedRows = rows.map(oneRow => {
                 if (oneRow.id == row.id) {
