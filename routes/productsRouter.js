@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const controladorProducts = require('../controller/productsController');
+const authMiddleware = require('../middlewares/authMiddleware');
 
 //Declaracion de constantes para funcionamiento de multer 
 const multer = require('multer');
@@ -30,7 +31,7 @@ router.get('/productDetail/:id', controladorProducts.show);
 
 
 //Actulizacion de la ruta para crear productos. Ahora pasa por el controller
-router.get('/createProducts', (req, res) => {
+router.get('/createProducts', authMiddleware, (req, res) => {
     res.render('products/createProducts');
 });
 
@@ -39,9 +40,9 @@ router.get('/createProducts', (req, res) => {
 router.post('/store', upload.single('image'), controladorProducts.store);
 
 
-router.get('/editProducts/:id',controladorProducts.edit);
+router.get('/editProducts/:id', authMiddleware, controladorProducts.edit);
 // Detalle de un producto particular (GET)
-router.put ('/editProducts/:id',controladorProducts.update);
+router.put ('/editProducts/:id', controladorProducts.update);
 
 
 router.get('/:id', controladorProducts.show)

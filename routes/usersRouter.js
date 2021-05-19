@@ -22,20 +22,13 @@ router.get('/register', guestMiddleware, controller.register);
 router.post('/register', uploadFile.single('avatar'), validations, controller.processRegister);
 
 //Reservado para login
-router.get('/login', (req, res) => {
+router.get('/login', guestMiddleware, (req, res) => {
     res.render('users/login');
 });
 
 router.post('/login', controller.loginProcess);
 
-router.get('/profile', controller.profile);    
-
-/*
-router.get('/register', (req, res) => {
-    res.render('users/register');
-});
-*/
-
+router.get('/profile', authMiddleware, controller.profile);    
 
 
 

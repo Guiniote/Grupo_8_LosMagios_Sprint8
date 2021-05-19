@@ -27,9 +27,9 @@ app.use(express.urlencoded({ extended: false }));
 
 app.set ('view engine', 'ejs');
 
-app.use ('/', homeRouter);
-app.use ('/products', productsRouter);
-app.use ('/users', usersRouter);
+app.use('/', homeRouter);
+app.use('/products', productsRouter);
+app.use('/users', usersRouter);
 
 
 app.listen (puerto || 3000, () => {
