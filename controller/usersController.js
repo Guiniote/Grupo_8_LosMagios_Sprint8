@@ -12,8 +12,17 @@ const usersController = {
 	},
 
 // Función para registrar un usuario
-	processRegister: (req, res) => {		
-		const resultValidation = validationResult(req);
+	processRegister: (req, res) => {
+		let userToCreate = {
+			...req.body,
+			password: bcryptjs.hashSync(req.body.password, 10),
+			
+		}
+		let userCreated = usersModel.create(userToCreate);
+		return res.redirect('login');
+	},
+
+		/*const resultValidation = validationResult(req);
 		if (resultValidation.errors.length > 0) {
 			return res.render('users/register', {
 				errors: resultValidation.mapped(),
@@ -38,7 +47,7 @@ const usersController = {
 		}
 		let userCreated = usersModel.create(userToCreate);
 		return res.redirect('users/login');
-	},
+	},*/
 
 // Función para mostrar formulario de login
 	login: (req, res) => {
@@ -49,9 +58,9 @@ const usersController = {
 	loginProcess: (req, res) => {
 		let userToLogin = usersModel.findByField('email', req.body.email);
 		//quitar una vez que esté el registro terminado 
-		if(userToLogin) {
-			userToLogin.password = bcryptjs.hashSync(userToLogin.password, 10);
-		}
+		// if(userToLogin) {
+		// 	userToLogin.password = bcryptjs.hashSync(userToLogin.password, 10);
+		// }
 		//hasta acá
 		if(userToLogin) {
 			let isOkThePassword = bcryptjs.compareSync(req.body.password, userToLogin.password);
