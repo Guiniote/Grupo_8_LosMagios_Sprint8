@@ -2,10 +2,10 @@ const path = require('path');
 const { body } = require('express-validator');
 
 const validations = [
-	body('firstName').notEmpty().withMessage('Tienes que escribir un nombre'),
-    body('lastName').notEmpty().withMessage('Tienes que escribir un apellido'),
-	body('email').notEmpty().withMessage('Tienes que escribir un correo electrónico').bail().isEmail().withMessage('Debes escribir un formato de correo válido'),
-	body('password').notEmpty().withMessage('Tienes que escribir una contraseña')
+	body('firstName').notEmpty().withMessage('Recordá ingresar un nombre'),
+    body('lastName').notEmpty().withMessage('Recordá ingresar un un apellido'),
+	body('email').notEmpty().withMessage('Recordá ingresar un email').bail().isEmail().withMessage('El email tiene que tener un formato válido'),
+	body('password').notEmpty().withMessage('Recordá ingresar una contraseña')
     //Reservado para subir imagen de perfil
 	//body('country').notEmpty().withMessage('Tienes que elegir un país'),
 	/*body('avatar').custom((value, { req }) => {
