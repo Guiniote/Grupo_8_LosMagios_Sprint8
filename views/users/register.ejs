@@ -20,17 +20,43 @@
 
                 <!--nombre-->
                 <label class="form_texto" for="firstName">Nombre</label>
-                <input class="write_register" type="text" name="firstName" id="nombre">
+                <input type="text" name="firstName" id="nombre" class="write_register <%= locals.errors && errors.firstName ? 'is-invalid' : null %>"
+                value="<%= locals.oldData ? oldData.firstName : null %>"
+            >
+            <% if (locals.errors && errors.firstName) { %>
+                <div class="text-danger">
+                    <%= errors.firstName.msg %> 
+                </div>
+            <% } %> >
                 <!--Apellido-->
                 <label class="form_texto" for="lastName">Apellido</label>
-                <input class="write_register" type="text" name="lastName" id="Apellido">
+                <input type="text" name="lastName" id="Apellido" class="write_register <%= locals.errors && errors.lastName ? 'is-invalid' : null %>"
+                value="<%= locals.oldData ? oldData.lastName : null %>"
+            >
+            <% if (locals.errors && errors.lastName) { %>
+                <div class="text-danger">
+                    <%= errors.lastName.msg %> 
+                </div>
+            <% } %> > >
                 <!--mail-->
                 <label class="form_texto" for="email">E-Mail</label>
-                <input class="write_register" type="email" name="email" id="email">
+                <input type="email" name="email" id="email" class="write_register <%= locals.errors && errors.email ? 'is-invalid' : null %>"
+                value="<%= locals.oldData ? oldData.email : null %>"
+            >
+            <% if (locals.errors && errors.email) { %>
+                <div class="text-danger">
+                    <%= errors.email.msg %>
+                </div>
+            <% } %>>
                 <!--contraseña-->
                 <label class="form_texto" for="Password">Contraseña</label>
-                <input class="write_register" type="password" name="password" id="password"
-                    placeholder="Al menos 6 caracteres" minlength="6" required>
+                <input type="password" name="password" id="password" class="write_register <%= locals.errors && errors.password ? 'is-invalid' : null %>"
+                    >
+                    <% if (locals.errors && errors.password) { %>
+                        <div class="text-danger">
+                            <%= errors.password.msg %>
+                        </div>
+                    <% } %> >
                 <!--contraseña-->
                 <!-- <label class="form_texto" for="repPassword">Repetir Contraseña</label>
                 <input class="write_register" type="password" name="contraseña" id="contraseña"

@@ -12,42 +12,51 @@ const usersController = {
 	},
 
 // Función para registrar un usuario
-	processRegister: (req, res) => {
-		let userToCreate = {
-			...req.body,
-			password: bcryptjs.hashSync(req.body.password, 10),
-			
-		}
-		let userCreated = usersModel.create(userToCreate);
-		return res.redirect('login');
-	},
+processRegister: (req, res) => {
+	const resultValidation = validationResult(req);
 
-		/*const resultValidation = validationResult(req);
-		if (resultValidation.errors.length > 0) {
-			return res.render('users/register', {
-				errors: resultValidation.mapped(),
-				oldData: req.body
-			});
-		}
-		let userInDB = usersModel.findByField('email', req.body.email);
-		if (userInDB) {
-			return res.render('users/register', {
-				errors: {
-					email: {
-						msg: 'Este email ya está registrado'
-					}
-				},
-				oldData: req.body
-			});
-		}
-		let userToCreate = {
-			...req.body,
-			password: bcryptjs.hashSync(req.body.password, 10),
-			avatar: req.file.filename
-		}
-		let userCreated = usersModel.create(userToCreate);
-		return res.redirect('users/login');
-	},*/
+	if (resultValidation.errors.length > 0) {
+		return res.render('users/register', {
+			errors: resultValidation.mapped(),
+			oldData: req.body
+		});
+	}
+
+	let userInDB = usersModel.findByField('email', req.body.email);
+
+	if (userInDB) {
+		return res.render('users/register', {
+			errors: {
+				email: {
+					msg: 'Este email ya está registrado'
+				}
+			},
+			oldData: req.body
+		});
+	}
+
+	let userToCreate = {
+		...req.body,
+		password: bcryptjs.hashSync(req.body.password, 10),
+	}
+
+	let userCreated = usersModel.create(userToCreate);
+
+	return res.redirect('login');
+},
+
+
+
+/* Codigo viejo funcionando
+	let userToCreate = {
+		...req.body,
+		password: bcryptjs.hashSync(req.body.password, 10),
+		
+	}
+	let userCreated = usersModel.create(userToCreate);
+	return res.redirect('login');
+}, */
+
 
 // Función para mostrar formulario de login
 	login: (req, res) => {

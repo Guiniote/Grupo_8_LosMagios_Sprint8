@@ -276,5 +276,68 @@
   "lastName": "Marin",
   "email": "genio@hotmail.com",
   "password": "$2a$10$P/PrtPCJ06j1n8XU/OaWVeG2aoiFmVbg8OIO0r9Gc8B1xE7rqNgiq"
+ },
+ {
+  "id": 30,
+  "firstName": "asd",
+  "lastName": "asd",
+  "email": "asd@asd.com",
+  "password": "$2a$10$HFn56oMZjDaTs9TgxegBB.Ozng88fDSSnsOloyASPcjt35lf.AoNS"
+ },
+ {
+  "id": 31,
+  "firstName": "",
+  "lastName": "asdasd",
+  "email": "gabrielmc@live.com.ar",
+  "password": "$2a$10$Kv8JUnev5V5QtVX805EmWepmCwmA.iBF0hNpX18qRGxVmEKvVBMlS"
+ },
+ {
+  "id": 32,
+  "firstName": "",
+  "lastName": "asd",
+  "email": "asdasd@asasddasd.com",
+  "password": "$2a$10$G.aDxc4yclODF/bxQgbF4.oNRHj2OkuKNKXADxDf/KFmpqG97NA/G"
+ },
+ {
+  "id": 33,
+  "firstName": "",
+  "lastName": "asdasd",
+  "email": "asdasd@asdasd.com",
+  "password": "$2a$10$o8.NObfFj1Edli3lySJPSOvsSWhIAOSGVS0dl9zbMix.fWcLrk/1y"
+ },
+ {
+  "id": 34,
+  "firstName": "",
+  "lastName": "Martinez Corti",
+  "email": "asasdasdasd@asdasd.com",
+  "password": "$2a$10$2UmrS8fcVTDbV0qjpdnZi.RDq3WnzwILbmO0r.7FDysIDdZkWgXJq"
+ },
+ {
+  "id": 35,
+  "firstName": "Lala Pow",
+  "lastName": "asdasd",
+  "email": "asdasd@asadsasddasd.com",
+  "password": "$2a$10$xG1ON67Y.CtKK3LVqiGVNeF749d52S0NtndkMjTpF5C7djLkwXIPu"
+ },
+ {
+  "id": 36,
+  "firstName": "asdsdadsa",
+  "lastName": "asdasd",
+  "email": "dsaasdasd@asd.com",
+  "password": "$2a$10$QkjbwuB5UurLQbI.kDO0bOoSgEXypP3IIut9bKKdwJLw6gPdX/QOu"
+ },
+ {
+  "id": 37,
+  "firstName": "dsadsadasdasd",
+  "lastName": "asdasdadasdasd",
+  "email": "asdasdasdads@a.com",
+  "password": "$2a$10$P408liy.Yzhu4QrF5AeLyuJAkPxWa14IvkHwdVn0oPeqXJlPFtiTi"
+ },
+ {
+  "id": 38,
+  "firstName": "asdasdasdasdasd",
+  "lastName": "asdasdasdasdasd",
+  "email": "asdasdasd@asd.com",
+  "password": "$2a$10$Oxpx9D2S1xnrBNRHG3X1GuUIwdQOHlAO3NTmAqO0nbKq3Kozqx872"
  }
 ]
