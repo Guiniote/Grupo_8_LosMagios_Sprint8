@@ -6,7 +6,7 @@ const productsController = {
 
 // Función que muestra el formulario de crear Productos
     create: (req, res) => {
-        res.render('createProducts');
+        res.render('products/createProducts');
     },
 
 // Función que simula el almacenamiento, en este caso en array
