@@ -45,19 +45,6 @@ processRegister: (req, res) => {
 	return res.redirect('login');
 },
 
-
-
-/* Codigo viejo funcionando
-	let userToCreate = {
-		...req.body,
-		password: bcryptjs.hashSync(req.body.password, 10),
-		
-	}
-	let userCreated = usersModel.create(userToCreate);
-	return res.redirect('login');
-}, */
-
-
 // Función para mostrar formulario de login
 	login: (req, res) => {
 		res.render('users/login');
@@ -66,11 +53,6 @@ processRegister: (req, res) => {
 // Función para loguear un usuario
 	loginProcess: (req, res) => {
 		let userToLogin = usersModel.findByField('email', req.body.email);
-		//quitar una vez que esté el registro terminado 
-		// if(userToLogin) {
-		// 	userToLogin.password = bcryptjs.hashSync(userToLogin.password, 10);
-		// }
-		//hasta acá
 		if(userToLogin) {
 			let isOkThePassword = bcryptjs.compareSync(req.body.password, userToLogin.password);
 			if (isOkThePassword) {

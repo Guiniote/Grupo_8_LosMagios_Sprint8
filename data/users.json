@@ -353,5 +353,12 @@
   "lastName": "Ghio",
   "email": "gg@gg.com",
   "password": "$2a$10$u4WOKQlKaoYHOkfOkqL34OjeskvOC7X.rg9gfLR6jJZk2KnzrnTXa"
+ },
+ {
+  "id": 41,
+  "firstName": "asdasd",
+  "lastName": "asdasd",
+  "email": "asd@asdsaad.com",
+  "password": "$2a$10$YVOdWna4/lg.YfSxh2YDN.cq073oKRT85tDXSY.FkUwQXe55P7H0i"
  }
 ]
