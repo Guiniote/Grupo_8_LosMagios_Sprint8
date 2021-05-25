@@ -37,9 +37,23 @@
         <div class="barra2">
           <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
             <ul class="navbar-nav me-auto mb-lg-0">
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="/users/login">Ingresar</a>
-              </li>
+              <ul class="navbar-nav align-items-center">
+                <% if (locals.isLogged) { %>
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="dropUser" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      <!-- Reservado para imagen de avatar<img src="/images/avatars/<%= locals.userLogged.avatar %>" width="40" style="border-radius: 100%;"> -->
+                      Bienvenido <%= locals.userLogged.firstName %> 
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                      <a class="dropdown-item" href="/users/profile">Perfil</a>
+                      <li><hr class="dropdown-divider"></li>
+                      <a class="dropdown-item" href="/users/logout">Logout</a>
+                    </ul>
+                  </li>
+                <% } else { %>
+                  <li class="nav-item"><a class="nav-link" href="/users/login">Login</a></li>
+                <% } %>
+              </ul>
             </ul>
           </div>
         </div>

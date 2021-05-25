@@ -339,5 +339,12 @@
   "lastName": "asdasdasdasdasd",
   "email": "asdasdasd@asd.com",
   "password": "$2a$10$Oxpx9D2S1xnrBNRHG3X1GuUIwdQOHlAO3NTmAqO0nbKq3Kozqx872"
+ },
+ {
+  "id": 39,
+  "firstName": "asdasd",
+  "lastName": "asdasd",
+  "email": "asdasdasd@asdsad.com",
+  "password": "$2a$10$PdBo9YAUZxAx3BEm7HKFD.62iZvx3SV9S.FiMqh/GoUIQmF5TezSW"
  }
 ]
