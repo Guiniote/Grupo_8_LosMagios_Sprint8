@@ -27,7 +27,7 @@ router.post('/store', uploadProduct.single('image'), productsController.store);
 // Edición de productos
 router.get('/editProducts/:id', userLoggedMiddleware, productsController.edit);
 
-router.put ('/editProducts/:id', productsController.update);
+router.put ('/editProducts/:id', uploadProduct.single('image'), productsController.update);
 
 router.get('/:id', productsController.show)
 
