@@ -367,5 +367,19 @@
   "lastName": "Pujol",
   "email": "andrespujol@gmail.com",
   "password": "$2a$10$QOL3jGAc5XCfGaxZ9pBEwOgVIIQgaLLxh/aQ4EM1Ej5JnQF4.2D2i"
+ },
+ {
+  "id": 43,
+  "firstName": "Héctor",
+  "lastName": "Pujol",
+  "email": "ale.rdo@live.com.ar",
+  "password": "$2a$10$2DWTrxjfpN6O6MkJ6jdWpOJsbVy980vqotWeb5MK8N.cJlLeoApg."
+ },
+ {
+  "id": 44,
+  "firstName": "Andrés ",
+  "lastName": "Pujol",
+  "email": "sofimancilla93@gmail.com",
+  "password": "$2a$10$RGLdzakDNT0zP89Wa3q7r.2KxVUFbDoqYANWLUy4UILm5CIiYGHEO"
  }
 ]

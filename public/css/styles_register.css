@@ -96,10 +96,13 @@ display: flex;
     font-size: 16px;
 }
 .write_register{
-    width: 80%;
+    width: 90%;
     border: 2px solid #2289da;
+    border-radius: 10px;
+    height: 2em;
+    padding-left: 10px;
 }
-   
+
 
 /*celulares 320*/
 
@@ -116,18 +119,13 @@ display: flex;
     .box-register{
         margin-top: 20%;
         margin-bottom: 8%;
-       
     }
-
-
-
-
 }
 /*desktop chicas*/
 @media only screen and (min-device-width : 769px){
  
     .write_register{
-        width: 70vw;
+        width: 90%;
         height: 4vh;
 
     }
@@ -145,12 +143,9 @@ display: flex;
 /*medianas*/
 @media only screen and (min-device-width : 1124px){
 
-    .write_register{
-        width:60vw;
-        height: 4vh;
-    }
+
     .regiter_h4 {
-      width: 13vw;
+        width: 13vw;
     }
     .box-register{
         margin-top: 8%;
@@ -163,9 +158,10 @@ display: flex;
         font-size: 36px;
         font-weight: bold;
         font-weight: 800;
-
     }
-
+    .write_register{
+        height: 2.2em;
+    }
 
 
 }

@@ -3,7 +3,7 @@ const router = express.Router();
 const productsController = require('../controller/productsController');
 
 // Middlewares
-const uploadFile = require('../middlewares/multerMiddleware');
+const {uploadProduct} = require('../middlewares/multerMiddleware');
 const userLoggedMiddleware = require('../middlewares/userLoggedMiddleware');
 
 
@@ -22,7 +22,7 @@ router.get('/productDetail/:id', productsController.show);
 // Creación de productos
 router.get('/createProducts', userLoggedMiddleware, productsController.create);
 
-router.post('/store', uploadFile.single('image'), productsController.store);
+router.post('/store', uploadProduct.single('image'), productsController.store);
 
 // Edición de productos
 router.get('/editProducts/:id', userLoggedMiddleware, productsController.edit);
