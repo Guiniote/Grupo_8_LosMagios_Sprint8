@@ -360,5 +360,12 @@
   "lastName": "asdasd",
   "email": "asd@asdsaad.com",
   "password": "$2a$10$YVOdWna4/lg.YfSxh2YDN.cq073oKRT85tDXSY.FkUwQXe55P7H0i"
+ },
+ {
+  "id": 42,
+  "firstName": "Andrés ",
+  "lastName": "Pujol",
+  "email": "andrespujol@gmail.com",
+  "password": "$2a$10$QOL3jGAc5XCfGaxZ9pBEwOgVIIQgaLLxh/aQ4EM1Ej5JnQF4.2D2i"
  }
 ]
