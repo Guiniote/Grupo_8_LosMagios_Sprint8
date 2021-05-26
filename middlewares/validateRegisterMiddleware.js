@@ -5,15 +5,13 @@ const validations = [
 	body('firstName').notEmpty().withMessage('Recordá ingresar un nombre'),
     body('lastName').notEmpty().withMessage('Recordá ingresar un un apellido'),
 	body('email').notEmpty().withMessage('Recordá ingresar un email').bail().isEmail().withMessage('El email tiene que tener un formato válido'),
-	body('password').notEmpty().withMessage('Recordá ingresar una contraseña')
-    //Reservado para subir imagen de perfil
-	//body('country').notEmpty().withMessage('Tienes que elegir un país'),
-	/*body('avatar').custom((value, { req }) => {
+	body('password').notEmpty().withMessage('Recordá ingresar una contraseña'),
+	body('avatar').custom((value, { req }) => {
 		let file = req.file;
 		let acceptedExtensions = ['.jpg', '.png', '.gif'];
 
 		if (!file) {
-			throw new Error('Tienes que subir una imagen');
+			throw new Error('El campo de imagen es obligatorio');
 		} else {
 			let fileExtension = path.extname(file.originalname);
 			if (!acceptedExtensions.includes(fileExtension)) {
@@ -22,7 +20,7 @@ const validations = [
 		}
 
 		return true;
-	})*/
+	})
 ]
 
 module.exports = validations

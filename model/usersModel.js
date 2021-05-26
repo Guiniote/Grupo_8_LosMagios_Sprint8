@@ -1,12 +1,11 @@
+// 4. Editar la información de un usuario
+
 const fs = require('fs');
 
-
-
-const user = {
-
+const User = {
 	fileName: './data/users.json',
-    
-    getData: function () {
+
+	getData: function () {
 		return JSON.parse(fs.readFileSync(this.fileName, 'utf-8'));
 	},
 
@@ -54,6 +53,4 @@ const user = {
 	}
 }
 
-
-
-module.exports = user;
+module.exports = User;

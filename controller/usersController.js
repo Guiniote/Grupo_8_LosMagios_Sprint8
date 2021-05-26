@@ -1,6 +1,6 @@
 const bcryptjs = require('bcryptjs');
 const { validationResult } = require('express-validator');
-const usersModel = require('../model/usersModel');
+const User = require('../model/usersModel');
 
 
 
@@ -22,7 +22,7 @@ processRegister: (req, res) => {
 		});
 	}
 
-	let userInDB = usersModel.findByField('email', req.body.email);
+	let userInDB = User.findByField('email', req.body.email);
 
 	if (userInDB) {
 		return res.render('users/register', {
@@ -38,9 +38,10 @@ processRegister: (req, res) => {
 	let userToCreate = {
 		...req.body,
 		password: bcryptjs.hashSync(req.body.password, 10),
+		avatar: req.file.filename
 	}
 
-	let userCreated = usersModel.create(userToCreate);
+	let userCreated = User.create(userToCreate);
 
 	return res.redirect('login');
 },
@@ -52,7 +53,7 @@ processRegister: (req, res) => {
 
 // Función para loguear un usuario
 	loginProcess: (req, res) => {
-		let userToLogin = usersModel.findByField('email', req.body.email);
+		let userToLogin = User.findByField('email', req.body.email);
 		if(userToLogin) {
 			let isOkThePassword = bcryptjs.compareSync(req.body.password, userToLogin.password);
 			if (isOkThePassword) {

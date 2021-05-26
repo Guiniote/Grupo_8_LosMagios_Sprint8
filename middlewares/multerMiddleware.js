@@ -15,8 +15,9 @@ const storageProduct = multer.diskStorage({
 const uploadProduct = multer({ storage: storageProduct });
 
 const storageAvatar = multer.diskStorage({
-	destination: path.resolve(__dirname, '../public/images/avatars'), //Acá había solo un punto, pero en router teníamos dos. Así que lo puse igual.
-	
+	destination: (req, file, cb) => {
+		cb(null, './public/images/avatars');
+	},
 	filename: (req, file, cb) => {
 		let fileName = `${Date.now()}_img${path.extname(file.originalname)}`;
 		cb(null, fileName);

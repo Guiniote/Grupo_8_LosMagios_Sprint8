@@ -56,13 +56,14 @@
                             <%= errors.password.msg %>
                         </div>
                     <% } %> 
-                <!--contraseña-->
-                <!-- <label class="form_texto" for="repPassword">Repetir Contraseña</label>
-                <input class="write_register" type="password" name="contraseña" id="contraseña"
-                    placeholder="Al menos 6 caracteres" minlength="6" required>
-                    -->
-                <label class="form_texto">Imagen</label>
-                <input type="file" name="avatar" accept=".jpg, .png" class="write_register">    
+                <!--imagen-->
+                <label class="form_texto" for="avatar">Imagen</label>
+                <input type="file" name="avatar" id="avatar" class="write_register <%= locals.errors && errors.avatar ? 'is-invalid' : null %>">
+                <% if (locals.errors && errors.avatar) { %>
+                    <div class="text-danger">
+                        <%= errors.avatar.msg %>
+                    </div>
+                <% } %>    
                 <!--texto abajo-->
                 <button type="submit" class="btn btn-primary">Registrarse</button>
                 <!--<input class="regiter_h4" type="submit" value="Crea tu cuenta">
