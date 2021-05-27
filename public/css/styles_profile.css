@@ -3,7 +3,11 @@ body {
 }
 
 .padding {
-    padding: 3rem !important
+    padding: 3rem !important;
+}
+
+h3 {
+    text-align: center;
 }
 
 .user-card-full {
@@ -63,7 +67,7 @@ h6 {
     line-height: 25px
 }
 
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 1400px) {
     p {
         font-size: 14px
     }
