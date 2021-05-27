@@ -1,2 +1,18 @@
 [
+ {
+  "id": 1,
+  "firstName": "asdasd",
+  "lastName": "asdasd",
+  "email": "asd@asd.com",
+  "password": "$2a$10$KTHejJDG7Ut1tgz9rFOZ4Ok13flnheBNTyKs.5xPt/VQEiEDKHxP2",
+  "avatar": "1622148467001_img.png"
+ },
+ {
+  "id": 2,
+  "firstName": "Lala Pow",
+  "lastName": "Martinez Corti",
+  "email": "asdasd@asdasd.com",
+  "password": "$2a$10$U9uIa24.jcVvCM7vZC8dLuLeZKpItUhhM4cZcaLpSw7QJbvjIGJLe",
+  "avatar": "1622148706876_img.png"
+ }
 ]

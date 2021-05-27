@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <%- include('../partials/head') %>
+
+    <link rel="stylesheet" href="/css/styles_profile.css">
+    <title>Wedo Studio</title>
+</head>
+<body>
+
+    <%- include('../partials/header') %>
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+  
+    <h1>Hola <%= user.firstName+' '+user.lastName %> </h1>
+    <br>
+    <h3><%= user.email %></h3>
+    <br>
+    <br>
+    
+
+    <%- include('../partials/footer') %>
+    
+</body>
+</html>
