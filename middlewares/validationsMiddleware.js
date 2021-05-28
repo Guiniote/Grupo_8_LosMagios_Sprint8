@@ -21,7 +21,17 @@ const validateRegister = [
 
 		return true;
 	})
+];
+
+const validateEditProduct = [
+	body('name').notEmpty().withMessage('Recordá ingresar un nombre'),
+    body('description').notEmpty().withMessage('Recordá ingresar un un apellido'),
+	body('category').notEmpty().withMessage('Recordá ingresar un email').bail().isEmail().withMessage('El email tiene que tener un formato válido'),
+	body('colors').notEmpty().withMessage('Recordá ingresar una contraseña'),
+	body('price').notEmpty().withMessage('Recordá ingresar una contraseña')
 ]
 
-module.exports = validateRegister
+
+
+module.exports = {validateRegister, validateEditProduct}
 	

@@ -1,2 +1,10 @@
 [
+ {
+  "id": 1,
+  "firstName": "Valida?",
+  "lastName": "Valida!",
+  "email": "valida@valida.com",
+  "password": "$2a$10$JgnuAtghM/B4u96xVQKbF.9DJbIrPiq//DKxjQKUDv.WdywV0jr7W",
+  "avatar": "1622228634039_img.png"
+ }
 ]

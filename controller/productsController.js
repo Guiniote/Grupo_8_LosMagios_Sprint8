@@ -53,9 +53,9 @@ const productsController = {
     update: (req, res) => {
         let  product = req.body;
         product.id = req.params.id;
-        product.image = req.file ? req.file.filename : req.body.oldImagen;
+        product.image = req.file ? req.file.filename : req.body.old_image;
         if (req.body.image===undefined) {
-            product.image = product.oldImage
+            product.image = req.body.old_image
         }
         delete product.oldImage;
         productsModel.update(product);

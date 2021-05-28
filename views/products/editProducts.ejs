@@ -16,12 +16,14 @@
             <input class="write_upload" type="text" name="name" id="name" value="<%= product.name %>">
             <label class="form_texto" for="description">Descripción:</label>
             <input class="write_upload" type="text" name="description" id="description" value="<%= product.description %>">
-            <label class="form_texto" for="image">Imagen:</label>
+            <label class="form_texto" for="old_image">Imagen Actual:</label>
+            <input class="write_upload" type="old_image" name="old_image" value="<%= product.image %>">
+            <label class="form_texto" for="image">Nueva imagen:</label>
             <input class="write_upload" type="file" name="image" value="<%= product.image %>">
             <label class="form_texto" for="category">Categoría:</label>
             <input class="write_upload" type="text" name="category" id="category" value="<%= product.category %>">
-            <label class="form_texto" for="Colors">Colores:</label>
-            <input class="write_upload" type="color" name="Colors" id="colors" list="listacoloresperfil" value="<%= product.colors %>">
+            <label class="form_texto" for="colors">Colores:</label>
+            <input class="write_upload" type="color" name="colors" id="colors" list="listacoloresperfil" value="<%= product.colors %>">
             <label class="form_texto" for="price">Precio:</label>
             <input class="write_upload" type="text" name="price" id="price" value="<%= product.price %>">
             <div class="botones_input">

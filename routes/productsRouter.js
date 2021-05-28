@@ -4,6 +4,7 @@ const productsController = require('../controller/productsController');
 
 // Middlewares
 const {uploadProduct} = require('../middlewares/multerMiddleware');
+const {validateEditProduct} = require('../middlewares/validationsMiddleware');
 const userLoggedMiddleware = require('../middlewares/userLoggedMiddleware');
 
 
@@ -27,7 +28,7 @@ router.post('/store', uploadProduct.single('image'), productsController.store);
 // Edición de productos
 router.get('/editProducts/:id',  productsController.edit);
 
-router.put ('/editProducts/:id', uploadProduct.single('image'), productsController.update);
+router.put ('/editProducts/:id', uploadProduct.single('image'), validateEditProduct, productsController.update);
 
 router.get('/:id', productsController.show)
 

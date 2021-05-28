@@ -4,7 +4,7 @@ const usersController = require('../controller/usersController');
 
 // Middlewares
 const {uploadAvatar} = require('../middlewares/multerMiddleware');
-const validateRegister = require('../middlewares/validateRegisterMiddleware');
+const {validateRegister} = require('../middlewares/validationsMiddleware');
 const userGuestMiddleware = require('../middlewares/userGuestMiddleware');
 const userLoggedMiddleware = require('../middlewares/userLoggedMiddleware');
 
