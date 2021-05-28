@@ -9,7 +9,7 @@
 
     <main>
         <% if (locals.isLogged) { %>
-        <form action="/products/editProducts/<%= product.id %>?_method=PUT" method="POST">
+        <form action="/products/editProducts/<%= product.id %>?_method=PUT" method="POST" enctype="multipart/form-data">
             <div class="edit">
             <h3 class="form_h3">Editar articulo</h3>
             <label class="form_texto" for="name">Nombre:</label>
@@ -21,7 +21,7 @@
             <label class="form_texto" for="category">Categoría:</label>
             <input class="write_upload" type="text" name="category" id="category" value="<%= product.category %>">
             <label class="form_texto" for="Colors">Colores:</label>
-            <input class="write_upload" type="color" name="Colors" id="Colors" list="listacoloresperfil" value="<%= product.Colors %>">
+            <input class="write_upload" type="color" name="Colors" id="colors" list="listacoloresperfil" value="<%= product.colors %>">
             <label class="form_texto" for="price">Precio:</label>
             <input class="write_upload" type="text" name="price" id="price" value="<%= product.price %>">
             <div class="botones_input">

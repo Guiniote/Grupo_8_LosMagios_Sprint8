@@ -1,13 +1,12 @@
 [
  {
-  "id": 3,
   "name": "SL-Class",
-  "brand": "Mercedes-Benz",
   "description": "Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vivamus vestibulum sagittis sapien. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.",
-  "tech specs": "Curabitur gravida nisi at nibh. In hac habitasse platea dictumst. Aliquam augue quam, sollicitudin vitae, consectetuer eget, rutrum at, lorem.",
-  "image": "nikon_3.png",
-  "color": "#c49a57",
-  "price": 38427.36
+  "category": "",
+  "Colors": "#000000",
+  "price": "38427.36",
+  "id": "3",
+  "image": "1622227491198_img.png"
  },
  {
   "id": 4,
