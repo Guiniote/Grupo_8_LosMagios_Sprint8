@@ -9,11 +9,17 @@
 
     <main>
         <% if (locals.isLogged) { %>
-        <form action="/products/editProducts/<%= product.id %>?_method=PUT" method="POST" enctype="multipart/form-data">
+        <form action="/products/editProducts/<%= product.id %>" method="POST" enctype="multipart/form-data">
             <div class="edit">
             <h3 class="form_h3">Editar articulo</h3>
             <label class="form_texto" for="name">Nombre:</label>
-            <input class="write_upload" type="text" name="name" id="name" value="<%= product.name %>">
+            <input type="text" name="name" id="name" value="<%= product.name %>" class="write_upload<%= locals.errors && errors.name ? 'is-invalid' : null %>"
+            value="<%= locals.oldData ? oldData.name : null %>">
+            <% if (locals.errors && errors.name) { %>
+            <div class="text-danger">
+                <%= errors.name.msg %> 
+            </div>
+            <% } %>
             <label class="form_texto" for="description">Descripción:</label>
             <input class="write_upload" type="text" name="description" id="description" value="<%= product.description %>">
             <label class="form_texto" for="old_image">Imagen Actual:</label>

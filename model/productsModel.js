@@ -1,8 +1,5 @@
 const fs = require('fs');
 const path = require('path');
-
-
-
 const model = function(name) {  
 
     return {

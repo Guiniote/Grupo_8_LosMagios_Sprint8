@@ -4,7 +4,7 @@ const multer = require('multer');
 
 
 const storageProduct = multer.diskStorage({
-	destination: path.resolve(__dirname, '../public/images'), //Acá había solo un punto, pero en router teníamos dos. Así que lo puse igual.
+	destination: path.resolve(__dirname, '../public/images'), 
 	
 	filename: (req, file, cb) => {
 		let fileName = `${Date.now()}_img${path.extname(file.originalname)}`;

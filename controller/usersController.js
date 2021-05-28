@@ -1,9 +1,6 @@
 const bcryptjs = require('bcryptjs');
 const { validationResult } = require('express-validator');
 const User = require('../model/usersModel');
-
-
-
 const usersController = {
 
 // Función para mostrar el formulario de registro

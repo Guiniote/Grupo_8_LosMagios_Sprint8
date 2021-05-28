@@ -24,11 +24,21 @@ const validateRegister = [
 ];
 
 const validateEditProduct = [
-	body('name').notEmpty().withMessage('Recordá ingresar un nombre'),
-    body('description').notEmpty().withMessage('Recordá ingresar un un apellido'),
-	body('category').notEmpty().withMessage('Recordá ingresar un email').bail().isEmail().withMessage('El email tiene que tener un formato válido'),
-	body('colors').notEmpty().withMessage('Recordá ingresar una contraseña'),
-	body('price').notEmpty().withMessage('Recordá ingresar una contraseña')
+	body('name').notEmpty().withMessage('El nombre del prducto no puede estar vacio'),
+    body('description').notEmpty().withMessage('La descripccion del prducto no puede estar vacia'),
+	body('image').custom((value, { req }) => {
+		let file = req.file;
+		let acceptedExtensions = ['.jpg', '.png', '.gif'];
+		let fileExtension = path.extname(file.originalname);
+			if (!acceptedExtensions.includes(fileExtension)) {
+				throw new Error(`Las extensiones de archivo permitidas son ${acceptedExtensions.join(', ')}`);
+		}
+
+		return true;
+	}),
+	body('category').notEmpty().withMessage('Debes indicar una categoria'),
+	body('colors').notEmpty().withMessage('No asignaste un color'),
+	body('price').notEmpty().withMessage('Debes indicar el precio del producto')
 ]
 
 

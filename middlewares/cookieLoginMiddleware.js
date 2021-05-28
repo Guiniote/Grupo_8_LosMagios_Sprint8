@@ -1,7 +1,4 @@
 const usersModel = require('../model/usersModel');
-
-
-
 function cookieLoginMiddleware(req, res, next) {
 	res.locals.isLogged = false;
 	let emailInCookie = req.cookies.userEmail;
@@ -15,7 +12,5 @@ function cookieLoginMiddleware(req, res, next) {
 	}    
 	next();
 }
-
-
 
 module.exports = cookieLoginMiddleware;
