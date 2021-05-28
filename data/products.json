@@ -1,197 +1,32 @@
 [
- {
-  "name": "SL-Class",
-  "description": "Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vivamus vestibulum sagittis sapien. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.",
-  "category": "",
-  "Colors": "#000000",
-  "price": "38427.36",
-  "id": "3",
-  "image": "1622227491198_img.png"
- },
- {
-  "id": 4,
-  "name": "CX-7",
-  "brand": "Mazda",
-  "description": "In hac habitasse platea dictumst. Morbi vestibulum, velit id pretium iaculis, diam erat fermentum justo, nec condimentum neque sapien placerat ante. Nulla justo.",
-  "tech specs": "Aenean lectus. Pellentesque eget nunc. Donec quis orci eget orci vehicula condimentum.",
-  "image": "nikon_4.png",
-  "color": "#7f99a1",
-  "price": 41570.24
- },
- {
-  "id": 5,
-  "name": "New Beetle",
-  "brand": "Volkswagen",
-  "description": "Maecenas tristique, est et tempus semper, est quam pharetra magna, ac consequat metus sapien ut nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Mauris viverra diam vitae quam. Suspendisse potenti.\n\nNullam porttitor lacus at turpis. Donec posuere metus vitae ipsum. Aliquam non mauris.",
-  "tech specs": "Quisque id justo sit amet sapien dignissim vestibulum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nulla dapibus dolor vel est. Donec odio justo, sollicitudin ut, suscipit a, feugiat et, eros.",
-  "image": "nikon_5.png",
-  "color": "#359e5a",
-  "price": 6510.52
- },
- {
-  "id": 6,
-  "name": "Suburban 1500",
-  "brand": "Chevrolet",
-  "description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Proin risus. Praesent lectus.",
-  "tech specs": "Aenean fermentum. Donec ut mauris eget massa tempor convallis. Nulla neque libero, convallis eget, eleifend luctus, ultricies eu, nibh.",
-  "image": "product_6.jpg",
-  "color": "#434a75",
-  "price": 14608.21
- },
- {
-  "id": 7,
-  "name": "Impreza",
-  "brand": "Subaru",
-  "description": "Aenean lectus. Pellentesque eget nunc. Donec quis orci eget orci vehicula condimentum.",
-  "tech specs": "Nullam porttitor lacus at turpis. Donec posuere metus vitae ipsum. Aliquam non mauris.",
-  "image": "product_7.jpg",
-  "color": "#31985a",
-  "price": 24703.22
- },
- {
-  "id": 8,
-  "name": "Silverado 2500",
-  "brand": "Chevrolet",
-  "description": "Praesent id massa id nisl venenatis lacinia. Aenean sit amet justo. Morbi ut odio.",
-  "tech specs": "Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vivamus vestibulum sagittis sapien. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.",
-  "image": "product_8.jpg",
-  "color": "#01ae91",
-  "price": 35755.21
- },
- {
-  "id": 9,
-  "name": "Riviera",
-  "brand": "Buick",
-  "description": "Integer ac leo. Pellentesque ultrices mattis odio. Donec vitae nisi.",
-  "tech specs": "Integer ac leo. Pellentesque ultrices mattis odio. Donec vitae nisi.",
-  "image": "product_9.jpg",
-  "color": "#6e4d46",
-  "price": 35435.96
- },
- {
-  "id": 10,
-  "name": "Altima",
-  "brand": "Nissan",
-  "description": "Sed ante. Vivamus tortor. Duis mattis egestas metus.\n\nAenean fermentum. Donec ut mauris eget massa tempor convallis. Nulla neque libero, convallis eget, eleifend luctus, ultricies eu, nibh.",
-  "tech specs": "Phasellus sit amet erat. Nulla tempus. Vivamus in felis eu sapien cursus vestibulum.",
-  "image": "product_10.jpg",
-  "color": "#aea2d4",
-  "price": 34017.12
- },
- {
-  "id": 11,
-  "name": "Savana 2500",
-  "brand": "GMC",
-  "description": "Etiam vel augue. Vestibulum rutrum rutrum neque. Aenean auctor gravida sem.\n\nPraesent id massa id nisl venenatis lacinia. Aenean sit amet justo. Morbi ut odio.",
-  "tech specs": "In hac habitasse platea dictumst. Etiam faucibus cursus urna. Ut tellus.",
-  "image": "product_11.jpg",
-  "color": "#220eed",
-  "price": 31722.45
- },
- {
-  "id": 12,
-  "name": "Sportage",
-  "brand": "Kia",
-  "description": "Quisque porta volutpat erat. Quisque erat eros, viverra eget, congue eget, semper rutrum, nulla. Nunc purus.",
-  "tech specs": "Fusce consequat. Nulla nisl. Nunc nisl.",
-  "image": "product_12.jpg",
-  "color": "#313b59",
-  "price": 43939.21
- },
- {
-  "id": 13,
-  "name": "Ram Van 2500",
-  "brand": "Dodge",
-  "description": "Praesent blandit. Nam nulla. Integer pede justo, lacinia eget, tincidunt eget, tempus vel, pede.",
-  "tech specs": "In hac habitasse platea dictumst. Morbi vestibulum, velit id pretium iaculis, diam erat fermentum justo, nec condimentum neque sapien placerat ante. Nulla justo.",
-  "image": "product_13.jpg",
-  "color": "#acfbd9",
-  "price": 13457.86
- },
- {
-  "id": 14,
-  "name": "530",
-  "brand": "BMW",
-  "description": "Aenean lectus. Pellentesque eget nunc. Donec quis orci eget orci vehicula condimentum.",
-  "tech specs": "Proin eu mi. Nulla ac enim. In tempor, turpis nec euismod scelerisque, quam turpis adipiscing lorem, vitae mattis nibh ligula nec sem.",
-  "image": "product_14.jpg",
-  "color": "#02708d",
-  "price": 4777.34
- },
- {
-  "id": 15,
-  "name": "GTI",
-  "brand": "Volkswagen",
-  "description": "Integer tincidunt ante vel ipsum. Praesent blandit lacinia erat. Vestibulum sed magna at nunc commodo placerat.\n\nPraesent blandit. Nam nulla. Integer pede justo, lacinia eget, tincidunt eget, tempus vel, pede.",
-  "tech specs": "In sagittis dui vel nisl. Duis ac nibh. Fusce lacus purus, aliquet at, feugiat non, pretium quis, lectus.",
-  "image": "product_15.jpg",
-  "color": "#e42b8a",
-  "price": 23090.77
- },
- {
-  "id": 16,
-  "name": "Ram Wagon B350",
-  "brand": "Dodge",
-  "description": "Praesent id massa id nisl venenatis lacinia. Aenean sit amet justo. Morbi ut odio.",
-  "tech specs": "Etiam vel augue. Vestibulum rutrum rutrum neque. Aenean auctor gravida sem.",
-  "image": "product_16.jpg",
-  "color": "#f85699",
-  "price": 42732.64
- },
- {
-  "id": 17,
-  "name": "F-Series",
-  "brand": "Ford",
-  "description": "Quisque id justo sit amet sapien dignissim vestibulum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nulla dapibus dolor vel est. Donec odio justo, sollicitudin ut, suscipit a, feugiat et, eros.\n\nVestibulum ac est lacinia nisi venenatis tristique. Fusce congue, diam id ornare imperdiet, sapien urna pretium nisl, ut volutpat sapien arcu sed augue. Aliquam erat volutpat.",
-  "tech specs": "In sagittis dui vel nisl. Duis ac nibh. Fusce lacus purus, aliquet at, feugiat non, pretium quis, lectus.",
-  "image": "product_17.jpg",
-  "color": "#06d9c8",
-  "price": 37533.21
- },
- {
-  "id": 18,
-  "name": "Aspen",
-  "brand": "Chrysler",
-  "description": "Duis consequat dui nec nisi volutpat eleifend. Donec ut dolor. Morbi vel lectus in quam fringilla rhoncus.",
-  "tech specs": "Cras mi pede, malesuada in, imperdiet et, commodo vulputate, justo. In blandit ultrices enim. Lorem ipsum dolor sit amet, consectetuer adipiscing elit.",
-  "image": "product_18.jpg",
-  "color": "#449699",
-  "price": 12795.56
- },
- {
-  "id": 19,
-  "name": "Commander",
-  "brand": "Jeep",
-  "description": "Phasellus sit amet erat. Nulla tempus. Vivamus in felis eu sapien cursus vestibulum.\n\nProin eu mi. Nulla ac enim. In tempor, turpis nec euismod scelerisque, quam turpis adipiscing lorem, vitae mattis nibh ligula nec sem.",
-  "tech specs": "Duis bibendum, felis sed interdum venenatis, turpis enim blandit mi, in porttitor pede justo eu massa. Donec dapibus. Duis at velit eu est congue elementum.",
-  "image": "product_19.jpg",
-  "color": "#b2490d",
-  "price": 43648.09
- },
- {
-  "name": "Bravada",
-  "description": "Nulla ut erat id mauris vulputate elementum. Nullam varius. Nulla facilisi.Cras non velit nec nisi vulputate nonummy. Maecenas tincidunt lacus at velit. Vivamus vel nulla eget eros elementum pellentesque.",
-  "category": "",
-  "Colors": "#000000",
-  "price": "4408.15",
-  "id": "20"
- },
- {
-  "name": "camara nikon 2021",
-  "description": "camara nueva",
-  "category": "camaras",
-  "colors": "#000000",
-  "price": "100000",
-  "image": "img-1621117942575.jpg",
-  "id": 21
- },
- {
-  "name": "asdasd",
-  "description": "asdasd",
-  "category": "asdasd",
-  "colors": "#000000",
-  "price": "11111111",
-  "image": "1622044068483_img.png",
-  "id": 22
- }
+    {
+    "name": "Nikon D90",
+    "description": "La Nikon D90 es una cámara fotográfica DSLR profesional de 12.3 megapixeles con   formato DX lanzada al mercado por Nikon en agosto de 2008. ... Destaca por haber sido la primera DSLR     con función de grabación de video de la historia.",
+    "category": "Camaras",
+    "colors": "#000000",
+    "price": "150000",
+    "image": "camara-nikon-7500-640x599.jpg",
+    "id": 1
+    },
+
+    {
+    "name": "Foto Ecommerce",
+    "description": "La fotografía e-commerce cumple un objetivo principal: describe un producto de forma visual para el cliente que no lo puede tener en sus manos. Eso es lo que diferencia a estas fotografías de las publicitarias, donde lo que se busca es más transmitir unos valores de marca o unas experiencias.",
+    "category": "Foto_Ecommerce",
+    "colors": "#000000",
+    "price": "$5000",
+    "image": "foto_ecommerce.png",
+    "id": 2
+    },
+
+    {
+    "name": "Tripode",
+    "description": "ipode Aluminio Plegable Ideal Camaras Reflex, Telescopico.",
+    "category": "Foto_Ecommerce",
+    "colors": "#000000",
+    "price": "$8000",
+    "image": "tripode.jpg",
+    "id": 3
+    }
+
 ]
