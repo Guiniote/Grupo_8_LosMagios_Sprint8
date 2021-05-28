@@ -8,6 +8,7 @@
     <%- include('../partials/header') %>
 
     <main>
+        <% if (locals.isLogged) { %>
         <form action="/products/editProducts/<%= product.id %>?_method=PUT" method="POST">
             <div class="edit">
             <h3 class="form_h3">Editar articulo</h3>
@@ -40,6 +41,17 @@
             <option value="#ffff00">
             <option value="#ffffff">
         </datalist>
+        <% } else { %>
+            <div class = "not-logged">
+            <br>
+            <br>
+            <br>
+            <br>
+            <h4> Debes estar logueado para poder editar el producto </h4>
+            <br>
+            <br>
+            </div>
+            <% } %>
 </main>
 
 
