@@ -59,7 +59,7 @@ const productsController = {
         }
         delete product.oldImage;
         productsModel.update(product);
-        res.redirect('/products/productList');
+        res.redirect("/products/productDetail/" + req.params.id);
     }, 
 
 // Función para guardar y mostrar el carrito de compras
