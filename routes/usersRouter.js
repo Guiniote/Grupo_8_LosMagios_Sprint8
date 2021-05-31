@@ -20,4 +20,9 @@ router.get('/logout', usersController.logout);
 // Página de perfil
 router.get('/profile', userLoggedMiddleware, usersController.profile);
 
+
+
+//pagina quienesSomos
+router.get('/quienesSomos', usersController.quienesSomos);
+
 module.exports = router;

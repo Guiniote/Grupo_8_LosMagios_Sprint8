@@ -7,6 +7,10 @@ const usersController = {
 	register: (req, res) => {
 		return res.render('users/register');
 	},
+	//funcion para ir a quienesSomos
+
+quienesSomos: (req, res) => {
+	return res.render('users/quienesSomos');},
 
 // Función para registrar un usuario
 processRegister: (req, res) => {
