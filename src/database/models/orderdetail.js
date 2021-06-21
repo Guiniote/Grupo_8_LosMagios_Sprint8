@@ -17,12 +17,12 @@ module.exports = (sequelize, DataTypes) => {
     }
   };
   OrderDetail.init({
-    quantity: DataTypes.INTEGER,
-    subtotal: DataTypes.DECIMAL,
-    orderId: DataTypes.INTEGER,
-    productId: DataTypes.INTEGER,
-    serviceId: DataTypes.INTEGER,
-    courseId: DataTypes.INTEGER
+    quantity: { type: DataTypes.INTEGER, allowNull: false },
+    subtotal: { type: DataTypes.DECIMAL(10,2), allowNull: false },
+    orderId: { type: DataTypes.INTEGER, allowNull: false },
+    productId: { type: DataTypes.INTEGER, allowNull: false },
+    serviceId: { type: DataTypes.INTEGER, allowNull: false },
+    courseId: { type: DataTypes.INTEGER, allowNull: false },
   }, {
     sequelize,
     modelName: 'OrderDetail',

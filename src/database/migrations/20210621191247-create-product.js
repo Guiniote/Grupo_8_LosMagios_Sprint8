@@ -9,6 +9,7 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       name: {
+        allowNull: false,
         type: Sequelize.STRING
       },
       model: {
@@ -24,21 +25,26 @@ module.exports = {
         type: Sequelize.STRING
       },
       price: {
+        allowNull: false,
         type: Sequelize.DECIMAL
       },
       discount: {
         type: Sequelize.INTEGER
       },
       stock: {
+        allowNull: false,
         type: Sequelize.INTEGER
       },
       stockMin: {
+        allowNull: false,
         type: Sequelize.INTEGER
       },
       stockMax: {
+        allowNull: false,
         type: Sequelize.INTEGER
       },
       categoryId: {
+        allowNull: false,
         type: Sequelize.INTEGER,
         references: {
           model: 'categories',
@@ -46,6 +52,7 @@ module.exports = {
         }
       },
       brandId: {
+        allowNull: false,
         type: Sequelize.INTEGER,
         references: {
           model: 'brands',

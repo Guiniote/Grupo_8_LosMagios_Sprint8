@@ -9,15 +9,18 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       orderNumber: {
+        allowNull: false,
         type: Sequelize.INTEGER
       },
       total: {
+        allowNull: false,
         type: Sequelize.DECIMAL
       },
       date: {
         type: Sequelize.DATE
       },
       userId: {
+        allowNull: false,
         type: Sequelize.INTEGER,
         references: {
           model: 'users',
@@ -25,6 +28,7 @@ module.exports = {
         }
       },
       stateId: {
+        allowNull: false,
         type: Sequelize.INTEGER,
         references: {
           model: 'states',

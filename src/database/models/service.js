@@ -17,11 +17,11 @@ module.exports = (sequelize, DataTypes) => {
     }
   };
   Service.init({
-    name: DataTypes.STRING,
+    name: { type: DataTypes.STRING, allowNull: false },
     description: DataTypes.STRING,
     keywords: DataTypes.STRING,
     image: DataTypes.STRING,
-    price: DataTypes.DECIMAL,
+    price: { type: DataTypes.DECIMAL(10,2), allowNull: false },
     discount: DataTypes.INTEGER
   }, {
     sequelize,

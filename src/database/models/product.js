@@ -23,18 +23,18 @@ module.exports = (sequelize, DataTypes) => {
     }
   };
   Product.init({
-    name: DataTypes.STRING,
+    name: { type: DataTypes.STRING, allowNull: false },
     model: DataTypes.STRING,
     description: DataTypes.TEXT,
     specs: DataTypes.TEXT,
     keywords: DataTypes.STRING,
-    price: DataTypes.DECIMAL,
+    price: { type: DataTypes.DECIMAL(10,2), allowNull: false },
     discount: DataTypes.INTEGER,
-    stock: DataTypes.INTEGER,
-    stockMin: DataTypes.INTEGER,
-    stockMax: DataTypes.INTEGER,
-    categoryId: DataTypes.INTEGER,
-    brandId: DataTypes.INTEGER
+    stock: { type: DataTypes.INTEGER, allowNull: false },
+    stockMin: { type: DataTypes.INTEGER, allowNull: false },
+    stockMax: { type: DataTypes.INTEGER, allowNull: false },
+    categoryId: { type: DataTypes.INTEGER, allowNull: false },
+    brandId: { type: DataTypes.INTEGER, allowNull: false },
   }, {
     sequelize,
     modelName: 'Product',

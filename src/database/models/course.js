@@ -17,17 +17,17 @@ module.exports = (sequelize, DataTypes) => {
     }
   };
   Course.init({
-    name: DataTypes.STRING,
+    name: { type: DataTypes.STRING, allowNull: false },
     description: DataTypes.STRING,
     keywords: DataTypes.STRING,
     image: DataTypes.STRING,
-    duration: DataTypes.INTEGER,
-    level: DataTypes.STRING,
-    price: DataTypes.DECIMAL,
+    duration: { type: DataTypes.INTEGER, allowNull: false },
+    level: { type: DataTypes.STRING, allowNull: false },
+    price: { type: DataTypes.DECIMAL(10,2), allowNull: false },
     discount: DataTypes.INTEGER,
-    initialCapacity: DataTypes.INTEGER,
-    minimalCapacity: DataTypes.INTEGER,
-    actualCapacity: DataTypes.INTEGER
+    initialCapacity: { type: DataTypes.INTEGER, allowNull: false },
+    minimalCapacity: { type: DataTypes.INTEGER, allowNull: false },
+    actualCapacity: { type: DataTypes.INTEGER, allowNull: false },
   }, {
     sequelize,
     modelName: 'Course',

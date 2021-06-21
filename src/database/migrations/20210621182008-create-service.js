@@ -9,6 +9,7 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       name: {
+        allowNull: false,
         type: Sequelize.STRING
       },
       description: {
@@ -21,6 +22,7 @@ module.exports = {
         type: Sequelize.STRING
       },
       price: {
+        allowNull: false,
         type: Sequelize.DECIMAL
       },
       discount: {

@@ -9,6 +9,7 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       name: {
+        allowNull: false,
         type: Sequelize.STRING
       },
       description: {
@@ -21,24 +22,30 @@ module.exports = {
         type: Sequelize.STRING
       },
       duration: {
+        allowNull: false,
         type: Sequelize.INTEGER
       },
       level: {
+        allowNull: false,
         type: Sequelize.STRING
       },
       price: {
+        allowNull: false,
         type: Sequelize.DECIMAL
       },
       discount: {
         type: Sequelize.INTEGER
       },
       initialCapacity: {
+        allowNull: false,
         type: Sequelize.INTEGER
       },
       minimalCapacity: {
+        allowNull: false,
         type: Sequelize.INTEGER
       },
       actualCapacity: {
+        allowNull: false,
         type: Sequelize.INTEGER
       },
       createdAt: {
