@@ -1,5 +1,7 @@
-const jsonDB = require('../model/productsModel');
-const productsModel = jsonDB('products');
+//const jsonDB = require('../model/productsModel');
+//const productsModel = jsonDB('products');
+const db = require('../database/models');
+
 
 
 const productsController = {

@@ -2,9 +2,10 @@
   "name": "grupo_8_losmagios",
   "version": "1.0.0",
   "description": "**We Do Studios**",
-  "main": "app.js",
+  "main": "src/app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "src/app.js"
+    
   },
   "repository": {
     "type": "git",
