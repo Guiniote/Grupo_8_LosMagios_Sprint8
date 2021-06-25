@@ -7,10 +7,6 @@ const usersController = {
 	register: (req, res) => {
 		return res.render('users/register');
 	},
-	//funcion para ir a quienesSomos
-
-quienesSomos: (req, res) => {
-	return res.render('users/quienesSomos');},
 
 // Función para registrar un usuario
 processRegister: (req, res) => {
@@ -87,6 +83,18 @@ processRegister: (req, res) => {
 		res.clearCookie('userEmail');
 		req.session.destroy();
 		return res.redirect('/');
+	},
+	
+	edit: (req,res) => {
+		let userId = req.params.id;
+		let promUser= User.findByPk(userId);
+		Promise
+		.all([userId])
+		.then((promUser) => {
+			return res.render(path.resolve(__dirname, '..', 'views',  'editUser'),{user})
+		.catch (error => res.send(error))
+		})
+
 	}
 }
 
