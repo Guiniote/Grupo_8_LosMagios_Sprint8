@@ -1,0 +1,232 @@
+* {
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+}
+
+body {
+    line-height: initial;
+}
+
+p {
+    margin-bottom: initial;
+}
+
+.pl_body_serviceCart {
+    font-family: 'Roboto', sans-serif;
+    background-image: linear-gradient( #e4dddd, #404040);
+}
+
+    .comandos {
+        display:flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: #faf4f4;
+        color: #000000;
+        font-weight: bold;
+        margin-top: 65px;    
+        height: 50px;
+    }
+
+        .comandos p {
+            border-bottom: 2px solid #404040;
+            border-left: 1px solid #404040;
+            border-right: 1px solid #404040;
+            padding: 1rem 5px;
+            height: 100%;
+            width: 50%;
+            text-align: center;
+        }
+
+    .ordenar {
+        display: none;
+    }
+
+.pl_main_serviceCart {
+    margin: 0 auto;
+    margin-top: 30px;
+    margin-bottom: 40px;
+    width: 90%;
+}
+
+.pl_main_items_service a {
+    text-decoration: none;
+}
+
+.pl_main_service{
+    background-color: #faf4f4;
+    border: 2px solid #2289da;
+    display: grid;
+    width: 100%;
+    grid-template-areas: "imge desc";
+    grid-template-columns: 30% 70%;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgb(100, 100, 100);
+    align-items: center;
+    margin-bottom: 10px;
+    padding: 5px;
+}
+
+.pl_item7 {
+    grid-area: imge;
+    padding-left: 5px;
+    width: 100px;
+    height: 100px;    
+}
+
+.pl_item8 {
+    grid-area: desc;    
+}
+
+.pl_item8 h6 {
+    color: black;
+    font-size: 1.2rem;
+    padding-bottom: 10px;
+}
+
+.pl_item8 p {
+    color: black;
+}
+
+.pl_total {
+    display: none;    
+}    
+        
+
+
+
+@media only screen and (min-width: 481px){
+    
+    .pl_main_serviceCart {
+        margin-top: 50px;
+    }
+
+    .pl_item7 {
+        width: 120px;
+        height: 120px;        
+    }
+    
+}
+
+
+
+
+@media only screen and (min-width: 769px) {
+
+    .comandos {
+        display: none;
+    }
+
+    .ordenar {
+        display: block;
+        margin-top: 130px;
+        width: 95%;
+        text-align: right;
+        font-size: 0.75rem;
+    }
+
+    .pl_total {
+        display: inline-block;
+    }
+
+    .pl_main_serviceCart {
+        margin-top: 20px;        
+    }
+    
+        .pl_main_items1 {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+        }
+
+    .pl_main_items_service{
+        width: 75%;
+        order: 1;
+    }
+
+    .pl_main_service{
+        margin-bottom: 20px;        
+    }   
+
+        .pl_item8 {
+            width: 100%;
+            margin-left: 5%;
+        }
+        
+        .pl_article_cantidad1 i {
+            margin: 0;
+            padding-left: 12px;
+            padding-right: 10px;
+            display: flex;
+            align-self: center;
+        }
+        
+               
+        .pl_main_items_total {
+            width: 20%;
+            display: flex;
+            justify-content: center;
+            align-self: center;
+            margin: 0;
+            order: 0;
+        }
+        .pl_total {
+            width: 100%;
+            height: 160px;
+        }
+        
+} 
+
+
+@media only screen and (min-width: 1224px) {
+    .pl_main_serviceCart {
+        font-size: 20px
+    }
+    .pl_article_cantidad1 i {
+        padding-left: 9px;
+        padding-right: 5px;
+    }   
+    .pl_item7 img{
+        width: 7.5rem;
+        height: 110px;
+    } 
+    .pl_item12 i:hover {
+        color: #2289da;
+    }
+    .pl_total {
+        display: flex;
+        flex: 1 1 15%;
+        align-self: center;
+        border: 2px solid #2289da;
+        margin: 0 2%;
+        flex-direction: column;
+        justify-content: center;
+        height: 200px;
+        border-radius: 10px;
+    }   
+
+}
+@media only screen and (min-width: 1824px) {
+    .pl_main_serviceCart {
+        font-size: 30px;
+        margin: 0 auto;
+        margin-top: 100px;
+    }
+    
+.pl_main_items_service {
+    width: 100%;
+}
+.pl_item7 img{
+    width: 8em;
+    height: 140px;
+} 
+    
+    .pl_article_cantidad1 i {
+        padding-left: 15px;
+        padding-right: 10px;
+    }
+    .pl_total {
+        margin-left: 5%;
+    }
+
+}

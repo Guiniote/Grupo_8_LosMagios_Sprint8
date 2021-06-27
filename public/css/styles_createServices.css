@@ -1,0 +1,187 @@
+*{
+    margin: 0 ;
+    box-sizing: border-box;
+    padding: 0;
+}
+
+body {
+
+    background-image: linear-gradient( #e4dddd, #404040);  
+
+} 
+
+main {
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+}
+
+
+.navbar-dark .navbar-toggler {
+    margin: initial;
+}
+
+
+.form_h3 {
+    
+    font-weight: 800;
+
+}
+
+.upload {
+    background-color: #faf4f4;
+    border: 2px solid #2289da;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgb(100, 100, 100);
+    width: 80%;
+    margin: auto;
+    margin-top: 25%;
+    margin-bottom: 10%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    transition: all 0.5s; 
+    }
+
+.upload:hover{
+    box-shadow: 2px 2px 10px #a8a1a1;
+}
+
+.form_texto{
+    margin-top: 5px;
+}
+
+.enviaData {
+    background-color: #2289da;
+    border-radius: 5px;
+    width: 25vw;
+    color: white;
+    margin:auto;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    height: 3vh;
+    text-align: center;
+    padding-top: 2px;
+    font-size: 12px;
+    transition: all;
+    border: none;
+}
+
+.enviaData:hover{
+    background-color: #844291;
+}
+
+.form-login {
+margin-bottom: 10px;
+}
+
+.form_h3 {
+    margin-top: 10px;
+    transition: all 0.5s;
+}
+
+.form_h3:hover{
+    text-shadow:  2px 2px 10px #a8a1a1;
+}
+
+
+.write_upload{
+    width: 70%;
+    border: 2px solid #2289da;
+    margin:auto;
+}
+
+    /*celulares 320*/
+
+
+/*tablets*/
+
+@media only screen and (min-device-width : 481px){
+
+    .enviaData{
+        font-size: 14px;
+        height: 5vh;
+        width: 20vw;
+}
+
+    .upload{
+        margin-top: 20%;
+        margin-bottom: 8%; 
+}
+
+
+}
+/*desktop chicas*/
+@media only screen and (min-device-width : 769px){
+ 
+    .write_upload{
+        width: 70vw;
+        height: 4vh;
+
+    }
+    .enviaData {
+        font-size: 18px;
+        width: 15vw;
+    }
+    .upload{
+        margin-top: 12%;
+        margin-bottom: 4%;
+    }
+
+    
+}
+/*medianas*/
+@media only screen and (min-device-width : 1124px){
+
+    .write_upload{
+        width:60vw;
+        height: 4vh;
+    }
+    .enviaData {
+    width: 13vw;
+    }
+    .upload{
+        margin-top: 8%;
+        margin-bottom: 2%;
+    }
+    .form_texto{
+        font-size: 26px;
+    }
+    .form_h3 {
+        font-size: 36px;
+        font-weight: bold;
+        font-weight: 800;
+
+    }
+
+
+
+}
+
+
+
+/*grandes*/
+@media only screen and (min-device-width : 1824px){
+    .write_upload{
+        font-size: 25px;
+    }
+    .enviaData {
+        font-size: 34px;
+    }
+    .form_texto{
+        font-size: 28px;
+   
+    }
+    .form_h3{
+        font-size: 35px;
+     font-weight: 900;
+   
+    }
+    .form-login {
+        font-size: 28px;
+    }
+
+
+
+
+}
+

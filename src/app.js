@@ -10,6 +10,7 @@ const puerto = process.env.PORT;
 const homeRouter = require('./routes/homeRouter');
 const productsRouter = require('./routes/productsRouter');
 const usersRouter = require('./routes/usersRouter');
+const servicesRouter = require('./routes/servicesRouter');
 
 const cookieLoginMiddleware = require('./middlewares/cookieLoginMiddleware');
 
@@ -34,7 +35,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use('/', homeRouter);
 app.use('/products', productsRouter);
 app.use('/users', usersRouter);
-
+app.use('/services', servicesRouter);
 
 
 app.listen (puerto || 3000, () => {

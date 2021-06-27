@@ -25,6 +25,17 @@ const storageAvatar = multer.diskStorage({
 
 const uploadAvatar= multer({ storage: storageAvatar });
 
+const storageService = multer.diskStorage({
+	destination: path.resolve(__dirname, '../public/images'), 
+	
+	filename: (req, file, cb) => {
+		let fileName = `${Date.now()}_img${path.extname(file.originalname)}`;
+		cb(null, fileName);
+	}
+})
+
+const uploadService = multer({ storage: storageService });
 
 
-module.exports = {uploadProduct, uploadAvatar}
+
+module.exports = {uploadProduct, uploadAvatar, uploadService}

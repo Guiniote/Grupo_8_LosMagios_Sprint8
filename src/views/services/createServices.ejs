@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <link rel="stylesheet" href="/css/styles_createservices.css">
+    <%- include('../partials/head') %>
+    </head>
+<body>
+    <%- include('../partials/header') %>z
+
+    <main>
+        <form action="/services/store" method="POST" enctype="multipart/form-data">
+            <div class="upload">
+            <h3 class="form_h3">Crear</h3>
+            <label class="form_texto" for="name">Nombre:</label>
+            <input class="write_upload" type="text" name="name" id="name">
+            <label class="form_texto" for="description">Descripcion:</label>
+            <input class="write_upload" type="text" name="description" id="description">
+            <label class="form_texto" for="image">Imagen:</label>
+            <input class="write_upload" type="file" name="image">
+            <label class="form_texto" for="category">Categoría:</label>
+            <input class="write_upload" type="text" name="category" id="category">
+            <label class="form_texto" for="colors">Colores:</label>
+            <input class="write_upload" type="color" name="colors" id="colors" list="listacoloresperfil">
+            <label class="form_texto" for="price">Precio:</label>
+            <input class="write_upload" type="text" name="price" id="price">
+            <input class="enviaData" type="submit" value="Crear item">
+        </div>
+        </form>
+
+        <!-- opciones de colores para elegir al servicio -->
+        <datalist id="listacoloresperfil">
+            <option value="#23049d">
+            <option value="#999b84">
+            <option value="#ffff00">
+            <option value="#ffffff">
+        </datalist>
+</main>
+
+
+
+<%- include('../partials/footer') %>
+</body>
+</html>

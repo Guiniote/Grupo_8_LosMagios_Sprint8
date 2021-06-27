@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include('../partials/head') %>
+   
+    <link rel="stylesheet" href="/css/styles_serviceList.css">
+    <title>Wedo Studio</title>
+</head>
+
+<body class="pl_body_serviceCart">
+
+    <%- include('../partials/header') %>
+
+    <main>
+        <div class="comandos">
+            <p>Filtrar</p>
+            <p>Ordenar</p>
+        </div>
+        <div class="ordenar">
+            <a href="/services/createservices">Crear servicio</a>
+            <form action="" method="">
+                <label for="order">Ordenar por</label>
+                <select name="order" id="order">
+                    <option value="1">Más relevantes</option>
+                    <option value="2">Menor precio</option>
+                    <option value="3">Mayor precio</option>
+                </select>
+            </form>
+        </div>
+
+        <div class="buscador">
+            <form action="/services/serviceList" method="GET">
+                <label for="service_name">Buscar:</label>
+                <input type="text" name="service_name" id="service_name">
+                <input type="submit" value="Enviar">
+            </form>
+        </div>
+
+        <div class="pl_main_serviceCart">
+            <div class="pl_main_items1">
+                <section class="pl_main_items_service">
+                    
+                    <% services.forEach(service => { %>
+                        <%- include('../partials/serviceList_items', { service }) %>
+                    <% }) %>                
+                    
+                </section>
+            </div>  
+        </div>          
+    </main>
+    
+    <%- include('../partials/footer') %>
+
+</body>
+</html>
