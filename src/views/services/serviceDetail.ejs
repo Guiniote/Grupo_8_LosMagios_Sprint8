@@ -16,7 +16,7 @@
             <div class="sublinks">
                 <div class="root">
                     <a href="/">Home</a>
-                    <p>/ nombre del servicio</p>
+                    <p>/ <%= service.name %></p>
                 </div>
                 <div class="edit">
                     <a href="/services/editservices/<%= service.id %>">Editar</a>
@@ -27,13 +27,7 @@
                 <div class="imagenes">
                     <div class="img_principal">
                         <img src="/images/<%= service.image %>" alt="Foto artículo 1" width="100%">
-                    </div>                    
-                    <div class="img_secundarias">
-                        <img src="/images/Nikon_2.png" alt="Foto artículo 2" width="100%">
-                        <img src="/images/Nikon_3.png" alt="Foto artículo 3" width="100%">
-                        <img src="/images/Nikon_4.png" alt="Foto artículo 4" width="100%">
-                        <img src="/images/Nikon_5.png" alt="Foto artículo 5" width="100%">
-                    </div>
+                    </div>                                        
                 </div>
                 <div class="titulo">
                     <h1><%= service.name %></h1>
@@ -43,20 +37,10 @@
                     <div class="descripcion">
                         <h3>Descripcion</h3>
                         <p><%= service.description %></p>
-                    </div>
-                    <div class="especificaciones">
-                        <h3>Especificaciones técnicas</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa consequatur ducimus in labore ex esse quo sequi expedita deserunt, odio unde laboriosam aspernatur? Eius suscipit reprehenderit animi. Officia, esse qui?</p>
-                    </div>
+                    </div>                    
                 </div>
                 <div class="datos_compra">
-                    <div class="color_y_precio">
-                        <div class="selector_color">
-                            <h3>Color:</h3>
-                            <div class="selector_color_1"></div>
-                            <div class="selector_color_2"></div>
-                            <div class="selector_color_3"></div>
-                        </div>
+                    <div class="color_y_precio">                        
                         <h2 class="precio">$ <%= service.price %></h2>
                     </div>
                     <form class="compra" action="/services/serviceCart" method="POST">

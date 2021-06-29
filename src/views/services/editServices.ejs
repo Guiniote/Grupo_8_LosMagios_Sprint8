@@ -23,16 +23,16 @@
             <% } %>
             <label class="form_texto" for="description">Descripción:</label>
             <input class="write_upload" type="text" name="description" id="description" value="<%= service.description %>">
+            <label class="form_texto" for="keywords">Palabras clave:</label>
+            <input class="write_upload" type="text" name="keywords" id="keywords" value="<%= service.keywords %>">
             <label class="form_texto" for="old_image">Imagen Actual:</label>
             <input class="write_upload" type="old_image" name="old_image" value="<%= service.image %>">
             <label class="form_texto" for="image">Nueva imagen:</label>
             <input class="write_upload" type="file" name="image" value="<%= service.image %>">
-            <label class="form_texto" for="category">Categoría:</label>
-            <input class="write_upload" type="text" name="category" id="category" value="<%= service.category %>">
-            <label class="form_texto" for="colors">Colores:</label>
-            <input class="write_upload" type="color" name="colors" id="colors" list="listacoloresperfil" value="<%= service.colors %>">
             <label class="form_texto" for="price">Precio:</label>
             <input class="write_upload" type="text" name="price" id="price" value="<%= service.price %>">
+            <label class="form_texto" for="discount">Descuento:</label>
+            <input class="write_upload" type="text" name="discount" id="discount" value="<%= service.discount %>">
             <div class="botones_input">
                 <input class="enviaData" type="submit" value="Confirmar Edicion">
             </div>

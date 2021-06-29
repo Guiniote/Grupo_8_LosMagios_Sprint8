@@ -9,7 +9,7 @@ const servicesController = {
         res.render('services/createServices');
     },
 
-// Función que simula el almacenamiento, en este caso en array
+// Función que simula el almacenamiento
     store: (req, res) => {
         const service = req.body;
         service.image = req.file ? req.file.filename : '';
