@@ -4,7 +4,7 @@ const multer = require('multer');
 
 
 const storageProduct = multer.diskStorage({
-	destination: path.resolve(__dirname, '../public/images'), 
+	destination: path.resolve(__dirname, '../../public/images'), 
 	
 	filename: (req, file, cb) => {
 		let fileName = `${Date.now()}_img${path.extname(file.originalname)}`;
@@ -15,7 +15,7 @@ const storageProduct = multer.diskStorage({
 const uploadProduct = multer({ storage: storageProduct });
 
 const storageAvatar = multer.diskStorage({
-	destination: path.resolve(__dirname, '../public/images/avatars'),
+	destination: path.resolve(__dirname, '../../public/images/avatars'),
 
 	filename: (req, file, cb) => {
 		let fileName = `${Date.now()}_img${path.extname(file.originalname)}`;
@@ -26,7 +26,7 @@ const storageAvatar = multer.diskStorage({
 const uploadAvatar= multer({ storage: storageAvatar });
 
 const storageService = multer.diskStorage({
-	destination: path.resolve(__dirname, '../public/images'), 
+	destination: path.resolve(__dirname, '../../public/images'), 
 	
 	filename: (req, file, cb) => {
 		let fileName = `${Date.now()}_img${path.extname(file.originalname)}`;
