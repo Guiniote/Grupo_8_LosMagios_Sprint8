@@ -11,6 +11,7 @@ const homeRouter = require('./routes/homeRouter');
 const productsRouter = require('./routes/productsRouter');
 const usersRouter = require('./routes/usersRouter');
 const servicesRouter = require('./routes/servicesRouter');
+const coursesRouter = require('./routes/coursesRouter');
 
 const cookieLoginMiddleware = require('./middlewares/cookieLoginMiddleware');
 
@@ -36,6 +37,7 @@ app.use('/', homeRouter);
 app.use('/products', productsRouter);
 app.use('/users', usersRouter);
 app.use('/services', servicesRouter);
+app.use('/courses', coursesRouter);
 
 
 app.listen (puerto || 3000, () => {

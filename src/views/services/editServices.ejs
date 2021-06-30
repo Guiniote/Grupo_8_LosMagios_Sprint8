@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-    <link rel="stylesheet" href="/css/styles_editservices.css">
+    <link rel="stylesheet" href="/css/styles_editServices.css">
     <%- include('../partials/head') %>
     </head>
 <body>
     <%- include('../partials/header') %>
 
     <main>
-        <!-- Descomentar esto cuando se termine con el CRUD de Servicios --> <% locals.isLogged = 1 %>
+        <!-- Borrar esta línea cuando se termine con el CRUD de Servicios --> <% locals.isLogged = 1 %>
         <% if (locals.isLogged) { %>
         <form action="/services/editServices/<%= service.id %>" method="POST" enctype="multipart/form-data">
             <div class="edit">
@@ -42,14 +42,7 @@
                 <button type="submit" class="enviaData">Borrar</button>
             </div>
         </form>
-
-        <!-- opciones de colores para elegir al servicio -->
-        <datalist id="listacoloresperfil">
-            <option value="#23049d">
-            <option value="#999b84">
-            <option value="#ffff00">
-            <option value="#ffffff">
-        </datalist>
+        
         <% } else { %>
             <div class = "not-logged">
             <br>

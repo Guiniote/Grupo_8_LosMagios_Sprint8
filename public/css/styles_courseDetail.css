@@ -1,0 +1,469 @@
+* {
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+}
+
+body {
+    line-height: initial;
+}
+
+p {
+    margin-bottom: initial;
+}
+
+main {
+    margin-top: 58px;    
+    font-family: 'roboto';
+    background-image: linear-gradient( #e4dddd, #404040);    
+}
+
+    .sublinks {
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-between;
+    }
+
+        .root {
+            font-size: 0.75rem;
+            font-style: italic;
+            display: flex;
+            flex-flow: row wrap;        
+            justify-content: center;
+            margin: 20px 0px;
+            padding-top: 20px;
+            padding-left: 10px;
+        }
+
+        .edit {
+            font-size: 0.75rem;
+            font-style: italic;
+            margin: 20px 0px;
+            padding-top: 20px;
+            padding-right: 10px;
+        }
+
+            .root a, .edit a {
+                color: black;
+                padding-right: 0.25rem;
+            }
+    
+    article {
+        display: flex;
+        flex-flow: column wrap;        
+    }
+
+        .titulo {
+            order: -10;
+            text-align: center;
+            background-color: #faf4f4;
+            border: 2px solid #2289da;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgb(100, 100, 100);
+            margin: 0 20px 20px 20px;
+            padding: 10px 5px;
+        }
+
+            .titulo h1 {
+                font-size: 2rem;
+            }
+
+            .titulo h4 {
+                font-weight: normal;
+                font-size: 1rem;
+                color: #a8a1a1;
+            }
+
+        .imagenes {
+            background-color: #faf4f4;
+            border: 2px solid #2289da;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgb(100, 100, 100);
+            margin: 0 20px 20px 20px;
+            padding: 10px 5px;
+        }
+        
+            .img_principal {
+                margin: 10px;
+            }
+
+            .img_secundarias {
+                display: flex;
+                flex-flow: row wrap;
+                justify-content: space-evenly;
+                margin-bottom: 10px;
+            }
+
+                .img_secundarias img {
+                    flex: 0 1 20%;
+                    max-width: 20%;
+                }
+
+        .informacion {
+            background-color: #faf4f4;
+            border: 2px solid #2289da;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgb(100, 100, 100);
+            margin: 0 20px 20px 20px;
+            padding: 10px 5px;
+        }
+
+            .descripcion {
+                font-family: 'Roboto Slab';
+                margin: 0px 7px 40px 7px;
+                text-align: center;
+            }
+
+            .especificaciones {
+                font-family: 'Roboto Slab';
+                margin: 0px 7px 10px 7px;
+                text-align: center;
+            }
+
+                .descripcion h3, .especificaciones h3 {
+                    font-size: 1.25rem;
+                    padding-bottom: 8px;
+                }
+
+                .descripcion p, .especificaciones p {
+                    color: #404040;
+                }
+
+        .datos_compra {
+            background-color: #faf4f4;
+            border: 2px solid #2289da;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgb(100, 100, 100);
+            margin: 0 20px 20px 20px;
+            padding: 10px 5px;
+        }
+
+            .color_y_precio {
+                display: flex;
+                flex-flow: row wrap;
+                justify-content: space-evenly;
+                margin-bottom: 40px;
+            }
+
+                .selector_color {
+                    display: flex;
+                    flex-flow: row wrap;
+                    justify-content: flex-start;
+                    flex: 0 1 50%;
+                    height: 90px;           
+                }
+
+                    .selector_color h3 {
+                        font-size: 1.25rem;
+                        font-weight: bold;
+                        flex: 1 1 100%;                
+                        padding-bottom: 10px; 
+                    }
+
+                    .selector_color_1 {
+                        height: 45px;
+                        width: 45px;
+                        background-color: blue;
+                        margin-right: 5px;
+                    }
+
+                    .selector_color_2 {
+                        height: 45px;
+                        width: 45px;
+                        background-color: red;
+                        margin-right: 5px;
+                    }
+
+                    .selector_color_3 {
+                        height: 45px;
+                        width: 45px;
+                        background-color: green;
+                        margin-right: 5px;
+                    }
+
+                .precio {
+                    font-size: 2rem;
+                    align-self: center;                    
+                }
+
+            .compra {
+                display: flex;
+                flex-flow: row wrap;
+                justify-content: space-around;
+                margin-bottom: 15px;
+            }
+
+                .cantidad {
+                    font-size: 1.25rem;
+                    font-weight: bold;
+                    flex: 0 1 50%;
+                    align-self: center;
+                    padding-top: 3px;
+                    padding-left: 2.5%;
+                    height: 40px;
+                }
+
+                    .cantidad select {
+                        font-size: 1.25rem;
+                        font-family: 'roboto';
+                        padding-left: 3px;
+                    }
+
+                    .cantidad label {
+                        padding-right: 5px;
+                    }                
+
+                    .boton_compra button {
+                        flex: 0 1 35%; 
+                        font-size: 1.5rem;
+                        font-family: 'roboto';
+                        padding: 3px 7px;
+                        border: none;
+                        border-radius: 5px;
+                        background-color: #2289da;
+                        color: white;
+                    }
+
+                    .boton_compra button:hover {
+                        background-color: #844291;
+                    }
+        
+        .envios {
+            text-align: center;
+            margin-bottom: 50px;
+            padding-top: 10px; 
+            color: white;       
+        }
+
+            .envios a {
+                color: white;
+            }
+
+
+@media (min-width: 481px) {
+
+    .sublinks {
+        height: fit-content;
+    }
+
+        .root {
+            margin: 10px 0px 30px 0px;
+            padding-top: 20px;
+        }
+
+        .edit {
+            margin: 10px 0px 30px 0px;
+            padding-top: 20px;
+        }
+        
+            .selector_color_1 {
+                height: 50px;
+                width: 50px;
+            }
+
+            .selector_color_2 {
+                height: 50px;
+                width: 50px;
+            }
+
+            .selector_color_3 {
+                height: 50px;
+                width: 50px;
+            }
+            
+        .cantidad {
+                padding-left: 3%;
+                padding-top: 3px;
+            }
+
+                .cantidad label {
+                    padding-right: 10px;
+                }                
+                
+                .cantidad select {
+                    padding-left: 5px;
+                }
+
+                .boton_compra {
+                    margin-right: 2%;
+                }
+}
+
+
+@media (min-width: 769px) {
+
+    main {
+        margin-top: 58px;        
+    }
+
+        .root {
+            justify-content: flex-start;
+            padding-left: 20px;
+        }
+
+        .edit {
+            justify-content: flex-start;
+            padding-right: 20px;
+        }
+        
+        article {
+            justify-content: center;
+            position: relative;
+        }
+
+            .imagenes {
+                order: 0;
+                width: 56%;
+                align-self: flex-start;
+                margin: 0 20px 20px 30px;
+            }
+
+            .titulo {
+                order: 1;
+                width: 36%;
+                align-self: flex-end;
+                position: absolute;
+                top: 0%;
+                margin: 0 30px 20px 20px;             
+            }
+            
+            .informacion {
+                order: 3;
+                align-self: stretch;
+                margin: 0 30px 20px 30px;
+            }
+            
+            .datos_compra {
+                order: 2;
+                width: 36%;
+                align-self: flex-end;
+                position: absolute;
+                top: 16%;
+                margin: 0 30px 20px 20px;
+            }
+
+                .color_y_precio {
+                    display: flex;
+                }
+
+                    .selector_color {
+                        flex: 1 1 100%;
+                        display: flex;
+                        height: fit-content;
+                        margin: 10px 0px 40px 0px;
+                        justify-content: center;
+                    }
+
+                        .selector_color h3 {
+                            flex: 0 1 auto;
+                            margin-right: 10px;
+                            align-self: center;
+                        }
+
+                    .precio {
+                        flex: 1 1 100%;
+                        padding: 0;
+                        text-align: center;                
+                    }
+    
+                .compra {
+                    display: flex;
+                }
+
+                    .cantidad {
+                        flex: 1 1 100%;
+                        margin: 0;
+                        padding-left: 0;
+                        text-align: center;
+                        margin-bottom: 40px;
+                    }
+
+                        .cantidad label {
+                            padding-right: 18px;
+                        }
+
+                    .boton_compra {
+                        flex: 1 1 100%;
+                        margin: 0;
+                        padding: 0;
+                        text-align: center;                        
+                    }
+
+            .envios {
+                order: 4;
+                align-self: center;
+            }    
+}
+
+
+@media (min-width: 1224px) {
+    .datos_compra {
+        top: 15%;
+    }
+
+    .color_y_precio {
+        margin: 0;
+    }
+
+        .selector_color, .precio, .cantidad {
+            margin-bottom: 70px;
+        }
+
+        .selector_color {
+            margin-top: 20px;
+        }
+
+        .boton_compra {
+            margin-bottom: 10px;
+        }
+
+            .boton_compra button {
+                font-size: 1.75rem;
+            }
+}
+
+
+@media (min-width: 1824px) {
+
+    main {
+        margin-top: 58px;        
+    }
+
+    .root {
+        font-size: 0.85rem;
+        padding-left: 20px;
+    }
+
+    .edit {
+        font-size: 0.85rem;
+        padding-left: 20px;
+    }
+
+        .imagenes {
+            margin: 0 20px 20px 40px;
+        }
+
+        .titulo {
+            margin: 0 40px 20px 20px;             
+        }
+        
+        .informacion {
+            margin: 0 40px 20px 40px;
+        }
+        
+        .datos_compra {
+            margin: 0 40px 20px 20px;
+        }
+
+            .selector_color, .precio, .cantidad {
+                margin-bottom: 90px;
+            }
+
+            .boton_compra {
+                margin-bottom: 20px;
+            }
+
+            .cantidad {
+                padding-top: 0px;
+            }
+}
