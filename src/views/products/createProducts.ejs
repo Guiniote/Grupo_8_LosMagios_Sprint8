@@ -13,27 +13,53 @@
             <h3 class="form_h3">Crear</h3>
             <label class="form_texto" for="name">Nombre:</label>
             <input class="write_upload" type="text" name="name" id="name">
+            <label class="form_texto" for="category">Categoría:</label>            
+            <select name="category">
+                <% categories.forEach(category => { %>
+                    <option value= "<%= category.id %>"><%= category.name %></option>                                        
+                <% }) %>
+            </select>   
+            <label class="form_texto" for="brand">Marca:</label>
+            <select name="brand">
+                <% brands.forEach(brand => { %>
+                    <option value= "<%= brand.id %>"><%= brand.name %></option>                                        
+                <% }) %>
+            </select> 
+            <label class="form_texto" for="model">Modelo:</label>
+            <input class="write_upload" type="text" name="model" id="model">
             <label class="form_texto" for="description">Descripcion:</label>
             <input class="write_upload" type="text" name="description" id="description">
-            <label class="form_texto" for="image">Imagen:</label>
-            <input class="write_upload" type="file" name="image">
-            <label class="form_texto" for="category">Categoría:</label>
-            <input class="write_upload" type="text" name="category" id="category">
-            <label class="form_texto" for="colors">Colores:</label>
-            <input class="write_upload" type="color" name="colors" id="colors" list="listacoloresperfil">
+            <label class="form_texto" for="specs">Especificaciones Técnicas:</label>
+            <input class="write_upload" type="text" name="specs" id="specs">
+            <label class="form_texto" for="keywords">Palabras clave:</label>
+            <input class="write_upload" type="text" name="keywords" id="keywords">
+            <!-- <label class="form_texto" for="image1">Imagen 1:</label>
+            <input class="write_upload" type="file" name="image1">
+            <label class="form_texto" for="image2">Imagen 2:</label>
+            <input class="write_upload" type="file" name="image2">
+            <label class="form_texto" for="image3">Imagen 3:</label>
+            <input class="write_upload" type="file" name="image3"> -->
             <label class="form_texto" for="price">Precio:</label>
             <input class="write_upload" type="text" name="price" id="price">
+            <label class="form_texto" for="discount">Descuento:</label>
+            <input class="write_upload" type="text" name="discount" id="discount">
+            <label class="form_texto" for="stock">Stock:</label>
+            <input class="write_upload" type="text" name="stock" id="stock">
+            <label class="form_texto" for="stockMin">Stock Mínimo:</label>
+            <input class="write_upload" type="text" name="stockMin" id="stockMin">
+            <label class="form_texto" for="stockMax">Stock Máximo:</label>
+            <input class="write_upload" type="text" name="stockMax" id="stockMax">
             <input class="enviaData" type="submit" value="Crear item">
         </div>
         </form>
 
-        <!-- opciones de colores para elegir al producto -->
+        <!-- opciones de colores para elegir al producto
         <datalist id="listacoloresperfil">
             <option value="#23049d">
             <option value="#999b84">
             <option value="#ffff00">
             <option value="#ffffff">
-        </datalist>
+        </datalist> -->
 </main>
 
 
