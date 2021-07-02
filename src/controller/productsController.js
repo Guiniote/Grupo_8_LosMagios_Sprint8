@@ -23,7 +23,42 @@ const productsController = {
 //         productsModel.create(product);
 //         res.redirect('/products/productList');
 //     },
-    store: (req, res) => {
+    store: async (req, res) => {
+        try{
+            let productCreated = await Product.create({
+                    name: req.body.name,
+                    model: req.body.model,
+                    description: req.body.description,
+                    specs: req.body.specs,
+                    keywords: req.body.keywords,
+                    price: req.body.price,
+                    discount: req.body.discount,
+                    stock: req.body.stock,
+                    stockMin: req.body.stockMin,
+                    stockMax: req.body.stockMax,
+                    categoryId: req.body.category,
+                    brandId: req.body.brand,
+            });
+
+            res.redirect('/products/productList');
+
+        } catch (error) {
+            res.send(error)
+        }
+    }, 
+
+        /*Ver si esto anda:
+        let imagesCreated = await Image.create (
+                {
+                name: req.file.filename,
+                productId: productCreated.id
+                
+            })
+        */
+
+/*
+
+
         const product = req.body;
         
         //product.image = req.file ? req.file.filename : '';
@@ -35,7 +70,7 @@ const productsController = {
             })
         .catch(error => res.send(error));
     },  
-    
+    */
     // const product = await Product.create(req.body)
     //         //.then(productStored => {                
     //             await product.addCategories(req.body.category); 
