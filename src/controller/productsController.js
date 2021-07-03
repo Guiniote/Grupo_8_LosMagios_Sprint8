@@ -1,8 +1,4 @@
-//const jsonDB = require('../model/productsModel');
-//const productsModel = jsonDB('products');
-//const db = require('../database/models');
-
-const { Product, Brand, Category, Image  } = require('../database/models');
+const { Product, Brand, Category } = require('../database/models');
 const { Op } = require("sequelize");
 
 
@@ -85,11 +81,11 @@ const productsController = {
         }
     },
 
-// // Función que borra información almacenada
-//     destroy: (req, res) => {
-//         productsModel.delete(req.params.id);
-//         res.redirect('/products/productList');
-//     },
+// Función que borra información almacenada
+    destroy: async (req, res) => {
+        await Product.destroy({ where: {id: req.params.id}});        
+        res.redirect('/products/productList');
+    },
 
 //Función para listar los productos
     list: async (req, res) => {        
@@ -105,38 +101,56 @@ const productsController = {
         return res.render('products/productList', { products });
     }},
 
-// // Función para traer datos los productos para editar
-//     edit: (req, res) => {
-//         let product = productsModel.find(req.params.id);
-//         if (product) {
-//             res.render('products/editProducts', { product });
-//         } else {
-//             res.render('error404');
-//         }
-//     },
-
-        edit: async (req, res) => {
-            let product = await Product.findByPk(req.params.id, {
-                include: ['brand', 'category'], });
-            if (product) {
-                res.render('products/editProducts', { product });
-            } else {
-                res.render('error404');
-            }
-        },
+// Función para traer datos los productos para editar
+    edit: async (req, res) => {
+        let brands = await Brand.findAll();
+        let categories = await Category.findAll();
+        let product = await Product.findByPk(req.params.id, {
+            include: ['brand', 'category'], });
+        if (product) {
+            res.render('products/editProducts', { product, brands, categories });
+        } else {
+            res.render('error404');
+        }
+    },
         
-// // Función para actualizar información editada de los producto
-//     update: (req, res) => {
-//         let  product = req.body;
-//         product.id = req.params.id;
-//         product.image = req.file ? req.file.filename : req.body.old_image;
-//         if (req.body.image===undefined) {
-//             product.image = req.body.old_image
-//         }
-//         delete product.oldImage;
-//         productsModel.update(product);
-//         res.redirect("/products/productDetail/" + req.params.id);
-//     }, 
+// Función para actualizar información editada de los producto
+    update: (req, res) => {
+        let product = req.body;
+        product.id = req.params.id;
+        //product.image = req.file ? req.file.filename : req.body.old_image;
+        // if (req.body.image===undefined) {
+        //     product.image = req.body.old_image
+        // }
+        // delete product.oldImage;
+        try {    
+            Product.update({
+                id: req.params.id,
+                name: req.body.name,
+                model: req.body.model,
+                description: req.body.description,
+                specs: req.body.specs,
+                keywords: req.body.keywords,
+                price: req.body.price,
+                discount: req.body.discount,
+                stock: req.body.stock,
+                stockMin: req.body.stockMin,
+                stockMax: req.body.stockMax,
+                categoryId: req.body.category,
+                brandId: req.body.brand
+            }, {
+                where: {id: req.params.id}
+            })
+            
+            res.redirect("/products/productDetail/" + req.params.id);
+        
+        } catch (error) {
+            res.send(error)
+        }
+        
+    }, 
+
+
 
 // // Función para guardar y mostrar el carrito de compras
 //     cart: (req, res) => {

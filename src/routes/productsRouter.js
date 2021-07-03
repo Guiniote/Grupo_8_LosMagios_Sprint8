@@ -23,9 +23,9 @@ router.post('/store', uploadProduct.single('image'), productsController.store);
 
 // Edición de productos
 router.get('/editProducts/:id', productsController.edit);
-// router.post ('/editProducts/:id', uploadProduct.single('image'), validateEditProduct, productsController.update);
-// router.get('/:id', productsController.show);
-// router.delete('/productDetail/:id', productsController.destroy);
+router.post ('/editProducts/:id', uploadProduct.single('image'), /*validateEditProduct,*/ productsController.update);
+router.get('/:id', productsController.show);
+router.delete('/productDetail/:id', productsController.destroy);
 
 
 

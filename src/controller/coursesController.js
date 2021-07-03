@@ -13,7 +13,7 @@ const coursesController = {
     store: (req, res) => {
         const course = req.body;
         course.image = req.file ? req.file.filename : '';
-        course.create(course)
+        Course.create(course)
         .then(result => { 
         res.redirect('/courses/courseList');
         })

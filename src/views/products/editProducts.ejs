@@ -21,21 +21,18 @@
                 <%= errors.name.msg %> 
             </div>
             <% } %>
-            <!-- <label class="form_texto" for="category">Categoría:</label>            
+            <label class="form_texto" for="category">Categoría:</label>            
             <select name="category">
-                <% //categories.forEach(category => { %>
-                    <option value= "<%= //product.categoryId %>"><%=// category.name %></option>                                        
-                <% //}) %>
+                <% categories.forEach(category => { %>
+                    <option value= "<%= category.id %>"><%= category.name %></option>                                        
+                <% }) %>
             </select>   
             <label class="form_texto" for="brand">Marca:</label>
             <select name="brand">
-                <% //brands.forEach(brand => { %>
-                    <option value= "<%= //product.brandId %>"><%= //brand.name %></option>                                        
-                <% //}) %>
-            </select> -->
-            <label class="form_texto" for="brand">Marca:</label>
-            <input class="write_upload" type="text" name="brand" id="brand" value="<%= product.brand.name %>">
-
+                <% brands.forEach(brand => { %>
+                    <option value= "<%= brand.id %>"><%= brand.name %></option>
+                <% }) %>
+            </select>            
             <label class="form_texto" for="model">Modelo:</label>
             <input class="write_upload" type="text" name="model" id="model" value="<%= product.model %>">
             <label class="form_texto" for="description">Descripción:</label>
