@@ -37,7 +37,7 @@
                 </div>
                 <div class="titulo">
                     <h1><%= product.name %></h1>
-                    <h4>Nikon</h4>
+                    <h4><%= product.brand.name %> - <%= product.model %></h4>
                 </div>
                 <div class="informacion">
                     <div class="descripcion">
@@ -46,17 +46,17 @@
                     </div>
                     <div class="especificaciones">
                         <h3>Especificaciones técnicas</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa consequatur ducimus in labore ex esse quo sequi expedita deserunt, odio unde laboriosam aspernatur? Eius suscipit reprehenderit animi. Officia, esse qui?</p>
+                        <p><%= product.specs %></p>
                     </div>
                 </div>
                 <div class="datos_compra">
                     <div class="color_y_precio">
-                        <div class="selector_color">
+                        <!-- <div class="selector_color">
                             <h3>Color:</h3>
                             <div class="selector_color_1"></div>
                             <div class="selector_color_2"></div>
                             <div class="selector_color_3"></div>
-                        </div>
+                        </div> -->
                         <h2 class="precio">$ <%= product.price %></h2>
                     </div>
                     <form class="compra" action="/products/productCart" method="POST">
@@ -74,6 +74,9 @@
                                 <option value="9">9</option>
                                 <option value="10">10</option>
                             </select>
+                        </div>
+                        <div>
+                            <p>Hay <%= product.stock %> unidades en stock</p>
                         </div>   
                         <div class="boton_compra">
                             <button type="submit">Comprar</button>                    

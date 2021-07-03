@@ -10,35 +10,51 @@ const { Op } = require("sequelize");
 const productsController = {
 
 // Función que muestra el formulario de crear Productos
-    create: async (req, res) => {
+    create: async (req, res) => {        
         let brands = await Brand.findAll();
         let categories = await Category.findAll();
         res.render('products/createProducts', { brands, categories });
     },
     
-// // Función que simula el almacenamiento, en este caso en array
-//     store: (req, res) => {
-//         const product = req.body;
-//         product.image = req.file ? req.file.filename : '';
-//         productsModel.create(product);
-//         res.redirect('/products/productList');
-//     },
+// Función que simula el almacenamiento, en este caso en array
     store: async (req, res) => {
         try{
             let productCreated = await Product.create({
-                    name: req.body.name,
-                    model: req.body.model,
-                    description: req.body.description,
-                    specs: req.body.specs,
-                    keywords: req.body.keywords,
-                    price: req.body.price,
-                    discount: req.body.discount,
-                    stock: req.body.stock,
-                    stockMin: req.body.stockMin,
-                    stockMax: req.body.stockMax,
-                    categoryId: req.body.category,
-                    brandId: req.body.brand,
+                name: req.body.name,
+                model: req.body.model,
+                description: req.body.description,
+                specs: req.body.specs,
+                keywords: req.body.keywords,
+                price: req.body.price,
+                discount: req.body.discount,
+                stock: req.body.stock,
+                stockMin: req.body.stockMin,
+                stockMax: req.body.stockMax,
+                categoryId: req.body.category,
+                brandId: req.body.brand
             });
+            
+        //     Switch (expresión) { case valor1: CODIGO; break; case valor2: case valor3: CODIGO; break; default: CODIGO; break; }
+
+
+        //     let images = [];
+        // let imageName = '';
+        // for (let i = 0; i < 5; i++) {
+        //         switch(i) {
+        //             case 0: 
+        //         }
+
+        //     if (i==0) nameImage = req.files.foto[0] ? req.files.foto[0].filename : 'logo-casa-alquiler.jpg';
+        //     if (i==1) nameImage = req.files.foto2[0] ? req.files.foto2[0].filename : 'logo-casa-alquiler.jpg';
+        //     if (i==2) nameImage = req.files.foto3[0] ? req.files.foto3[0].filename : 'logo-casa-alquiler.jpg';
+        //     imagesFiles.push({
+                
+        //         image_name: nameImage
+        //     })
+        // }
+
+        
+        // let images = imageController.bulkCreate(newProperty.id, imagesFiles);
 
             res.redirect('/products/productList');
 
@@ -56,36 +72,18 @@ const productsController = {
             })
         */
 
-/*
-
-
-        const product = req.body;
         
-        //product.image = req.file ? req.file.filename : '';
-        Product.create(req.body)
-            .then(productStored => {                
-                productStored.addCategories(req.body.category); 
-                productStored.addBrands(req.body.brand); 
-                res.redirect('/products/productList');
-            })
-        .catch(error => res.send(error));
-    },  
-    */
-    // const product = await Product.create(req.body)
-    //         //.then(productStored => {                
-    //             await product.addCategories(req.body.category); 
-    //             await product.addBrands(req.body.brand); 
-    //             res.redirect('/products/productList');
 
 // // Función que muestra la información almacenada
-//     show: (req, res) => {
-//         const product = productsModel.find(req.params.id);
-//         if (product) {
-//             res.render('products/productDetail', { product });
-//         } else {
-//             res.render('error404');
-//         }
-//     },
+    show: async (req, res) => {        
+        let product = await Product.findByPk(req.params.id, {
+            include: ['brand'], });            
+        if (product) {            
+            res.render('products/productDetail', { product });
+        } else {
+            res.render('error404');
+        }
+    },
 
 // // Función que borra información almacenada
 //     destroy: (req, res) => {
@@ -94,11 +92,6 @@ const productsController = {
 //     },
 
 //Función para listar los productos
-    // list: (req, res) => {
-    //     const products = productsModel.all();
-    //     res.render('products/productList', { products });
-    //  },
-
     list: async (req, res) => {        
         if (req.query) {            
         const query = req.query;            
@@ -121,6 +114,16 @@ const productsController = {
 //             res.render('error404');
 //         }
 //     },
+
+        edit: async (req, res) => {
+            let product = await Product.findByPk(req.params.id, {
+                include: ['brand', 'category'], });
+            if (product) {
+                res.render('products/editProducts', { product });
+            } else {
+                res.render('error404');
+            }
+        },
         
 // // Función para actualizar información editada de los producto
 //     update: (req, res) => {
