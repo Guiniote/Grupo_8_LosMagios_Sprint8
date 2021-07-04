@@ -35,21 +35,20 @@ const productsController = {
             let imagesForProduct = [];
                                 
 
-            req.body.image1 = req.files[0] ? req.files[0].filename : '';
+            req.body.image1 = req.files['image1'] ? req.files['image1'][0].filename : '';
             imagesForProduct.push({ name: req.body.image1 });            
-            req.body.image2 = req.files[1] ? req.files[1].filename : '';
+            req.body.image2 = req.files['image2'] ? req.files['image2'][0].filename : '';
             imagesForProduct.push({ name: req.body.image2 });
-            req.body.image3 = req.files[2] ? req.files[2].filename : '';
+            req.body.image3 = req.files['image3'] ? req.files['image3'][0].filename : '';
             imagesForProduct.push({ name: req.body.image3 });
-            /*req.body.image4 = req.file[3] ? req.file.filename[3] : '';
-            imagesForProduct.push({ name: req.body.image4 });
-            req.body.image5 = req.file[4] ? req.file.filename[4] : '';
-            imagesForProduct.push({ name: req.body.image5 });*/
+            req.body.image4 = req.files['image4'] ? req.files['image4'][0].filename : '';
+            imagesForProduct.push({ name: req.body.image1 });
+            req.body.image5 = req.files['image5'] ? req.files['image5'][0].filename : '';
+            imagesForProduct.push({ name: req.body.image1 });
 
-                     
+            
             await imagesController.bulkCreate(productCreated.id, imagesForProduct)
 
-        
 
             res.redirect('/products/productList');
 

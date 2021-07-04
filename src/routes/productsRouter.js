@@ -19,7 +19,7 @@ router.get('/productDetail/:id', productsController.show);
 
 // Creación de productos
 router.get('/createProducts', /*userLoggedMiddleware,*/ productsController.create);
-router.post('/store', /*uploadProduct.single('image1'),*/uploadProduct.fields([{name: 'image1'}, {name: 'image2'}, {name: 'image3'}]), productsController.store);
+router.post('/store', /*uploadProduct.single('image1'),*/uploadProduct.fields([{name: 'image1'}, {name: 'image2'}, {name: 'image3'}, {name: 'image4'}, {name: 'image5'}]), productsController.store);
 
 // Edición de productos
 router.get('/editProducts/:id', productsController.edit);
