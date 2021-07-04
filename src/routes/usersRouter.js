@@ -9,6 +9,7 @@ const userGuestMiddleware = require('../middlewares/userGuestMiddleware');
 const userLoggedMiddleware = require('../middlewares/userLoggedMiddleware');
 
 router.get('/', usersController.list);
+router.get('/login', userGuestMiddleware, usersController.login);
 router.get('/register', usersController.add);
 router.get('/profile/:id', usersController.profile);
 router.post('/create', uploadAvatar.single('avatar'), usersController.create);

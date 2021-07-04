@@ -4,6 +4,10 @@ const User = db.User;
 
 const usersController = {
 
+    login: (req, res) => {
+		res.render('users/login');
+	},
+
     list: (req, res) => {
         User.findAll()
         .then(users => {
