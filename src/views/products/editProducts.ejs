@@ -8,6 +8,7 @@
     <%- include('../partials/header') %>
 
     <main>
+        <!-- Borrar esta línea cuando se termine con el CRUD de Productos --> <% locals.isLogged = 1 %>
         <% if (locals.isLogged) { %>
         <form action="/products/editProducts/<%= product.id %>" method="POST" enctype="multipart/form-data">
             <div class="edit">
@@ -20,18 +21,48 @@
                 <%= errors.name.msg %> 
             </div>
             <% } %>
+            <label class="form_texto" for="category">Categoría:</label>            
+            <select name="category">
+                <% categories.forEach(category => { %>
+                    <option value= "<%= category.id %>"><%= category.name %></option>                                        
+                <% }) %>
+            </select>   
+            <label class="form_texto" for="brand">Marca:</label>
+            <select name="brand">
+                <% brands.forEach(brand => { %>
+                    <option value= "<%= brand.id %>"><%= brand.name %></option>
+                <% }) %>
+            </select>            
+            <label class="form_texto" for="model">Modelo:</label>
+            <input class="write_upload" type="text" name="model" id="model" value="<%= product.model %>">
             <label class="form_texto" for="description">Descripción:</label>
             <input class="write_upload" type="text" name="description" id="description" value="<%= product.description %>">
-            <label class="form_texto" for="old_image">Imagen Actual:</label>
-            <input class="write_upload" type="old_image" name="old_image" value="<%= product.image %>">
-            <label class="form_texto" for="image">Nueva imagen:</label>
+            <label class="form_texto" for="specs">Especificaciones Técnicas:</label>
+            <input class="write_upload" type="text" name="specs" id="specs" value="<%= product.specs %>">
+            <label class="form_texto" for="keywords">Palabras clave:</label>
+            <input class="write_upload" type="text" name="keywords" id="keywords" value="<%= product.keywords %>">
+            <!-- <label class="form_texto" for="old_image">Imagen Actual:</label>
+            <input class="write_upload" type="old_image" name="old_image" value="<%= product.image %>"> -->
+            <label class="form_texto" for="image">Imagen 1:</label>
             <input class="write_upload" type="file" name="image" value="<%= product.image %>">
-            <label class="form_texto" for="category">Categoría:</label>
-            <input class="write_upload" type="text" name="category" id="category" value="<%= product.category %>">
-            <label class="form_texto" for="colors">Colores:</label>
-            <input class="write_upload" type="color" name="colors" id="colors" list="listacoloresperfil" value="<%= product.colors %>">
+            <label class="form_texto" for="image2">Imagen 2:</label>
+            <input class="write_upload" type="file" name="image2" value="<%= product.image2 %>">
+            <label class="form_texto" for="image3">Imagen 3:</label>
+            <input class="write_upload" type="file" name="image3" value="<%= product.image3 %>">
+            <label class="form_texto" for="image4">Imagen 4:</label>
+            <input class="write_upload" type="file" name="image4" value="<%= product.image4 %>">
+            <label class="form_texto" for="image5">Imagen 5:</label>
+            <input class="write_upload" type="file" name="image5" value="<%= product.image5 %>">
             <label class="form_texto" for="price">Precio:</label>
             <input class="write_upload" type="text" name="price" id="price" value="<%= product.price %>">
+            <label class="form_texto" for="discount">Descuento:</label>
+            <input class="write_upload" type="text" name="discount" id="discount" value="<%= product.discount %>">
+            <label class="form_texto" for="stock">Stock:</label>
+            <input class="write_upload" type="text" name="stock" id="stock" value="<%= product.stock %>">
+            <label class="form_texto" for="stockMin">Stock Mínimo:</label>
+            <input class="write_upload" type="text" name="stockMin" id="stockMin" value="<%= product.stockMin %>">
+            <label class="form_texto" for="stockMax">Stock Máximo:</label>
+            <input class="write_upload" type="text" name="stockMax" id="stockMax" value="<%= product.stockMax %>">
             <div class="botones_input">
                 <input class="enviaData" type="submit" value="Confirmar Edicion">
             </div>
