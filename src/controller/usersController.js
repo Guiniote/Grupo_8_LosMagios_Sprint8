@@ -1,103 +1,97 @@
-const bcryptjs = require('bcryptjs');
-const { validationResult } = require('express-validator');
-const User = require('../model/usersModel');
+const path = require('path');
+let db = require('../database/models');
+const User = db.User;
+
 const usersController = {
 
-// Función para mostrar el formulario de registro
-	register: (req, res) => {
-		return res.render('users/register');
-	},
+    list: (req, res) => {
+        User.findAll()
+        .then(users => {
+            res.render('users/users.ejs', {users})
+        });
+    },
+    profile: (req, res) =>{
+        let usertId = req.params.id;
+        User.findByPk(usertId)
+            .then(users => {
+               // res.json(product)
+                res.render('users/profile', {users});
+            });
+    },
+    
+    add: (req, res) => {
+        User.findAll()
+        .then(users => {
+            res.render('users/register.ejs', {users})
+        });
+    },
+    create: async (req, res) =>{
+        try{
+            let userCreated = await User.create({
+				firstName: req.body.firstName,
+				surname: req.body.surname,
+				userName: req.body.userName,
+				email: req.body.email,
+				password: req.body.password,
+				avatar: req.body.avatar,
+            })
 
-// Función para registrar un usuario
-processRegister: (req, res) => {
-	const resultValidation = validationResult(req);
+            return res.redirect('/users');
 
-	if (resultValidation.errors.length > 0) {
-		return res.render('users/register', {
-			errors: resultValidation.mapped(),
-			oldData: req.body
-		});
-	}
+        } catch(error) {
+            res.send(error)
+        }
+    },
 
-	let userInDB = User.findByField('email', req.body.email);
+    edit: (req, res) => {
+        let userId = req.params.id;
+        let promUsers = User.findByPk(userId)
 
-	if (userInDB) {
-		return res.render('users/register', {
-			errors: {
-				email: {
-					msg: 'Este email ya está registrado'
-				}
-			},
-			oldData: req.body
-		});
-	}
+        Promise
+        .all([promUsers])
+        .then(([users]) => {
+            return res.render(path.resolve(__dirname, '..', 'views', 'users',  'edit'), {users})
+        })
+        .catch(error => res.send(error))
+    },
+    update: async (req, res) => {
+        try {
+            let user = req.body;
+            user.avatar = req.file ? req.file.filename : req.body.oldAvatar;
+            if (req.file===undefined) {
+                user.avatar = req.body.oldImage
+            } else {
+                user.avatar = req.file.filename 
+            }
+            delete user.oldAvatar;
 
-	let userToCreate = {
-		...req.body,
-		password: bcryptjs.hashSync(req.body.password, 10),
-		avatar: req.file.filename
-	}
+            let userId = req.params.id;
+            const userUpdate = await User.update(
+                {
+                    firstName: req.body.firstName,
+                    surname: req.body.surname,
+                    userName: req.body.userName,
+                    email: req.body.email,
+                    password: req.body.password,
+                    avatar: req.body.avatar,
+                },
+                {
+                    where: {id: userId}
+                }
+            );
+            return res.redirect('/users')
+        } catch (error) {
+            res.send(error)
+        } 
+    },
 
-	let userCreated = User.create(userToCreate);
-
-	return res.redirect('login');
-},
-
-// Función para mostrar formulario de login
-	login: (req, res) => {
-		res.render('users/login');
-	},
-
-// Función para loguear un usuario
-	loginProcess: (req, res) => {
-		let userToLogin = User.findByField('email', req.body.email);
-		if(userToLogin) {
-			let isOkThePassword = bcryptjs.compareSync(req.body.password, userToLogin.password);
-			if (isOkThePassword) {
-				delete userToLogin.password;
-				req.session.userLogged = userToLogin;
-				if(req.body.remember_me) {
-					res.cookie('userEmail', req.body.email, { maxAge: (1000 * 60) * 5 })
-				}
-				return res.redirect('/users/profile');
-			}			
-		}
-		return res.render('users/login', {
-			errors: {
-				email: {
-					msg: 'Las credenciales son inválidas'
-				}
-			}
-		});
-	},
-
-// Función para mostrar página de perfil
-	profile: (req, res) => {
-		return res.render('users/profile', {
-			user: req.session.userLogged
-		});
-	},
-
-// Función para desloguearse
-	logout: (req, res) => {
-		res.clearCookie('userEmail');
-		req.session.destroy();
-		return res.redirect('/');
-	},
-	
-	edit: (req,res) => {
-		let userId = req.params.id;
-		let promUser= User.findByPk(userId);
-		Promise
-		.all([userId])
-		.then((promUser) => {
-			return res.render(path.resolve(__dirname, '..', 'views',  'editUser'),{user})
-		.catch (error => res.send(error))
-		})
-
-	}
+    destroy: (req, res) =>{
+        let userId = req.params.id;
+        User.destroy({where: {id: userId}, force: true})
+        .then(()=>{
+            return res.redirect('/users')})
+        .catch(error => res.send(error)) 
+    }
 }
-
-
 
 module.exports = usersController;

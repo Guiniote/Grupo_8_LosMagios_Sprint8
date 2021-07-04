@@ -8,6 +8,15 @@ const {validateRegister} = require('../middlewares/validationsMiddleware');
 const userGuestMiddleware = require('../middlewares/userGuestMiddleware');
 const userLoggedMiddleware = require('../middlewares/userLoggedMiddleware');
 
+router.get('/', usersController.list);
+router.get('/register', usersController.add);
+router.get('/profile/:id', usersController.profile);
+router.post('/create', uploadAvatar.single('avatar'), usersController.create);
+router.get('/edit/:id', usersController.edit);
+router.put('/update/:id', uploadAvatar.single('avatar'), usersController.update);
+router.delete('/delete/:id', usersController.destroy); 
+
+/* OLDIE BUT GOLDIE
 // Formulario de registro
 router.get('/register', userGuestMiddleware, usersController.register);
 router.post('/register', uploadAvatar.single('avatar'), validateRegister, usersController.processRegister);
@@ -22,7 +31,7 @@ router.get('/logout', usersController.logout);
 
 // Página de perfil
 router.get('/profile', userLoggedMiddleware, usersController.profile);
-
+*/
 
 
 
