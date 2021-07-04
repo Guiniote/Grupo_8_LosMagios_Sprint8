@@ -1,5 +1,6 @@
 const { Product, Brand, Category } = require('../database/models');
 const { Op } = require("sequelize");
+const imagesController = require('./imagesController');
 
 
 
@@ -29,28 +30,26 @@ const productsController = {
                 categoryId: req.body.category,
                 brandId: req.body.brand
             });
-            
-        //     Switch (expresión) { case valor1: CODIGO; break; case valor2: case valor3: CODIGO; break; default: CODIGO; break; }
 
 
-        //     let images = [];
-        // let imageName = '';
-        // for (let i = 0; i < 5; i++) {
-        //         switch(i) {
-        //             case 0: 
-        //         }
+            let imagesForProduct = [];
+                                
 
-        //     if (i==0) nameImage = req.files.foto[0] ? req.files.foto[0].filename : 'logo-casa-alquiler.jpg';
-        //     if (i==1) nameImage = req.files.foto2[0] ? req.files.foto2[0].filename : 'logo-casa-alquiler.jpg';
-        //     if (i==2) nameImage = req.files.foto3[0] ? req.files.foto3[0].filename : 'logo-casa-alquiler.jpg';
-        //     imagesFiles.push({
-                
-        //         image_name: nameImage
-        //     })
-        // }
+            req.body.image1 = req.files[0] ? req.files[0].filename : '';
+            imagesForProduct.push({ name: req.body.image1 });            
+            req.body.image2 = req.files[1] ? req.files[1].filename : '';
+            imagesForProduct.push({ name: req.body.image2 });
+            req.body.image3 = req.files[2] ? req.files[2].filename : '';
+            imagesForProduct.push({ name: req.body.image3 });
+            /*req.body.image4 = req.file[3] ? req.file.filename[3] : '';
+            imagesForProduct.push({ name: req.body.image4 });
+            req.body.image5 = req.file[4] ? req.file.filename[4] : '';
+            imagesForProduct.push({ name: req.body.image5 });*/
+
+                     
+            await imagesController.bulkCreate(productCreated.id, imagesForProduct)
 
         
-        // let images = imageController.bulkCreate(newProperty.id, imagesFiles);
 
             res.redirect('/products/productList');
 
@@ -59,14 +58,7 @@ const productsController = {
         }
     }, 
 
-        /*Ver si esto anda:
-        let imagesCreated = await Image.create (
-                {
-                name: req.file.filename,
-                productId: productCreated.id
-                
-            })
-        */
+       
 
         
 

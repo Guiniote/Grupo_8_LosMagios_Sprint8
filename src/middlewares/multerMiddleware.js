@@ -14,6 +14,7 @@ const storageProduct = multer.diskStorage({
 
 const uploadProduct = multer({ storage: storageProduct });
 
+
 const storageAvatar = multer.diskStorage({
 	destination: path.resolve(__dirname, '../../public/images/avatars'),
 
@@ -24,6 +25,7 @@ const storageAvatar = multer.diskStorage({
 })
 
 const uploadAvatar= multer({ storage: storageAvatar });
+
 
 const storageService = multer.diskStorage({
 	destination: path.resolve(__dirname, '../../public/images'), 
@@ -36,6 +38,7 @@ const storageService = multer.diskStorage({
 
 const uploadService = multer({ storage: storageService });
 
+
 const storageCourse = multer.diskStorage({
 	destination: path.resolve(__dirname, '../../public/images'), 
 	
@@ -46,6 +49,7 @@ const storageCourse = multer.diskStorage({
 })
 
 const uploadCourse = multer({ storage: storageCourse });
+
 
 
 
