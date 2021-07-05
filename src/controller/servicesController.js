@@ -44,7 +44,7 @@ const servicesController = {
         const serviceNameKeyword = query.service_name ? query.service_name: '';
         let services = await Service.findAll({
             where: { name: { [Op.substring]: serviceNameKeyword }} 
-        });
+        });        
         return res.render('services/serviceList', { services });
     } else {
         let services = await Service.findAll();        

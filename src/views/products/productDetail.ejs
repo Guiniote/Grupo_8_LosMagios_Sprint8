@@ -26,13 +26,15 @@
             <article>               
                 <div class="imagenes">
                     <div class="img_principal">
-                        <img src="/images/<%= product.image %>" alt="Foto artículo 1" width="100%">
+                        
+                        <img src="/images/<%= product.images[0].name %>" alt="Foto artículo 1" width="100%">
                     </div>                    
-                    <div class="img_secundarias">
-                        <img src="/images/Nikon_2.png" alt="Foto artículo 2" width="100%">
-                        <img src="/images/Nikon_3.png" alt="Foto artículo 3" width="100%">
-                        <img src="/images/Nikon_4.png" alt="Foto artículo 4" width="100%">
-                        <img src="/images/Nikon_5.png" alt="Foto artículo 5" width="100%">
+                    <div class="img_secundarias">                        
+                        <% for (let i = 1; i < 5; i++) { %>
+                            <% if (product.images[i].name != '') { %>
+                                <img src="/images/<%= product.images[i].name %>" alt="Foto artículo <%= i+1 %>" width="100%">
+                            <% } %>
+                        <% } %>
                     </div>
                 </div>
                 <div class="titulo">

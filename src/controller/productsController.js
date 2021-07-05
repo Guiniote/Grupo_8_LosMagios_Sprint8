@@ -1,4 +1,4 @@
-const { Product, Brand, Category } = require('../database/models');
+const { Product, Brand, Category, Image } = require('../database/models');
 const { Op } = require("sequelize");
 const imagesController = require('./imagesController');
 
@@ -13,6 +13,7 @@ const productsController = {
         res.render('products/createProducts', { brands, categories });
     },
     
+
 // Función que simula el almacenamiento, en este caso en array
     store: async (req, res) => {
         try{
@@ -31,9 +32,7 @@ const productsController = {
                 brandId: req.body.brand
             });
 
-
-            let imagesForProduct = [];
-                                
+            let imagesForProduct = [];                                
 
             req.body.image1 = req.files['image1'] ? req.files['image1'][0].filename : '';
             imagesForProduct.push({ name: req.body.image1 });            
@@ -42,13 +41,11 @@ const productsController = {
             req.body.image3 = req.files['image3'] ? req.files['image3'][0].filename : '';
             imagesForProduct.push({ name: req.body.image3 });
             req.body.image4 = req.files['image4'] ? req.files['image4'][0].filename : '';
-            imagesForProduct.push({ name: req.body.image1 });
+            imagesForProduct.push({ name: req.body.image4 });
             req.body.image5 = req.files['image5'] ? req.files['image5'][0].filename : '';
-            imagesForProduct.push({ name: req.body.image1 });
-
+            imagesForProduct.push({ name: req.body.image5 });
             
             await imagesController.bulkCreate(productCreated.id, imagesForProduct)
-
 
             res.redirect('/products/productList');
 
@@ -57,14 +54,11 @@ const productsController = {
         }
     }, 
 
-       
 
-        
-
-// // Función que muestra la información almacenada
+// Función que muestra la información almacenada
     show: async (req, res) => {        
         let product = await Product.findByPk(req.params.id, {
-            include: ['brand'], });            
+            include: ['brand', 'images'], });            
         if (product) {            
             res.render('products/productDetail', { product });
         } else {
@@ -72,48 +66,71 @@ const productsController = {
         }
     },
 
+
 // Función que borra información almacenada
-    destroy: async (req, res) => {
-        await Product.destroy({ where: {id: req.params.id}});        
-        res.redirect('/products/productList');
+    destroy: async (req, res) => {        
+        await Image.destroy({             
+            where: {productId: req.params.id}});  
+        await Product.destroy({             
+            where: {id: req.params.id}});        
+        res.redirect('/products/productList');        
     },
+
 
 //Función para listar los productos
     list: async (req, res) => {        
         if (req.query) {            
         const query = req.query;            
         const productNameKeyword = query.product_name ? query.product_name: '';
-        let products = await Product.findAll({
+        let products = await Product.findAll({ 
+            include: ['images']}, {
             where: { name: { [Op.substring]: productNameKeyword }} 
-        });
+        });        
         return res.render('products/productList', { products });
     } else {
-        let products = await Product.findAll();        
+        let products = await Product.findAll({ 
+            include: ['images'] 
+        });        
         return res.render('products/productList', { products });
     }},
+
 
 // Función para traer datos los productos para editar
     edit: async (req, res) => {
         let brands = await Brand.findAll();
         let categories = await Category.findAll();
         let product = await Product.findByPk(req.params.id, {
-            include: ['brand', 'category'], });
+            include: ['brand', 'category', 'images'], });
         if (product) {
             res.render('products/editProducts', { product, brands, categories });
         } else {
             res.render('error404');
         }
     },
+
         
 // Función para actualizar información editada de los producto
     update: (req, res) => {
         let product = req.body;
         product.id = req.params.id;
-        //product.image = req.file ? req.file.filename : req.body.old_image;
+        
+        // product.image1 = req.file ? req.file.filename : req.body.old_image;
         // if (req.body.image===undefined) {
-        //     product.image = req.body.old_image
+        //      product.image = req.body.old_image
         // }
         // delete product.oldImage;
+
+        // product.image1 = req.file ? req.file.filename : req.body.old_image;
+        // if (req.body.image1===undefined) {
+        //      product.image = req.body.old_image
+        // }
+        
+
+        // product.images[0].name
+
+        // req.body.image1 = req.files['image1'] ? req.files['image1'][0].filename : '';
+        // imagesForProduct.push({ name: req.body.image1 });  
+
         try {    
             Product.update({
                 id: req.params.id,
