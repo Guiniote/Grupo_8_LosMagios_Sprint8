@@ -22,8 +22,8 @@
                     <div class="row m-l-0 m-r-0">
                         <div class="col-sm-4 bg-c-lite-green user-profile">
                             <div class="card-block text-center text-white">
-                                <div class="m-b-25"> <img src="/images/avatars/<%= locals.userLogged.avatar %>" class="img-radius" alt="User-Profile-Image"> </div>
-                                <h6 class="f-w-600"><%= user.firstName+' '+user.lastName %></h6>
+                                <div class="m-b-25"> <img src="/images/avatars/<%= user.avatar %>" class="img-radius" alt="User-Profile-Image"> </div>
+                                <h6 class="f-w-600"><%= user.firstName+' '+user.surname %></h6>
                                 <p>Fana de los magios</p> <i class=" mdi mdi-square-edit-outline feather icon-edit m-t-10 f-16"></i>
                             </div>
                         </div>
@@ -35,6 +35,11 @@
                                         <p class="m-b-10 f-w-600">Email</p>
                                         <h6 class="text-muted f-w-400"><%= user.email %></h6>
                                     </div>
+            <!--Boton solo para probar el logout pq no pude arreglar el navbar -->
+            <button type="button">
+            <a class="botonModificar" href="logout">Logout</a> 
+            </button>
+
 
                                     <!-- Dejo este codigo para cuando agreguemos mas campos.
                                         <div class="col-sm-6">

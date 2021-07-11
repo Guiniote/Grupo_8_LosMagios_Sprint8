@@ -1,21 +1,21 @@
 const express = require('express');
 const router = express.Router();
-const usersController = require('../controller/usersController');
+const userController = require('../controller/usersController');
 
 // Middlewares
 const {uploadAvatar} = require('../middlewares/multerMiddleware');
-const {validateRegister} = require('../middlewares/validationsMiddleware');
+const {validateRegister, validateLogin} = require('../middlewares/validationsMiddleware');
 const userGuestMiddleware = require('../middlewares/userGuestMiddleware');
 const userLoggedMiddleware = require('../middlewares/userLoggedMiddleware');
 
-router.get('/', usersController.list);
-router.get('/login', userGuestMiddleware, usersController.login);
-router.get('/register', usersController.add);
-router.get('/profile/:id', usersController.profile);
-router.post('/create', uploadAvatar.single('avatar'), usersController.create);
-router.get('/edit/:id', usersController.edit);
-router.put('/update/:id', uploadAvatar.single('avatar'), usersController.update);
-router.delete('/delete/:id', usersController.destroy); 
+
+router.get('/login', userGuestMiddleware, userController.login);
+router.post('/login', validateLogin, userController.loginProcess); 
+router.get('/profile', userLoggedMiddleware, userController.profile);
+router.delete('/delete/:id', userController.destroy);
+router.get('/register', userGuestMiddleware, userController.register); 
+router.post('/register', uploadAvatar.single('avatar'), validateRegister, userController.registerProcess);
+router.get('/logout/', userController.logout);
 
 /* OLDIE BUT GOLDIE
 // Formulario de registro
