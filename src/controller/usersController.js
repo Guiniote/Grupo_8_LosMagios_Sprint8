@@ -47,7 +47,7 @@ const usersController = {
         /*let usertId = req.params.id;
         User.findByPk(usertId)
             .then(users => {
-                
+               // res.json(product)
                 res.render('users/profile', {users});
             });*/
             //console.log(req.session.userLogged.avatar);

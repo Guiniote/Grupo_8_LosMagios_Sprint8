@@ -39,7 +39,13 @@
           <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
             <ul class="navbar-nav me-auto mb-lg-0">
               <ul class="navbar-nav align-items-center">                  
-                <% if (locals.isLogged) { %>                  
+                <% if (locals) { %>
+                  <% console.log("ACÁ HAY LOCALS!!!") %>
+                  <% console.log(locals) %>
+                  <% } %> 
+                <% if (locals.isLogged) { %>
+                  <% console.log(locals.isLogged) %>
+                  <% console.log(locals.userLogged.userName) %>
                   <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="dropUser" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                       <img src="/images/avatars/<%= locals.userLogged.avatar %>" width="40px" style="border-radius: 100%;">
@@ -51,7 +57,8 @@
                       <a class="dropdown-item" href="/users/logout">Logout</a>
                     </ul>
                   </li>
-
+                <% } else { %>
+                  <li class="nav-item"><a class="nav-link" href="/users/login">Login</a></li>
                 <% } %>
               </ul>
             </ul>
