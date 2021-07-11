@@ -23,7 +23,7 @@ router.post('/store', /*uploadProduct.single('image1'),*/uploadProduct.fields([{
 
 // Edición de productos
 router.get('/editProducts/:id', productsController.edit);
-router.post ('/editProducts/:id', uploadProduct.single('image'), /*validateEditProduct,*/ productsController.update);
+router.post ('/editProducts/:id', uploadProduct.fields([{name: 'image1'}, {name: 'image2'}, {name: 'image3'}, {name: 'image4'}, {name: 'image5'}]), /*validateEditProduct,*/ productsController.update);
 router.get('/:id', productsController.show);
 router.delete('/productDetail/:id', productsController.destroy);
 

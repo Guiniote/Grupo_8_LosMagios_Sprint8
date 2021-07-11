@@ -1,5 +1,11 @@
 function userLoggedMiddleware(req, res, next) {
-	if (!req.session.userLogged) {
+	res.locals.isLogged = false;
+	if (req.session.userLogged) {
+		res.locals.isLogged = true;
+		res.locals.userLogged = req.session.userLogged;
+	} else {
+
+	//if (!req.session.userLogged) {
 		return res.redirect('/users/login');
 	}
 	next();

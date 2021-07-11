@@ -9,21 +9,21 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       userName: {
-        allowNull: true,
-        type: Sequelize.STRING
-      },
-      firstName: {
-        allowNull: true,
-        type: Sequelize.STRING
-      },
-      surname: {
-        allowNull: true,
+        allowNull: false,
         type: Sequelize.STRING
       },
       password: {
-        allowNull: true,
+        allowNull: false,
         type: Sequelize.STRING
       },
+      firstName: {
+        allowNull: false,
+        type: Sequelize.STRING
+      },
+      surname: {
+        allowNull: false,
+        type: Sequelize.STRING
+      },      
       address: {
         type: Sequelize.STRING
       },
