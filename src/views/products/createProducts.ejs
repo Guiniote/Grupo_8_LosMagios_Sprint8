@@ -14,13 +14,13 @@
             <label class="form_texto" for="name">Nombre:</label>
             <input class="write_upload" type="text" name="name" id="name">
             <label class="form_texto" for="category">Categoría:</label>            
-            <select name="category">
+            <select class="write_upload"  name="category">
                 <% categories.forEach(category => { %>
                     <option value= "<%= category.id %>"><%= category.name %></option>                                        
                 <% }) %>
             </select>   
             <label class="form_texto" for="brand">Marca:</label>
-            <select name="brand">
+            <select class="write_upload" name="brand">
                 <% brands.forEach(brand => { %>
                     <option value= "<%= brand.id %>"><%= brand.name %></option>                                        
                 <% }) %>
