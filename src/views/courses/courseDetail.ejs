@@ -31,12 +31,12 @@
                 </div>
                 <div class="titulo">
                     <h1><%= course.name %></h1>
-                    <h4>Nikon</h4>
+                    <h4>Curso de un máximo de <%= course.initialCapacity %> personas</h4>
                 </div>
                 <div class="informacion">
                     <div class="descripcion">
                         <h3>Descripcion</h3>
-                        <p><%= course.description %></p>
+                        <p><%= course.description %></p>                        
                     </div>                    
                 </div>
                 <div class="datos_compra">
@@ -58,6 +58,11 @@
                                 <option value="9">9</option>
                                 <option value="10">10</option>
                             </select>
+                            <br>
+                            <br>
+                            <div>
+                                <p>Quedan <%= course.actualCapacity %> lugares!</p>
+                            </div>   
                         </div>   
                         <div class="boton_compra">
                             <button type="submit">Comprar</button>                    
