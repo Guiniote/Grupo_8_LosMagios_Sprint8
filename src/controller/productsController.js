@@ -60,7 +60,7 @@ const productsController = {
         let product = await Product.findByPk(req.params.id, {
             include: ['brand', 'images'], });            
         if (product) {            
-            res.render('products/productDetail', { product, });
+            res.render('products/productDetail', { product });
         } else {
             res.render('error404');
         }
@@ -102,7 +102,7 @@ const productsController = {
         let product = await Product.findByPk(req.params.id, {
             include: ['brand', 'category', 'images'], });
         if (product) {
-            res.render('products/editProducts', { product, brands, categories, });
+            res.render('products/editProducts', { product, brands, categories });
         } else {
             res.render('error404');
         }
