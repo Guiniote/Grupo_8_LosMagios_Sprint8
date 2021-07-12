@@ -21,18 +21,44 @@
                 <%= errors.name.msg %> 
             </div>
             <% } %>
+           
             <label class="form_texto" for="category">Categoría:</label>            
-            <select name="category">
-                <% categories.forEach(category => { %>
-                    <option value= "<%= category.id %>"><%= category.name %></option>                                        
-                <% }) %>
-            </select>   
+            <select class="write_upload"  name="category">
+                <% for (let i = 0; i < categories.length; i++) {%>
+                    <% if (categories[i].id == product.categoryId) {%>
+                        <option value="<%=categories[i].id%>" selected>
+                            <%= categories[i].name%>
+                    </option>
+                    <% } else {%>
+                        <option value = "<%= categories [i].id%>">
+                            <%=categories [i].name%>
+            </option>
+                        <%} %>
+                        <%} %>
+            </select>
+
+
+
             <label class="form_texto" for="brand">Marca:</label>
-            <select name="brand">
-                <% brands.forEach(brand => { %>
-                    <option value= "<%= brand.id %>"><%= brand.name %></option>
-                <% }) %>
-            </select>            
+            <select class="write_upload"  name="brand">
+                <% for (let i = 0; i < brands.length; i++) {%>
+                    <% if (brands[i].id == product.brandId) {%>
+                        <option value="<%=brands[i].id%>" selected>
+                            <%= brands[i].name%>
+                    </option>
+                    <% } else {%>
+                        <option value = "<%= brands [i].id%>">
+                            <%=brands[i].name%>
+            </option>
+                        <%} %>
+                        <%} %>
+            </select>
+                        
+            
+            
+            
+            
+            
             <label class="form_texto" for="model">Modelo:</label>
             <input class="write_upload" type="text" name="model" id="model" value="<%= product.model %>">
             <label class="form_texto" for="description">Descripción:</label>
@@ -41,8 +67,8 @@
             <input class="write_upload" type="text" name="specs" id="specs" value="<%= product.specs %>">
             <label class="form_texto" for="keywords">Palabras clave:</label>
             <input class="write_upload" type="text" name="keywords" id="keywords" value="<%= product.keywords %>">
-            <!-- <label class="form_texto" for="old_image">Imagen Actual:</label>
-            <input class="write_upload" type="old_image" name="old_image" value="<%= product.image %>"> -->
+             <label class="form_texto" for="old_image">Imagen Actual:</label>
+            <input class="write_upload" type="old_image" name="old_image" value="<%= product.image %>"> 
             <label class="form_texto" for="image1">Imagen 1:</label>            
             <input class="write_upload" type="file" name="image1" value="<%= product.images[0].name %>">
             <label class="form_texto" for="image2">Imagen 2:</label>
@@ -53,7 +79,7 @@
             <input class="write_upload" type="file" name="image4" value="<%= product.images[3].name %>">
             <label class="form_texto" for="image5">Imagen 5:</label>
             <input class="write_upload" type="file" name="image5" value="<%= product.images[4].name %>">
-            <label class="form_texto" for="price">Precio:</label>
+            <label class="form_texto" for="price">Precio:</label> 
             <input class="write_upload" type="text" name="price" id="price" value="<%= product.price %>">
             <label class="form_texto" for="discount">Descuento:</label>
             <input class="write_upload" type="text" name="discount" id="discount" value="<%= product.discount %>">

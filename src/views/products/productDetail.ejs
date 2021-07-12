@@ -30,9 +30,9 @@
                         <img src="/images/<%= product.images[0].name %>" alt="Foto artículo 1" width="100%">
                     </div>                    
                     <div class="img_secundarias">                        
-                        <% for (let i = 1; i < 5; i++) { %>
-                            <% if (product.images[i].name != '') { %>
-                                <img src="/images/<%= product.images[i].name %>" alt="Foto artículo <%= i+1 %>" width="100%">
+                        <% for (let i = 1; i <= 5; i++) { %>
+                            <% if (product.images[i] != "") { %>
+                                <img src="/images/<%= product.images[i] %>" alt="Foto artículo <%= i+1 %>" width="100%">
                             <% } %>
                         <% } %>
                     </div>
