@@ -8,7 +8,6 @@
     <%- include('../partials/header') %>
 
     <main>
-        <!-- Borrar esta línea cuando se termine con el CRUD de Servicios --> <% locals.isLogged = 1 %>
         <% if (locals.isLogged) { %>
         <form action="/services/editServices/<%= service.id %>" method="POST" enctype="multipart/form-data">
             <div class="edit">

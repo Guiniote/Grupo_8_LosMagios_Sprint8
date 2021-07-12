@@ -7,8 +7,7 @@
 <body>
     <%- include('../partials/header') %>
 
-    <main>
-        <!-- Borrar esta línea esto cuando se termine con el CRUD de Cursos --> <% locals.isLogged = 1 %>
+    <main>        
         <% if (locals.isLogged) { %>
         <form action="/courses/editCourses/<%= course.id %>" method="POST" enctype="multipart/form-data">
             <div class="edit">
