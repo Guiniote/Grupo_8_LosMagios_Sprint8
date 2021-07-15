@@ -35,15 +35,15 @@ const productsController = {
             let imagesForProduct = [];                                
 
             req.body.image1 = req.files['image1'] ? req.files['image1'][0].filename : '';
-            imagesForProduct.push({ name: req.body.image1 });            
+            req.body.image1 != '' ? imagesForProduct.push({ name: req.body.image1 }) : '';
             req.body.image2 = req.files['image2'] ? req.files['image2'][0].filename : '';
-            imagesForProduct.push({ name: req.body.image2 });
+            req.body.image2 != '' ? imagesForProduct.push({ name: req.body.image2 }) : '';
             req.body.image3 = req.files['image3'] ? req.files['image3'][0].filename : '';
-            imagesForProduct.push({ name: req.body.image3 });
+            req.body.image3 != '' ? imagesForProduct.push({ name: req.body.image3 }) : '';
             req.body.image4 = req.files['image4'] ? req.files['image4'][0].filename : '';
-            imagesForProduct.push({ name: req.body.image4 });
+            req.body.image4 != '' ? imagesForProduct.push({ name: req.body.image4 }) : '';
             req.body.image5 = req.files['image5'] ? req.files['image5'][0].filename : '';
-            imagesForProduct.push({ name: req.body.image5 });
+            req.body.image5 != '' ? imagesForProduct.push({ name: req.body.image5 }) : '';
             
             await imagesController.bulkCreate(productCreated.id, imagesForProduct)
 
@@ -110,27 +110,75 @@ const productsController = {
 
         
 // Función para actualizar información editada de los producto
-    update: (req, res) => {
+    update: async (req, res) => {
+        //console.log(req.body)
         let product = req.body;
+        let imagesOnProduct = [];
         product.id = req.params.id;
         
-        // product.image1 = req.file ? req.file.filename : req.body.old_image;
-        // if (req.body.image===undefined) {
-        //      product.image = req.body.old_image
-        // }
-        // delete product.oldImage;
-
-        // product.image1 = req.file ? req.file.filename : req.body.old_image;
-        // if (req.body.image1===undefined) {
-        //      product.image = req.body.old_image
-        // }
+        if (req.body.old_image0) {
+            product.image1 = req.body.old_image0;
+        } else if (req.files['image1']) {
+            product.image1 = req.files['image1'][0].filename;
+        } else {
+            product.image1 = ''
+        }
+        imagesOnProduct.push({ name: product.image1 });
         
+        if (req.body.old_image1) {
+            product.image2 = req.body.old_image1;
+        } else if (req.files['image2']) {
+            product.image2 = req.files['image2'][0].filename;
+        } else {
+            product.image2 = ''
+        }
+        imagesOnProduct.push({ name: product.image2 });
 
-        // product.images[0].name
+        if (req.body.old_image2) {
+            product.image3 = req.body.old_image2;
+        } else if (req.files['image3']) {
+            product.image3 = req.files['image3'][0].filename;
+        } else {
+            product.image3 = ''
+        }
+        imagesOnProduct.push({ name: product.image3 });
+        
+        if (req.body.old_image3) {
+            product.image4 = req.body.old_image3;
+        } else if (req.files['image4']) {
+            product.image4 = req.files['image4'][0].filename;
+        } else {
+            product.image4 = ''
+        }
+        imagesOnProduct.push({ name: product.image4 });
+        
+        if (req.body.old_image4) {
+            product.image5 = req.body.old_image4;
+        } else if (req.files['image5']) {
+            product.image5 = req.files['image5'][0].filename;
+        } else {
+            product.image5 = ''
+        }
+        imagesOnProduct.push({ name: product.image5 });
 
-        // req.body.image1 = req.files['image1'] ? req.files['image1'][0].filename : '';
-        // imagesForProduct.push({ name: req.body.image1 });  
+         
+        
+        
+        // imagesOnProduct.push({ name: product.image1 });
+        // product.image2 = req.body.old_image1 ? req.body.old_image1 : req.body.image1;
+        // imagesOnProduct.push({ name: product.image2 });
+        // product.image3 = req.body.old_image2 ? req.body.old_image2 : req.body.image2;
+        // imagesOnProduct.push({ name: product.image3 });
+        // product.image4 = req.body.old_image3 ? req.body.old_image3 : req.body.image3;
+        // imagesOnProduct.push({ name: product.image4 });
+        // product.image5 = req.body.old_image4 ? req.body.old_image4 : req.body.image4;
+        // imagesOnProduct.push({ name: product.image5 });
+        //console.log(product);
+        //console.log(imagesOnProduct);
+        
+        //await imagesController.update(product.id, imagesOnProduct);
 
+        //console.log("TERMINÓ");
         try {    
             Product.update({
                 id: req.params.id,
@@ -149,6 +197,8 @@ const productsController = {
             }, {
                 where: {id: req.params.id}
             })
+
+            imagesController.update(product.id, imagesOnProduct);
             
             res.redirect("/products/productDetail/" + req.params.id);
         

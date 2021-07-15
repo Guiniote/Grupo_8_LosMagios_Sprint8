@@ -66,17 +66,33 @@
             <label class="form_texto" for="keywords">Palabras clave:</label>
             <input class="write_upload" type="text" name="keywords" id="keywords" value="<%= product.keywords %>">
             <!-- <label class="form_texto" for="old_image">Imagen Actual:</label>
-            <input class="write_upload" type="old_image" name="old_image" value="<%= product.image %>">  -->
-            <label class="form_texto" for="image1">Imagen 1:</label>            
-            <input class="write_upload" type="file" name="image1" value="<%= product.images[0].name %>">
+            <input class="write_upload" type="old_image" name="old_image" value="<%= product.images[0].name %>">  -->
+            <!-- <form class="form is-inline" action="/products/productDetail/<%= product.id %>?_method=DELETE" method="POST"> -->
+            <div class="img_secundarias">                        
+                <% for (let i = 0; i < product.images.length; i++) { %>
+                    <% if (product.images[i].name != '') { %>
+                        <img src="/images/<%= product.images[i].name %>" alt="Foto artículo <%= i+1 %>" width="10%">
+                        <input type="checkbox" name="old_image<%= i %>" value="<%= product.images[i].name %>" checked>
+                        <!-- <p>Imagen //<%= i+1 %></p> -->
+                        <!-- <input class="borrarFoto" type="submit" value="borrar"> -->
+                    <% } %>
+                <% } %>
+            </div>
+            <!-- </form> -->
+            <% for (let i = 1; i <= 5; i++) { %>
+                <label class="form_texto" for="image<%= i %>">Imagen <%= i %>:</label>            
+                <input class="write_upload" type="file" name="image<%= i %>">
+            <% } %>
+            <!-- <label class="form_texto" for="image1">Imagen 1:</label>            
+            <input class="write_upload" type="file" name="image1">
             <label class="form_texto" for="image2">Imagen 2:</label>
-            <input class="write_upload" type="file" name="image2" value="<%= product.images[1].name %>">
+            <input class="write_upload" type="file" name="image2">
             <label class="form_texto" for="image3">Imagen 3:</label>
-            <input class="write_upload" type="file" name="image3" value="<%= product.images[2].name %>">
+            <input class="write_upload" type="file" name="image3">
             <label class="form_texto" for="image4">Imagen 4:</label>
-            <input class="write_upload" type="file" name="image4" value="<%= product.images[3].name %>">
+            <input class="write_upload" type="file" name="image4">
             <label class="form_texto" for="image5">Imagen 5:</label>
-            <input class="write_upload" type="file" name="image5" value="<%= product.images[4].name %>">
+            <input class="write_upload" type="file" name="image5"> -->
             <label class="form_texto" for="price">Precio:</label> 
             <input class="write_upload" type="text" name="price" id="price" value="<%= product.price %>">
             <label class="form_texto" for="discount">Descuento:</label>

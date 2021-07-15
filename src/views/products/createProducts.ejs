@@ -33,7 +33,11 @@
             <input class="write_upload" type="text" name="specs" id="specs">
             <label class="form_texto" for="keywords">Palabras clave:</label>
             <input class="write_upload" type="text" name="keywords" id="keywords">
-            <label class="form_texto" for="image1">Imagen 1:</label>
+            <% for (let i = 1; i <= 5; i++) { %>
+                <label class="form_texto" for="image<%= i %>">Imagen <%= i %>:</label>            
+                <input class="write_upload" type="file" name="image<%= i %>">
+            <% } %>
+            <!-- <label class="form_texto" for="image1">Imagen 1:</label>
             <input class="write_upload" type="file" name="image1">
             <label class="form_texto" for="image2">Imagen 2:</label>
             <input class="write_upload" type="file" name="image2">
@@ -42,7 +46,7 @@
             <label class="form_texto" for="image4">Imagen 4:</label>
             <input class="write_upload" type="file" name="image4">
             <label class="form_texto" for="image5">Imagen 5:</label>
-            <input class="write_upload" type="file" name="image5">
+            <input class="write_upload" type="file" name="image5"> -->
             <label class="form_texto" for="price">Precio:</label>
             <input class="write_upload" type="text" name="price" id="price">
             <label class="form_texto" for="discount">Descuento:</label>
