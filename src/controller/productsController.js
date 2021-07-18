@@ -110,8 +110,7 @@ const productsController = {
 
         
 // Función para actualizar información editada de los producto
-    update: async (req, res) => {
-        //console.log(req.body)
+    update: async (req, res) => {        
         let product = req.body;
         let imagesOnProduct = [];
         product.id = req.params.id;
@@ -162,23 +161,6 @@ const productsController = {
         imagesOnProduct.push({ name: product.image5 });
 
          
-        
-        
-        // imagesOnProduct.push({ name: product.image1 });
-        // product.image2 = req.body.old_image1 ? req.body.old_image1 : req.body.image1;
-        // imagesOnProduct.push({ name: product.image2 });
-        // product.image3 = req.body.old_image2 ? req.body.old_image2 : req.body.image2;
-        // imagesOnProduct.push({ name: product.image3 });
-        // product.image4 = req.body.old_image3 ? req.body.old_image3 : req.body.image3;
-        // imagesOnProduct.push({ name: product.image4 });
-        // product.image5 = req.body.old_image4 ? req.body.old_image4 : req.body.image4;
-        // imagesOnProduct.push({ name: product.image5 });
-        //console.log(product);
-        //console.log(imagesOnProduct);
-        
-        //await imagesController.update(product.id, imagesOnProduct);
-
-        //console.log("TERMINÓ");
         try {    
             Product.update({
                 id: req.params.id,
@@ -196,11 +178,12 @@ const productsController = {
                 brandId: req.body.brand
             }, {
                 where: {id: req.params.id}
-            })
-
+            });
+                        
             imagesController.update(product.id, imagesOnProduct);
             
             res.redirect("/products/productDetail/" + req.params.id);
+            
         
         } catch (error) {
             res.send(error)

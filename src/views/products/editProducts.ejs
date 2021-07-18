@@ -72,6 +72,7 @@
                 <% for (let i = 0; i < product.images.length; i++) { %>
                     <% if (product.images[i].name != '') { %>
                         <img src="/images/<%= product.images[i].name %>" alt="Foto artículo <%= i+1 %>" width="10%">
+                        <label class="form_texto" for="old_image<%= i %>">Imagen <%= i+1 %>:</label>
                         <input type="checkbox" name="old_image<%= i %>" value="<%= product.images[i].name %>" checked>
                         <!-- <p>Imagen //<%= i+1 %></p> -->
                         <!-- <input class="borrarFoto" type="submit" value="borrar"> -->
