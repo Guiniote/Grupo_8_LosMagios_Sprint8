@@ -3,40 +3,57 @@ window.addEventListener ("load", function(){
     let formulario = document.querySelector (".form");
     
     formulario.addEventListener ("submit", function(e){
-    e.preventDefault();
+
+    
+    let errores = [];
+
+    let fileInput = document.getElementById ("image");
+    let filePath = fileInput.value;
+    let allowedExtensions = /(.jpg|.jpeg|.png|.gif)$/i;
     
     let campoNombre = document.getElementById ("name");
     
     if (campoNombre.value == ""){
-    alert ("el campo de nombre tiene que estar completo");
+        errores.push("el campo de nombre tiene que estar completo");
     } else if (campoNombre.value.length < 5){
-        alert ("El campo de nombre debe tener al menos 5 caracteres")
+        errores.push("El campo de nombre debe tener al menos 5 caracteres")
     }
     let campoDescripcion = document.getElementById ("description");
     
     if (campoDescripcion.value == ""){
-    alert ("el campo de descripción tiene que estar completo");
+        errores.push("el campo de descripción tiene que estar completo");
     } else if (campoDescripcion.value.length < 20){
-        alert ("El campo de descripción debe tener al menos 20 caracteres")
+        errores.push("El campo de descripción debe tener al menos 20 caracteres")
     }
-    let fileInput = document.getElementById ("image");
-    var filePath = fileInput.value;
-    var allowedExtensions = /(.jpg|.jpeg|.png|.gif)$/i;
+    if(errores.length >0) {
+        e.preventDefault();
+
+        let ulErrores = document.querySelector("div.errores ul")
+        for (let i = 0; i < errores.length; i++) {
+            ulErrores.innerHTML += '<li>'+ errores [i]+'</li>'
+            console.log(ulErrores)
+            
+        }
+    }
+
+
     if(!allowedExtensions.exec(filePath)){
-        alert('Por favor suba un archivo valido(JPG, JPEG, PNG, GIF)');
+        let errorImagen = document.querySelector("div.errorImagen")
+        errorImagen.innerHTML += `<p>Por favor suba un archivo valido(JPG, JPEG, PNG, GIF)</p>`;
         fileInput.value = '';
         return false;
     }else{
         //Image preview
         if (fileInput.files && fileInput.files[0]) {
-            var reader = new FileReader();
+            let reader = new FileReader();
             reader.onload = function(e) {
                 document.getElementById('imagePreview').innerHTML = '<img src="'+e.target.result+'"/>';
             };
             reader.readAsDataURL(fileInput.files[0]);
         }
+
     }
-    
+
     });
     
     
