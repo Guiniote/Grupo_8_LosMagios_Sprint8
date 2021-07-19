@@ -38,7 +38,7 @@
                                     </div>
 
                                     <!-- Dejo este codigo para cuando agreguemos mas campos. -->
-                                        <div class="col-sm-6">
+                                    <div class="col-sm-6">
                                         <p class="m-b-10 f-w-600">Teléfono</p>
                                         <h6 class="text-muted f-w-400"><%= user.telephone %></h6>
                                     </div>
@@ -46,9 +46,28 @@
                                 <h6 class="m-b-20 m-t-40 p-b-5 b-b-default f-w-600">Dirección</h6>
                                 <div class="row">
                                     <div class="col-sm-6">
-                                        <p class="m-b-10 f-w-600"><%= user.address %></p>
+                                        <!-- <p class="m-b-10 f-w-600"><%= user.address %></p> -->
                                         <!-- <h6 class="text-muted f-w-400">Sam Disuja</h6> -->
+                                        <p class="text-muted f-w-400"><%= user.address %></p>
                                     </div>
+                                    <div class="col-sm-6">
+                                        <!-- <p class="m-b-10 f-w-600"><%= user.address2 %></p> -->
+                                        <!-- <h6 class="text-muted f-w-400">Sam Disuja</h6> -->
+                                        <p class="text-muted f-w-400"><%= user.address2 %></p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                            <!-- <p class="m-b-10 f-w-600"><%= user.zipCode %></p> -->
+                                            <!-- <h6 class="text-muted f-w-400">Sam Disuja</h6> -->
+                                        <p class="text-muted f-w-400"><%= user.zipCode %></p>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <!-- <p class="m-b-10 f-w-600"><%= user.zipCode %></p> -->
+                                        <!-- <h6 class="text-muted f-w-400">Sam Disuja</h6> -->
+                                    <p class="text-muted f-w-400"><%= user.city %></p>
+                                </div>
+                                </div>
                                     <!-- <div class="col-sm-6">
                                         <p class="m-b-10 f-w-600">Most Viewed</p>
                                         <h6 class="text-muted f-w-400">Dinoter husainm</h6>
@@ -60,7 +79,7 @@
                                     <li><a href="#!" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="twitter" data-abc="true"><i class="mdi mdi-twitter feather icon-twitter twitter" aria-hidden="true"></i></a></li>
                                     <li><a href="#!" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="instagram" data-abc="true"><i class="mdi mdi-instagram feather icon-instagram instagram" aria-hidden="true"></i></a></li>
                                 </ul>-->
-                                <form action="edit" method="get" enctype="multipart/form-data">
+                                <form action="edit/<%= user.id %>" method="get" enctype="multipart/form-data">
                                     <input class="enviaData" type="submit" value="Editar">
                                 </form>
                             </div>

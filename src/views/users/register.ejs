@@ -16,78 +16,67 @@
         <form action="register" method="POST" enctype="multipart/form-data">
             <div class="box-register">
                 <h3 class="form_h3">Crear Cuenta</h3>
+
                 <label class="form_texto" for="firstName">Nombre</label>
                 <input type="text" name="firstName" id="nombre" class="write_register <%= locals.errors && errors.firstName ? 'is-invalid' : null %>"
                 value="<%= locals.oldData ? oldData.firstName : null %>">                
                 <% if (locals.errors && errors.firstName) { %>
-                <div class="text-danger">
-                    <%= errors.firstName.msg %> 
-                </div>
+                    <div class="text-danger">
+                        <%= errors.firstName.msg %> 
+                    </div>
                 <% } %>
+
                 <label class="form_texto" for="surname">Apellido</label>
                 <input type="text" name="surname" id="Apellido" class="write_register <%= locals.errors && errors.surname ? 'is-invalid' : null %>"
                 value="<%= locals.oldData ? oldData.surname : null %>">
-            <% if (locals.errors && errors.surname) { %>
-                <div class="text-danger">
-                    <%= errors.surname.msg %> 
-                </div>
+                <% if (locals.errors && errors.surname) { %>
+                    <div class="text-danger">
+                        <%= errors.surname.msg %> 
+                    </div>                    
+                <% } %>
+
+                <label class="form_texto" for="userName">Nombre de usuario</label>
+                <input type="text" name="userName" id="userName" class="write_register <%= locals.errors && errors.userName ? 'is-invalid' : null %>"
+                value="<%= locals.oldData ? oldData.userName : null %>">
+                <% if (locals.errors && errors.userName) { %>
+                    <div class="text-danger">
+                        <%= errors.userName.msg %> 
+                    </div>                    
+                <% } %>
                 
-            <% } %>
-
-            <label class="form_texto" for="userName">Nombre de usuario</label>
-            <input type="text" name="userName" id="userName" class="write_register <%= locals.errors && errors.userName ? 'is-invalid' : null %>"
-            value="<%= locals.oldData ? oldData.userName : null %>">
-        <% if (locals.errors && errors.userName) { %>
-            <div class="text-danger">
-                <%= errors.userName.msg %> 
-            </div>
-            
-        <% } %>
-
-
                 <label class="form_texto" for="email">E-Mail</label>
                 <input type="email" name="email" id="email" class="write_register <%= locals.errors && errors.email ? 'is-invalid' : null %>"
                 value="<%= locals.oldData ? oldData.email : null %>">
-            <% if (locals.errors && errors.email) { %>
-                <div class="text-danger">
-                    <%= errors.email.msg %>
-                </div>
-            <% } %>
+                <% if (locals.errors && errors.email) { %>
+                    <div class="text-danger">
+                        <%= errors.email.msg %>
+                    </div>
+                <% } %>
+
                 <label class="form_texto" for="password">Contraseña</label>
                 <input type="password" name="password" id="password" class="write_register <%= locals.errors && errors.password ? 'is-invalid' : null %>">
-                    <% if (locals.errors && errors.password) { %>
-                        <div class="text-danger">
-                            <%= errors.password.msg %>
-                        </div>
-                    <% } %>
+                <% if (locals.errors && errors.password) { %>
+                    <div class="text-danger">
+                        <%= errors.password.msg %>
+                    </div>
+                <% } %>
+
                 <label class="form_texto" for="confirmPassword">Confirmar contraseña</label>
                 <input type="password" name="confirmPassword" id="confirmPassword" class="write_register <%= locals.errors && errors.confirmPassword ? 'is-invalid' : null %>">
-                    <% if (locals.errors && errors.confirmPassword) { %>
-                        <div class="text-danger">
-                            <%= errors.confirmPassword.msg %>
-                        </div>
-                    <% } %>
+                <% if (locals.errors && errors.confirmPassword) { %>
+                    <div class="text-danger">
+                        <%= errors.confirmPassword.msg %>
+                    </div>
+                <% } %>
+
                 <label class="form_texto" for="avatar">Imagen</label>
                 <input type="file" name="avatar" id="avatar" class="write_register <%= locals.errors && errors.avatar ? 'is-invalid' : null %>">
                 <% if (locals.errors && errors.avatar) { %>
                     <div class="text-danger">
                         <%= errors.avatar.msg %>
                     </div>
-                <% } %> 
-                <!-- <label class="form_texto" for="address">Dirección</label>
-                <input type="text" name="address" id="address" class="write_register <%= locals.errors && errors.address ? 'is-invalid' : null %>">
-                <% if (locals.errors && errors.address) { %>
-                    <div class="text-danger">
-                        <%= errors.address.msg %>
-                    </div>
-                <% } %>
-                <label class="form_texto" for="telephone">Teléfono</label>
-                <input type="text" name="telephone" id="telephone" class="write_register <%= locals.errors && errors.telephone ? 'is-invalid' : null %>">
-                <% if (locals.errors && errors.telephone) { %>
-                    <div class="text-danger">
-                        <%= errors.telephone.msg %>
-                    </div>
-                <% } %>       -->
+                <% } %>                 
+                
                 <button type="submit" class="btn btn-primary">Registrarse</button>
                 <a class="form-login" href="/users/login">¿Ya tenés cuenta? Ingresar</a>
             </div>

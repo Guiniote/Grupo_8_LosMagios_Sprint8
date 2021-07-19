@@ -10,29 +10,33 @@ const usersController = {
 		res.render('users/login');
 	},
 
+    findUserByEmail: async (emailIngresado) => {
+        return await User.findOne({
+            where: { email: emailIngresado }});
+    },
+
+    findUserById: async (idEditado) => {        
+        return await User.findOne({
+            where: { id: idEditado }});        
+    },
+    
     loginProcess: async (req, res) => {
-        let userToLogin = await User.findOne({
-            where: { email: req.body.email }});
-        
-		if(userToLogin) {
-			let isOkThePassword = bcryptjs.compareSync(req.body.password, userToLogin.password);
-			if (isOkThePassword) {
-				delete userToLogin.password;
-				req.session.userLogged = userToLogin;  
-                res.locals.isLogged = true;		        
-				if(req.body.remember_me) {
-					res.cookie('userEmail', req.body.email, { maxAge: (1000 * 60) * 5 })
-				}
-				return res.redirect('/users/profile');
-			}			
-		}
-		return res.render('users/login', {
-			errors: {
-				email: {
-					msg: 'Las credenciales son inválidas'
-				}
-			}
-		});
+        let errors = validationResult(req);
+        let userToLogin = await usersController.findUserByEmail(req.body.email);
+
+        if (errors.isEmpty()) {
+            delete userToLogin.password;
+            req.session.userLogged = userToLogin;  
+            res.locals.isLogged = true;		        
+            if(req.body.remember_me) {
+                res.cookie('userEmail', req.body.email, { maxAge: (1000 * 60) * 60 })
+            }
+            return res.redirect('/users/profile');
+        } else {
+            return res.render('users/login', {
+                errors: errors.mapped()            
+            });
+        }        
     },
 
     list: (req, res) => {
@@ -55,12 +59,14 @@ const usersController = {
     create: async (req, res) =>{               
         let errors = validationResult(req);        
         if (errors.isEmpty()) {        
-            console.log("ENTRO AL IF POSITIVO");
             try{
                 User.create({                    
                     ...req.body,
-                    address: NULL,
-                    telephone: NULL,
+                    address: '',
+                    address2: '',
+                    zipCode: '',
+                    city: '',
+                    telephone: '',
                     password: bcryptjs.hashSync(req.body.password, 10),
                     avatar: req.file.filename
                 })
@@ -85,31 +91,40 @@ const usersController = {
             user: req.session.userLogged
         });
     },
-    update: async (req, res) => {        
-        let user = req.body;
-        user.id = req.params.id;        
-        if (req.body.passwordOld && bcryptjs.compareSync(req.body.passwordOld, req.session.userLogged.password)) {
-            user.password = req.body.passwordNew && req.body.passwordNew == req.body.passwordConfirm ? bcryptjs.hashSync(req.body.passwordNew, 10) : req.session.userLogged.password;        
-        } else {
-            user.password = req.session.userLogged.password;
-        }
-        
-        user.avatar = req.file ? req.file.filename : req.session.userLogged.avatar;                
-        
-        try {
-            User.update(
-                user,                 
-                {
-                    where: {id: user.id}
-                }
-            );            
+    update: async (req, res) => { 
+        let errors = validationResult(req);                
+        if (errors.isEmpty()) {   
+            let user = req.body;
+            user.id = req.params.id;        
+            if (req.body.passwordOld && bcryptjs.compareSync(req.body.passwordOld, req.session.userLogged.password)) {
+                user.password = req.body.passwordNew && req.body.passwordNew == req.body.passwordConfirm ? bcryptjs.hashSync(req.body.passwordNew, 10) : req.session.userLogged.password;        
+            } else {
+                user.password = req.session.userLogged.password;
+            }
             
-            req.session.userLogged = user;
+            user.avatar = req.file ? req.file.filename : req.session.userLogged.avatar;                
+            
+            try {
+                User.update(
+                    user,                 
+                    {
+                        where: {id: user.id}
+                    }
+                );            
+                
+                req.session.userLogged = user;
 
-            return res.redirect('/users/profile')
-        } catch (error) {
-            res.send(error)
-        } 
+                return res.redirect('/users/profile')
+            } catch (error) {
+                res.send(error)
+            } 
+        } else {
+            res.render('users/edit', {
+                user: req.session.userLogged,
+                errors: errors.mapped(),
+                oldData: req.body
+            })
+        }
     },
 
     destroy: (req, res) =>{
@@ -125,12 +140,7 @@ const usersController = {
 		res.clearCookie('userEmail');
 		req.session.destroy();
 		return res.redirect('/');
-	},
-
-    findUserByEmail: async (emailIngresado) => {
-        return await User.findOne({
-            where: { email: emailIngresado }});        
-    }
+	}    
 }
 
 

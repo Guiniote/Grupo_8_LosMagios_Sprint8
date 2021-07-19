@@ -4,18 +4,21 @@ const usersController = require('../controller/usersController');
 
 // Middlewares
 const {uploadAvatar} = require('../middlewares/multerMiddleware');
-const {validateRegister} = require('../middlewares/validationsMiddleware');
+const {validateUserRegister} = require('../middlewares/validationsMiddleware');
+const {validateUserLogin} = require('../middlewares/validationsMiddleware');
+const {validateUserEdit} = require('../middlewares/validationsMiddleware');
 const userGuestMiddleware = require('../middlewares/userGuestMiddleware');
 const userLoggedMiddleware = require('../middlewares/userLoggedMiddleware');
 
 
 router.get('/login', userGuestMiddleware, usersController.login);
-router.post('/login', usersController.loginProcess);
+router.post('/login', validateUserLogin, usersController.loginProcess);
 router.get('/register', userGuestMiddleware, usersController.add);
-router.post('/register', uploadAvatar.single('avatar'), validateRegister, usersController.create);
+router.post('/register', uploadAvatar.single('avatar'), validateUserRegister, usersController.create);
 router.get('/profile', userLoggedMiddleware, usersController.profile);
-router.get('/edit', usersController.edit);
-router.put('/profile/update/:id', uploadAvatar.single('avatar'), usersController.update);
+router.get('/edit/:id', userLoggedMiddleware, usersController.edit);
+router.put('/edit/:id', uploadAvatar.single('avatar'), validateUserEdit, usersController.update);
+//router.put('/profile/update/:id', uploadAvatar.single('avatar'), validateUserEdit, usersController.update);
 router.get('/logout', usersController.logout);
 
 

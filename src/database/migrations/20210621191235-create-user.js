@@ -24,11 +24,20 @@ module.exports = {
         allowNull: false,
         type: Sequelize.STRING
       },      
+      email: {
+        allowNull: false,
+        type: Sequelize.STRING
+      },
       address: {
         type: Sequelize.STRING
       },
-      email: {
-        allowNull: false,
+      address2: {
+        type: Sequelize.STRING
+      },
+      zipCode: {
+        type: Sequelize.INTEGER
+      },      
+      city: {
         type: Sequelize.STRING
       },
       telephone: {

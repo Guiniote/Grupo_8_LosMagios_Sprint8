@@ -19,16 +19,26 @@
                 <!--username-->
                 <label class="user" for="email">E-Mail</label>
                 <input class="write" type="text" name="email" id="email" placeholder="Escribir e-mail">
-                <!--password-->
-                <label class="user" for="password">Contraseña</label>
-                <input class="write" type="password" name="password" id="password" placeholder="Escribir Password">
-                <!--boton-->
                 <% if (locals.errors && errors.email) { %>
                     <div class="validacion">
                         <%= errors.email.msg %>
                     </div>
                 <% } %>
-                <input class="new" type="submit" value="Ingresar">
+                <!--password-->
+                <label class="user" for="password">Contraseña</label>
+                <input class="write" type="password" name="password" id="password" placeholder="Escribir Password">                
+                <% if (locals.errors && errors.password) { %>
+                    <div class="validacion">
+                        <%= errors.password.msg %>
+                    </div>
+                <% } %>
+                <!--boton-->
+                <input class="new" type="submit" name="submit" value="Ingresar">
+                <% if (locals.errors && errors.submit) { %>
+                    <div class="validacion">
+                        <%= errors.submit.msg %>
+                    </div>
+                <% } %>
                 <!--texto abajo-->
                 <label><input class="check" type="checkbox" name="remember_me" id="remember_me" value="first_checkbox">Recuerdame</label>
 
