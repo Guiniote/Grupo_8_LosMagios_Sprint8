@@ -150,20 +150,21 @@ const validateUserEdit = [
 				return true;
 			}
 		}),
-	body('passwordNew')
-		.optional({ checkFalsy: true })		
+	body('passwordNew')		
+		.optional({ checkFalsy: true }).bail()	
 		.isLength({ min: 8 }).withMessage('La contraseña debe tener al menos 8 caracteres').bail()
-		.matches(passwordChars).withMessage('La contraseña debe tener al menos una letra mayúscula, una letra minúscula, un número y un caracter especial'),
+		.matches(passwordChars).withMessage('La contraseña debe tener al menos una letra mayúscula, una letra minúscula, un número y un caracter especial'),		
 	body('confirmPassword')		
-		.optional({ checkFalsy: true })
+		.optional({ checkFalsy: true }).bail()
 		.isLength({ min: 8 }).withMessage('La contraseña debe tener al menos 8 caracteres').bail()
 		.matches(passwordChars).withMessage('La contraseña debe tener al menos una letra mayúscula, una letra minúscula, un número y un caracter especial').bail()
 		.custom((confirmPassword, {req}) => {
-			const password = req.body.passwordNew;			
-			if(!password === confirmPassword) {
+			const password = req.body.passwordNew;
+			if(password === confirmPassword) {
+				return true;
+			} else {
 				throw new Error('Las contraseñas no coinciden');
 			}
-			return true;
 		}),
 ];
 

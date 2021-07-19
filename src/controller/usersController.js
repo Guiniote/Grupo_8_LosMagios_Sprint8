@@ -93,12 +93,14 @@ const usersController = {
     },
     update: async (req, res) => { 
         let errors = validationResult(req);                
-        if (errors.isEmpty()) {   
+        if (errors.isEmpty()) { 
+            let changingPassword = 0;  
             let user = req.body;
             user.id = req.params.id;        
             if (req.body.passwordOld && bcryptjs.compareSync(req.body.passwordOld, req.session.userLogged.password)) {
-                user.password = req.body.passwordNew && req.body.passwordNew == req.body.passwordConfirm ? bcryptjs.hashSync(req.body.passwordNew, 10) : req.session.userLogged.password;        
-            } else {
+                changingPassword = 1;
+                user.password = req.body.passwordNew && req.body.passwordNew == req.body.confirmPassword ? bcryptjs.hashSync(req.body.passwordNew, 10) : req.session.userLogged.password;        
+            } else {                
                 user.password = req.session.userLogged.password;
             }
             
@@ -113,8 +115,14 @@ const usersController = {
                 );            
                 
                 req.session.userLogged = user;
-
-                return res.redirect('/users/profile')
+                
+                if (changingPassword == 1) {
+                    res.clearCookie('userEmail');
+                    req.session.destroy();
+                    return res.redirect('/users/login');                    
+                } else {
+                    return res.redirect('/users/profile');                    
+                }
             } catch (error) {
                 res.send(error)
             } 
