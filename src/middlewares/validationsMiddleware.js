@@ -74,7 +74,7 @@ const validateUserRegister = [
 		.custom((value, { req }) => {
 			let file = req.file;
 			if (!file) {
-				throw new Error('El campo de imagen es obligatorio');
+				throw new Error('Recordá ingresar una imagen');
 			} else {
 				let fileExtension = path.extname(file.originalname);
 				if (!acceptedExtensions.includes(fileExtension)) {
@@ -112,7 +112,7 @@ const validateUserEdit = [
 			return usersController.findUserById(req.params.id)
 				.then (user => {										
 					if (!file&&user.avatar=='') {
-						throw new Error('El campo de imagen es obligatorio');
+						throw new Error('Recordá ingresar una imagen');
 					} else if (file) {
 						let fileExtension = path.extname(file.originalname);
 						if (!acceptedExtensions.includes(fileExtension)) {
