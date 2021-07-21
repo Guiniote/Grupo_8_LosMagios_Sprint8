@@ -3,8 +3,11 @@ window.addEventListener("load", function() {
     let formulario = document.querySelector (".form");
     formulario.addEventListener ("submit", function(e) {
         
-        let camposErrores = document.querySelector("small");
-        camposErrores.innerText = '';
+        let camposErrores = document.querySelectorAll("small");                
+        for (let i = 0; i < camposErrores.length; i++) {
+            camposErrores[i].innerText = '';    
+        }
+        
         let errors = [];
         const acceptedExtensions = /(jpg|jpeg|png|gif)$/;
         const passwordChars = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9]).{8,}$/;
@@ -35,20 +38,24 @@ window.addEventListener("load", function() {
         }
 
         if(email.value == '') {
-            errors.push({ name: 'email', msg: 'Recordá ingresar un email' });
+            errors.push({ name: 'email', msg: 'Recordá ingresar un email' });            
         } else if (email.value.indexOf('@') < 0) {
             errors.push({ name: 'email', msg: 'El formato del email no es válido' });
         } else {
-            let emailArray = email.value.split('@');            
-            if (emailArray[0].length = 0) {
+            let emailArray = email.value.split('@');    
+            if (emailArray[0].length == 0) {
                 errors.push({ name: 'email', msg: 'El formato del email no es válido' });
-            } else if (emailArray[1].indexOf('.') = 0) {
+            } else if (emailArray[1].length == 0) {
+                errors.push({ name: 'email', msg: 'El formato del email no es válido' });
+            } else if (emailArray[1].indexOf('.') < 0) {
+                errors.push({ name: 'email', msg: 'El formato del email no es válido' });
+            } else if (emailArray[1].indexOf('.') == 0) {
                 errors.push({ name: 'email', msg: 'El formato del email no es válido' });
             } else {
                 let dominio = emailArray[1].split('.');
-                if (dominio[1] < 2) {
+                if (dominio[1].length < 2) {
                     errors.push({ name: 'email', msg: 'El formato del email no es válido' });
-                } else if (dominio[2]&&dominio[2] < 2) {
+                } else if (dominio[2] && dominio[2].length < 2) {
                     errors.push({ name: 'email', msg: 'El formato del email no es válido' });
                 }
             }

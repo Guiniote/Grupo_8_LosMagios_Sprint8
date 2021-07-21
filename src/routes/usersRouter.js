@@ -12,7 +12,7 @@ const userLoggedMiddleware = require('../middlewares/userLoggedMiddleware');
 
 
 router.get('/login', userGuestMiddleware, usersController.login);
-router.post('/login', validateUserLogin, usersController.loginProcess);
+router.post('/login', /*validateUserLogin,*/ usersController.loginProcess);
 router.get('/register', userGuestMiddleware, usersController.add);
 router.post('/register', uploadAvatar.single('avatar'), validateUserRegister, usersController.create);
 router.get('/profile', userLoggedMiddleware, usersController.profile);
