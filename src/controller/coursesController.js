@@ -1,5 +1,6 @@
 const { Course } = require('../database/models');
 const { Op } = require("sequelize");
+const { validationResult } = require('express-validator');
 
 
 const coursesController = {
@@ -11,6 +12,10 @@ const coursesController = {
 
 // Función que simula el almacenamiento
     store: (req, res) => {
+        let resultValidation = validationResult(req);
+
+if (resultValidation.isEmpty()){
+      
         const course = req.body;
         course.image = req.file ? req.file.filename : '';
         Course.create(course)
@@ -19,7 +24,15 @@ const coursesController = {
         })
         .catch(error => res.send(error));
 
-    },
+    }else{ return res.render ('courses/createCourses',
+    {errors: resultValidation.mapped(),
+        oldData: req.body
+    
+    }
+    );
+
+
+    }},
 
 // Función que muestra la información almacenada
     show: async (req, res) => {

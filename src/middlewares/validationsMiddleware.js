@@ -192,9 +192,41 @@ const validateEditProduct = [
 	body('stock').notEmpty().withMessage('El campo de stock es obligatorio').bail().isNumeric().withMessage('El stock debe ser numérico'),
 	body('stockMin').notEmpty().withMessage('Debes indicar un stock mínimo').bail().isNumeric().withMessage('El campo debe ser numérico').bail().isInt({gt:1}).withMessage('El stock mínimo no puede ser menor a 1'),
 	body('stockMax').notEmpty().withMessage('Debes indicar un stock máximo').bail().isNumeric().withMessage('El campo debe ser numérico').bail().isInt({gt:1}).withMessage('El stock máximo no puede ser menor a 1'),
+];
+const validateCurses = [
+	body('name').notEmpty().withMessage('El nombre del producto no puede estar vacio'),
+    body('description').notEmpty().withMessage('La descripción del producto no puede estar vacia'),
+	body('image').custom((value, { req }) => {
+		let file = req.file;
+		let acceptedExtensions = ['.jpg','.jpeg', '.png', '.gif'];
+
+		if (!file){
+			throw new Error ('Tienes que subir una imagen')
+		} else {
+
+
+
+
+
+		let fileExtension = path.extname(file.originalname);
+			if (!acceptedExtensions.includes(fileExtension)) {
+				throw new Error(`Las extensiones de archivo permitidas son ${acceptedExtensions.join(', ')}`);
+		}}
+
+		return true;
+	}),
+
+
+
+
+
+
 ]
 
 
 
-module.exports = { validateUserRegister, validateRegProduct, validateEditProduct, validateUserLogin, validateUserEdit }
+
+
+
+module.exports = { validateUserRegister, validateRegProduct, validateEditProduct, validateUserLogin, validateUserEdit,validateCurses }
 	

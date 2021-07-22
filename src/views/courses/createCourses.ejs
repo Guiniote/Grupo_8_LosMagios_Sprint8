@@ -14,17 +14,43 @@
         <div class="errorImagen">
             
         </div>
+
         <form action="/courses/store" method="POST" enctype="multipart/form-data" class="form" >
             <div class="upload">
             <h3 class="form_h3">Crear</h3>
+
             <label class="form_texto" for="name">Nombre:</label>
-            <input class="write_upload" type="text" name="name" id="name">
+            <input 
+             type="text"
+              name="name" 
+              id="name" 
+              class="write_upload <%= locals.errors && errors.name ? 'is-invalid' : null %>"
+              value= "<%= locals.oldData ? oldData.name : null %>"
+              >
+              <small class="text-danger name"></small>
+            <% if (locals.errors && errors.name) {%>
+            <div class="text-danger"><%= errors.name.msg %></div> 
+            <% } %>
+            
             <label class="form_texto" for="description">Descripcion:</label>
-            <input class="write_upload" type="text" name="description" id="description">
+            <input 
+            class="write_upload <%= locals.errors && errors.name ? 'is-invalid' : null %>" 
+            type="text" 
+            name="description"
+             id="description"
+             class="write_upload <%= locals.errors && errors.name ? 'is-invalid' : null %>" 
+             value= "<%= locals.oldData ? oldData.description : null %>"
+             >
+            <% if (locals.errors && errors.description) {%>
+                <div class="text-danger"><%= errors.description.msg %></div> 
+                <% } %>
             <label class="form_texto" for="keywords">Palabras clave:</label>
             <input class="write_upload" type="text" name="keywords" id="keywords">
             <label class="form_texto" for="image">Imagen:</label>
             <input class="write_upload" type="file" name="image" id= "image">
+            <% if (locals.errors && errors.image) {%>
+                <div class="text-danger"><%= errors.image.msg %></div> 
+                <% } %>
             <!-- Image preview -->
             
         <div id="imagePreview"></div>
