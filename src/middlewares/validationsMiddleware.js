@@ -130,7 +130,7 @@ const validateUserEdit = [
 		.isLength({ min: 4 }).withMessage('El código postal debe tener al menos 4 caracteres'),
 	body('city')
 		.notEmpty().withMessage('Recordá ingresar una ciudad').bail()
-		.isLength({ min: 3 }).withMessage('La dirección debe tener al menos 3 caracteres'),
+		.isLength({ min: 3 }).withMessage('La ciudad debe tener al menos 3 caracteres'),
 	body('telephone')
 		.notEmpty().withMessage('Recordá ingresar un teléfono').bail()
 		.isLength({ min: 5 }).withMessage('El teléfono debe tener al menos 5 caracteres'),

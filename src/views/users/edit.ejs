@@ -4,6 +4,7 @@
 <%- include('../partials/head') %>
 
     <link rel="stylesheet" href="/css/styles_register.css">
+    <script src="/js/edit.js"></script>
     <title>Wedo Studio</title>
 </head>
 
@@ -12,7 +13,8 @@
     <%- include('../partials/header') %>
 
     <main>        
-        <form action="<%= user.id %>?_method=PUT" method="POST" enctype="multipart/form-data">
+
+        <form action="<%= user.id %>?_method=PUT" method="POST" enctype="multipart/form-data" class="form">
             <div class="box-register">
                 <h3 class="form_h3">Editar perfil</h3>
                 
@@ -21,6 +23,7 @@
                 <label class="form_texto" for="firstName">Nombre</label>
                 <input type="text" name="firstName" id="nombre" class="write_register <%= locals.errors && errors.firstName ? 'is-invalid' : null %>"
                 value="<%= locals.oldData ? oldData.firstName : user.firstName %>">
+                <small class="text-danger firstName"></small>
                 <% if (locals.errors && errors.firstName) { %>
                     <div class="text-danger">
                         <%= errors.firstName.msg %> 
@@ -28,8 +31,9 @@
                 <% } %>
 
                 <label class="form_texto" for="surname">Apellido</label>
-                <input type="text" name="surname" id="Apellido" class="write_register <%= locals.errors && errors.surname ? 'is-invalid' : null %>"
+                <input type="text" name="surname" id="apellido" class="write_register <%= locals.errors && errors.surname ? 'is-invalid' : null %>"
                 value="<%= locals.oldData ? oldData.surname : user.surname %>">
+                <small class="text-danger surname"></small>
                 <% if (locals.errors && errors.surname) { %>
                     <div class="text-danger">
                         <%= errors.surname.msg %> 
@@ -37,8 +41,9 @@
                 <% } %>
 
                 <label class="form_texto" for="userName">Nombre de usuario</label>
-                <input type="text" name="userName" id="Apellido" class="write_register <%= locals.errors && errors.userName ? 'is-invalid' : null %>"
+                <input type="text" name="userName" id="userName" class="write_register <%= locals.errors && errors.userName ? 'is-invalid' : null %>"
                 value="<%= locals.oldData ? oldData.userName : user.userName %>">
+                <small class="text-danger userName"></small>
                 <% if (locals.errors && errors.userName) { %>
                     <div class="text-danger">
                         <%= errors.userName.msg %> 
@@ -48,6 +53,7 @@
                 <label class="form_texto" for="email">E-Mail</label>
                 <input type="email" name="email" id="email" class="write_register <%= locals.errors && errors.email ? 'is-invalid' : null %>"
                 value="<%= locals.oldData ? oldData.email : user.email %>">
+                <small class="text-danger email"></small>
                 <% if (locals.errors && errors.email) { %>
                     <div class="text-danger">
                         <%= errors.email.msg %>
@@ -57,6 +63,7 @@
                 <label class="form_texto" for="avatar">Imagen</label>
                 <input type="file" name="avatar" id="avatar" class="write_register <%= locals.errors && errors.avatar ? 'is-invalid' : null %>"
                 value="<%= user.avatar %>">
+                <small class="text-danger avatar"></small>
                 <% if (locals.errors && errors.avatar) { %>
                     <div class="text-danger">
                         <%= errors.avatar.msg %>
@@ -66,6 +73,7 @@
                 <label class="form_texto" for="address">Dirección</label>
                 <input type="text" name="address" id="address" class="write_register <%= locals.errors && errors.address ? 'is-invalid' : null %>"
                 value="<%= locals.oldData ? oldData.address : user.address %>">
+                <small class="text-danger address"></small>
                 <% if (locals.errors && errors.address) { %>
                     <div class="text-danger">
                         <%= errors.address.msg %>
@@ -75,6 +83,7 @@
                 <label class="form_texto" for="address2">Piso y departamento</label>
                 <input type="text" name="address2" id="address2" class="write_register <%= locals.errors && errors.address2 ? 'is-invalid' : null %>"
                 value="<%= locals.oldData ? oldData.address2 : user.address2 %>">
+                <small class="text-danger address2"></small>
                 <% if (locals.errors && errors.address2) { %>
                     <div class="text-danger">
                         <%= errors.address2.msg %>
@@ -84,6 +93,7 @@
                 <label class="form_texto" for="zipCode">Código postal</label>
                 <input type="text" name="zipCode" id="zipCode" class="write_register <%= locals.errors && errors.zipCode ? 'is-invalid' : null %>"
                 value="<%= locals.oldData ? oldData.zipCode : user.zipCode %>">
+                <small class="text-danger zipCode"></small>
                 <% if (locals.errors && errors.zipCode) { %>
                     <div class="text-danger">
                         <%= errors.zipCode.msg %>
@@ -93,6 +103,7 @@
                 <label class="form_texto" for="city">Ciudad</label>
                 <input type="text" name="city" id="city" class="write_register <%= locals.errors && errors.city ? 'is-invalid' : null %>"
                 value="<%= locals.oldData ? oldData.city : user.city %>">
+                <small class="text-danger city"></small>
                 <% if (locals.errors && errors.city) { %>
                     <div class="text-danger">
                         <%= errors.city.msg %>
@@ -102,6 +113,7 @@
                 <label class="form_texto" for="telephone">Teléfono</label>
                 <input type="text" name="telephone" id="telephone" class="write_register <%= locals.errors && errors.telephone ? 'is-invalid' : null %>"
                 value="<%= locals.oldData ? oldData.telephone : user.telephone %>">
+                <small class="text-danger telephone"></small>
                 <% if (locals.errors && errors.telephone) { %>
                     <div class="text-danger">
                         <%= errors.telephone.msg %>
@@ -111,6 +123,7 @@
                 <h3 class="form_h3">Cambiar contraseña</h3>
                 <label class="form_texto" for="passwordOld">Contraseña Actual</label>
                 <input type="password" name="passwordOld" id="passwordOld" class="write_register <%= locals.errors && errors.passwordOld ? 'is-invalid' : null %>">
+                <small class="text-danger passwordOld"></small>
                 <% if (locals.errors && errors.passwordOld) { %>
                     <div class="text-danger">
                         <%= errors.passwordOld.msg %>
@@ -119,6 +132,7 @@
 
                 <label class="form_texto" for="passwordNew">Contraseña Nueva</label>
                 <input type="password" name="passwordNew" id="passwordNew" class="write_register <%= locals.errors && errors.passwordNew ? 'is-invalid' : null %>">
+                <small class="text-danger passwordNew"></small>
                 <% if (locals.errors && errors.passwordNew) { %>
                     <div class="text-danger">
                         <%= errors.passwordNew.msg %>
@@ -127,6 +141,7 @@
                     
                 <label class="form_texto" for="confirmPassword">Repetir Contraseña Nueva</label>
                 <input type="password" name="confirmPassword" id="confirmPassword" class="write_register <%= locals.errors && errors.confirmPassword ? 'is-invalid' : null %>">
+                <small class="text-danger confirmPassword"></small>
                 <% if (locals.errors && errors.confirmPassword) { %>
                     <div class="text-danger">
                         <%= errors.confirmPassword.msg %>
