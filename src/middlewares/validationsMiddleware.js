@@ -175,15 +175,10 @@ const validateRegProduct = [
 	body('specs').notEmpty().withMessage('Debes completar las especificaciones técnicas del producto'),
 	body('keywords').notEmpty().withMessage('Debes ingresar al menos una palabra clave'),
 	body('price').notEmpty().withMessage('El campo precio es obligatorio').bail().isNumeric().withMessage('El precio debe ser numérico'),
-	body('discount').notEmpty().withMessage('El campo de descuento es obligatorio').bail().isNumeric().withMessage('El precio debe ser numérico'),
+	body('discount').notEmpty().withMessage('El campo de descuento es obligatorio').bail().isNumeric().withMessage('El precio debe ser numérico').bail().isInt({gt: 0, lt: 99}).withMessage('El descuento debe estar entre 0 y 99'),
 	body('stock').notEmpty().withMessage('El campo de stock es obligatorio').bail().isNumeric().withMessage('El stock debe ser numérico'),
-	body('stockMin').notEmpty().withMessage('El campo de stock es obligatorio').bail().isNumeric({min: 1}).withMessage('El mínimo de stock a ingresar es 1 producto'),
-	body('stockMax').notEmpty().withMessage('El campo de stock es obligatorio').bail().isNumeric().withMessage('El stock debe ser numérico'),
-
-
-	
-
-
+	body('stockMin').notEmpty().withMessage('Debes indicar un stock mínimo').bail().isNumeric().withMessage('El campo debe ser numérico').bail().isInt({gt:1}).withMessage('El stock mínimo no puede ser menor a 1'),
+	body('stockMax').notEmpty().withMessage('Debes indicar un stock máximo').bail().isNumeric().withMessage('El campo debe ser numérico').bail().isInt({gt:1}).withMessage('El stock máximo no puede ser menor a 1'),
 ];
 
 const validateEditProduct = [
