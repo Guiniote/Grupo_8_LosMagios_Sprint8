@@ -1,6 +1,7 @@
 const { Product, Brand, Category, Image } = require('../database/models');
 const { Op } = require("sequelize");
 const imagesController = require('./imagesController');
+const { validationResult } = require('express-validator');
 
 
 
@@ -16,6 +17,10 @@ const productsController = {
 
 // Función que simula el almacenamiento, en este caso en array
     store: async (req, res) => {
+        let errors = validationResult(req); 
+        let categories = await Category.findAll();
+        let brands = await Brand.findAll();       
+        if (errors.isEmpty()) {
         try{
             let productCreated = await Product.create({
                 name: req.body.name,
@@ -52,7 +57,15 @@ const productsController = {
         } catch (error) {
             res.send(error)
         }
-    }, 
+        } else {
+            res.render('products/createProducts', {
+                categories,
+                brands,
+                errors: errors.mapped(),
+                oldData: req.body
+            })
+    }
+},
 
 
 // Función que muestra la información almacenada

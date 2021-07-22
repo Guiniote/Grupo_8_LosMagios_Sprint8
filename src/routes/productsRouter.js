@@ -4,7 +4,7 @@ const productsController = require('../controller/productsController');
 
 // Middlewares
 const {uploadProduct} = require('../middlewares/multerMiddleware');
-// const {validateEditProduct} = require('../middlewares/validationsMiddleware');
+const {validateRegProduct} = require('../middlewares/validationsMiddleware');
 const userLoggedMiddleware = require('../middlewares/userLoggedMiddleware');
 
 // Carrito
@@ -18,8 +18,8 @@ router.get('/productList', productsController.list);
 router.get('/productDetail/:id', productsController.show);
 
 // Creación de productos
-router.get('/createProducts', userLoggedMiddleware, productsController.create);
-router.post('/store', uploadProduct.fields([{name: 'image1'}, {name: 'image2'}, {name: 'image3'}, {name: 'image4'}, {name: 'image5'}]), productsController.store);
+router.get('/createProducts', /*userLoggedMiddleware,*/ productsController.create);
+router.post('/store', uploadProduct.fields([{name: 'image1'}, {name: 'image2'}, {name: 'image3'}, {name: 'image4'}, {name: 'image5'}]), validateRegProduct, productsController.store);
 
 // Edición de productos
 router.get('/editProducts/:id', userLoggedMiddleware, productsController.edit);

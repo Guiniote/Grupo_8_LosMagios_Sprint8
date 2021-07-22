@@ -168,6 +168,24 @@ const validateUserEdit = [
 		}),
 ];
 
+const validateRegProduct = [ 
+	body('name').notEmpty().withMessage('Recordá ingresar un nombre').bail().isLength({ min: 5 }).withMessage('El nombre debe tener al menos 5 caracteres'),
+	body('model').notEmpty().withMessage('Recordá ingresar un modelo'),
+	body('description').notEmpty().withMessage('Recordá ingresar un modelo').bail().isLength({ min: 20 }).withMessage('La descripción no puede contener menos de 20 caracteres'),
+	body('specs').notEmpty().withMessage('Debes completar las especificaciones técnicas del producto'),
+	body('keywords').notEmpty().withMessage('Debes ingresar al menos una palabra clave'),
+	body('price').notEmpty().withMessage('El campo precio es obligatorio').bail().isNumeric().withMessage('El precio debe ser numérico'),
+	body('discount').notEmpty().withMessage('El campo de descuento es obligatorio').bail().isNumeric().withMessage('El precio debe ser numérico'),
+	body('stock').notEmpty().withMessage('El campo de stock es obligatorio').bail().isNumeric().withMessage('El stock debe ser numérico'),
+	body('stockMin').notEmpty().withMessage('El campo de stock es obligatorio').bail().isNumeric({min: 1}).withMessage('El mínimo de stock a ingresar es 1 producto'),
+	body('stockMax').notEmpty().withMessage('El campo de stock es obligatorio').bail().isNumeric().withMessage('El stock debe ser numérico'),
+
+
+	
+
+
+];
+
 const validateEditProduct = [
 	body('name').notEmpty().withMessage('El nombre del prducto no puede estar vacio'),
     body('description').notEmpty().withMessage('La descripccion del prducto no puede estar vacia'),
@@ -188,5 +206,5 @@ const validateEditProduct = [
 
 
 
-module.exports = { validateUserRegister, validateEditProduct, validateUserLogin, validateUserEdit }
+module.exports = { validateUserRegister, validateRegProduct, validateEditProduct, validateUserLogin, validateUserEdit }
 	
