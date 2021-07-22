@@ -182,21 +182,16 @@ const validateRegProduct = [
 ];
 
 const validateEditProduct = [
-	body('name').notEmpty().withMessage('El nombre del prducto no puede estar vacio'),
-    body('description').notEmpty().withMessage('La descripccion del prducto no puede estar vacia'),
-	body('image').custom((value, { req }) => {
-		let file = req.file;
-		let acceptedExtensions = ['.jpg', '.png', '.gif'];
-		let fileExtension = path.extname(file.originalname);
-			if (!acceptedExtensions.includes(fileExtension)) {
-				throw new Error(`Las extensiones de archivo permitidas son ${acceptedExtensions.join(', ')}`);
-		}
-
-		return true;
-	}),
-	body('category').notEmpty().withMessage('Debes indicar una categoria'),
-	body('colors').notEmpty().withMessage('No asignaste un color'),
-	body('price').notEmpty().withMessage('Debes indicar el precio del producto')
+	body('name').notEmpty().withMessage('Recordá ingresar un nombre').bail().isLength({ min: 5 }).withMessage('El nombre debe tener al menos 5 caracteres'),
+	body('model').notEmpty().withMessage('Recordá ingresar un modelo'),
+	body('description').notEmpty().withMessage('Recordá ingresar un modelo').bail().isLength({ min: 20 }).withMessage('La descripción no puede contener menos de 20 caracteres'),
+	body('specs').notEmpty().withMessage('Debes completar las especificaciones técnicas del producto'),
+	body('keywords').notEmpty().withMessage('Debes ingresar al menos una palabra clave'),
+	body('price').notEmpty().withMessage('El campo precio es obligatorio').bail().isNumeric().withMessage('El precio debe ser numérico'),
+	body('discount').notEmpty().withMessage('El campo de descuento es obligatorio').bail().isNumeric().withMessage('El precio debe ser numérico').bail().isInt({gt: 0, lt: 99}).withMessage('El descuento debe estar entre 0 y 99'),
+	body('stock').notEmpty().withMessage('El campo de stock es obligatorio').bail().isNumeric().withMessage('El stock debe ser numérico'),
+	body('stockMin').notEmpty().withMessage('Debes indicar un stock mínimo').bail().isNumeric().withMessage('El campo debe ser numérico').bail().isInt({gt:1}).withMessage('El stock mínimo no puede ser menor a 1'),
+	body('stockMax').notEmpty().withMessage('Debes indicar un stock máximo').bail().isNumeric().withMessage('El campo debe ser numérico').bail().isInt({gt:1}).withMessage('El stock máximo no puede ser menor a 1'),
 ]
 
 
