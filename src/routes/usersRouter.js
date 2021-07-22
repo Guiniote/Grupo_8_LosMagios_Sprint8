@@ -17,7 +17,7 @@ router.get('/register', userGuestMiddleware, usersController.add);
 router.post('/register', uploadAvatar.single('avatar'), validateUserRegister, usersController.create);
 router.get('/profile', userLoggedMiddleware, usersController.profile);
 router.get('/edit/:id', userLoggedMiddleware, usersController.edit);
-router.put('/edit/:id', uploadAvatar.single('avatar'), /*validateUserEdit,*/ usersController.update);
+router.put('/edit/:id', uploadAvatar.single('avatar'), validateUserEdit, usersController.update);
 router.get('/logout', usersController.logout);
 
 
