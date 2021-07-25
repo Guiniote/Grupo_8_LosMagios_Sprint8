@@ -34,11 +34,11 @@
             
             <label class="form_texto" for="description">Descripcion:</label>
             <input 
-            class="write_upload <%= locals.errors && errors.name ? 'is-invalid' : null %>" 
+             
             type="text" 
             name="description"
              id="description"
-             class="write_upload <%= locals.errors && errors.name ? 'is-invalid' : null %>" 
+             class="write_upload <%= locals.errors && errors.description ? 'is-invalid' : null %>" 
              value= "<%= locals.oldData ? oldData.description : null %>"
              >
             <% if (locals.errors && errors.description) {%>
@@ -54,18 +54,81 @@
             <!-- Image preview -->
             
         <div id="imagePreview"></div>
-            <label class="form_texto" for="duration">Duración:</label>
-            <input class="write_upload" type="text" name="duration" id="duration">
+            
+        <label class="form_texto" for="duration">Duración:</label>
+            <input 
+            class="write_upload <%= locals.errors && errors.duration ? 'is-invalid' : null %>" 
+             type="text" 
+             name="duration"
+             id="duration"
+             value= "<%= locals.oldData ? oldData.duration : null %>"
+             >
+            <% if (locals.errors && errors.duration) {%>
+                <div class="text-danger"><%= errors.duration.msg %></div> 
+                <% } %>
+
+
+
             <label class="form_texto" for="level">Nivel:</label>
-            <input class="write_upload" type="text" name="level" id="level">
+            <select 
+            name="level"
+            type="text"
+            id="level"
+            class="write_upload <%= locals.errors && errors.level ? 'is-invalid' : null %>">
+            <option>Amateur</option>
+            <option>Semi-profesional</option>
+            <option>Profesional</option>
+            </select>
+        
+
             <label class="form_texto" for="price">Precio:</label>
-            <input class="write_upload" type="text" name="price" id="price">
+            <input
+            class="write_upload <%= locals.errors && errors.price ? 'is-invalid' : null %>"
+             type="number"
+              name="price"
+               id="price"
+               value= "<%= locals.oldData ? oldData.price : null %>"
+             >
+            <% if (locals.errors && errors.price) {%>
+                <div class="text-danger"><%= errors.price.msg %></div> 
+                <% } %>
+               
+
+
+
+
+
+
             <label class="form_texto" for="discount">Descuento:</label>
-            <input class="write_upload" type="text" name="discount" id="discount">
+            <input 
+            class="write_upload <%= locals.errors && errors.discount ? 'is-invalid' : null %>"
+            type="number"
+            name="discount" 
+            id="discount"
+            value= "<%= locals.oldData ? oldData.discount : null %>"
+            >
+           <% if (locals.errors && errors.discount) {%>
+               <div class="text-danger"><%= errors.discount.msg %></div> 
+               <% } %>
+            
+            >
+            
+
+
+
+
+
             <label class="form_texto" for="initialCapacity">Capacidad Inicial:</label>
-            <input class="write_upload" type="text" name="initialCapacity" id="initialCapacity">
+            <input class="write_upload"
+             type="number" 
+             name="initialCapacity" 
+             id="initialCapacity">
+
+
             <label class="form_texto" for="minimalCapacity">Capacidad Mínima:</label>
             <input class="write_upload" type="text" name="minimalCapacity" id="minimalCapacity">
+
+
             <label class="form_texto" for="actualCapacity">Capacidad Actual:</label>
             <input class="write_upload" type="text" name="actualCapacity" id="actualCapacity">
             <input class="enviaData" type="submit" value="Crear item">

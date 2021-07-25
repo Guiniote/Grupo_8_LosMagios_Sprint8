@@ -38,6 +38,7 @@ const validateUserRegister = [
 	body('firstName')
 		.notEmpty().withMessage('Recordá ingresar un nombre').bail()
 		.isLength({ min: 2 }).withMessage('El nombre debe tener al menos 2 caracteres'),
+		
     body('surname')
 		.notEmpty().withMessage('Recordá ingresar un apellido').bail()
 		.isLength({ min: 2 }).withMessage('El apellido debe tener al menos 2 caracteres'),
@@ -194,8 +195,13 @@ const validateEditProduct = [
 	body('stockMax').notEmpty().withMessage('Debes indicar un stock máximo').bail().isNumeric().withMessage('El campo debe ser numérico').bail().isInt({gt:1}).withMessage('El stock máximo no puede ser menor a 1'),
 ];
 const validateCurses = [
-	body('name').notEmpty().withMessage('El nombre del producto no puede estar vacio'),
-    body('description').notEmpty().withMessage('La descripción del producto no puede estar vacia'),
+	
+	body('name').notEmpty().withMessage('El nombre del producto no puede estar vacio').bail()
+	.isLength({ min: 2 }).withMessage('El nombre debe tener al menos 2 caracteres')
+	.isAlpha().withMessage ("El nombre no puede contener numeros"),
+
+    body('description').notEmpty().withMessage('La descripción del producto no puede estar vacia')
+	.isLength({ min: 20 }).withMessage('La descripción debe tener al menos 20 caracteres'),
 	body('image').custom((value, { req }) => {
 		let file = req.file;
 		let acceptedExtensions = ['.jpg','.jpeg', '.png', '.gif'];
@@ -203,18 +209,29 @@ const validateCurses = [
 		if (!file){
 			throw new Error ('Tienes que subir una imagen')
 		} else {
-
-
-
-
-
-		let fileExtension = path.extname(file.originalname);
+        let fileExtension = path.extname(file.originalname);
 			if (!acceptedExtensions.includes(fileExtension)) {
 				throw new Error(`Las extensiones de archivo permitidas son ${acceptedExtensions.join(', ')}`);
 		}}
-
-		return true;
+        return true;
 	}),
+	body('duration').notEmpty().withMessage ("la duración no puede estar vacia")
+	.isNumeric().withMessage('La duracion debe ser numerica debe ser numérico').bail().isInt({gt: 1, lt: 180}).withMessage('La duracion debe ser entre 1 a 180 días'),
+	body('price').notEmpty().withMessage('El campo precio es obligatorio').bail()
+	.isNumeric().withMessage('El precio debe ser numerico').bail().isInt({gt: 1}).withMessage('El precio debe ser mayor a 1'),
+    
+	body('discount').isNumeric().withMessage('El descuento debe ser numerico').bail().isInt({gt: 1, lt: 100}).withMessage('El descuento tiene que estar en el rango de 0 a 100'),
+
+	
+
+
+
+
+
+
+
+	
+
 
 
 
