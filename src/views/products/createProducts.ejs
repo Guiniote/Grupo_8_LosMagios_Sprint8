@@ -20,14 +20,20 @@
             </div>
             <% } %>
             <label class="form_texto" for="category">Categoría:</label>            
-            <select name="category" class="write_upload<%if(locals&&locals.errors&&errors.categoryId){%><%="text-danger"%><%}%>">
+            <select name="category" class="write_upload<%if(locals&&locals.errors&&errors.category){%><%="text-danger"%><%}%>">
                 <option value="" disabled selected>Elegí una categoria... </option>
                 <% categories.forEach(category => { %>
-                    <option value= "<%= category.id %>"><%= category.name %></option>                                        
-                <% }) %>
+                    <option value="<%= category.id %>"
+                        <% if (locals.oldData && oldData.category == category.id) { %>
+                            selected="selected" 
+                        <% } %>>
+                        <%= category.name %>
+                    </option>
+                    <% }); %>
+                </select>
             </select>   
             <label class="form_texto" for="brand">Marca:</label>
-            <select name="brand" class="write_upload<%if(locals&&locals.errors&&errors.categoryId){%><%="text-danger"%><%}%>">
+            <select name="brand" class="write_upload<%if(locals&&locals.errors&&errors.brand){%><%="text-danger"%><%}%>">
                 <option value="" disabled selected>Elegí una marca... </option>>>
                 <% brands.forEach(brand => { %>
                     <option value= "<%= brand.id %>"><%= brand.name %></option>                                        
@@ -113,7 +119,7 @@
             <% } %>
             <label class="form_texto" for="stockMax">Stock Máximo:</label>
             <input type="text" name="stockMax" id="stockMax" class="write_upload<%= locals.errors && errors.stockMax ? 'is-invalid' : null %>"
-            value="<%= locals.oldData ? oldData.stostockMaxckMin : null %>">
+            value="<%= locals.oldData ? oldData.stockMax : null %>">
             <% if (locals.errors && errors.stockMax) { %>
             <div class="text-danger">
                 <%= errors.stockMax.msg %> 
