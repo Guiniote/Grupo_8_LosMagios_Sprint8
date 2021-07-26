@@ -119,19 +119,46 @@
 
 
             <label class="form_texto" for="initialCapacity">Capacidad Inicial:</label>
-            <input class="write_upload"
+            <input 
+            class="write_upload <%= locals.errors && errors.initialCapacity ? 'is-invalid' : null %>"
              type="number" 
              name="initialCapacity" 
-             id="initialCapacity">
+             id="initialCapacity"
+             value= "<%= locals.oldData ? oldData.initialCapacity : null %>">
+             <% if (locals.errors && errors.initialCapacity) {%>
+                <div class="text-danger"><%= errors.initialCapacity.msg %></div> 
+                <% } %>>
 
 
             <label class="form_texto" for="minimalCapacity">Capacidad Mínima:</label>
-            <input class="write_upload" type="text" name="minimalCapacity" id="minimalCapacity">
+            <input
+            class="write_upload <%= locals.errors && errors.minimalCapacity ? 'is-invalid' : null %>"
+             type="number"
+              name="minimalCapacity"
+               id="minimalCapacity"
+               value= "<%= locals.oldData ? oldData.minimalCapacity : null %>">
+               <% if (locals.errors && errors.minimalCapacity) {%>
+                <div class="text-danger"><%= errors.minimalCapacity.msg %></div> 
+                <% } %>>
+
+
 
 
             <label class="form_texto" for="actualCapacity">Capacidad Actual:</label>
-            <input class="write_upload" type="text" name="actualCapacity" id="actualCapacity">
-            <input class="enviaData" type="submit" value="Crear item">
+            <input
+            class="write_upload <%= locals.errors && errors.actualCapacity ? 'is-invalid' : null %>" 
+             type="number" 
+             name="actualCapacity" 
+             id="actualCapacity"
+             value= "<%= locals.oldData ? oldData.actualCapacity : null %>">
+
+             <% if (locals.errors && errors.actualCapacity) {%>
+                <div class="text-danger"><%= errors.actualCapacity.msg %></div> 
+                <% } %>>
+            
+            
+            
+             <input class="enviaData" type="submit" value="Crear item">
         </div>
         </form>
         
