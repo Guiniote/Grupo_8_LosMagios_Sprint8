@@ -96,6 +96,17 @@ margin-bottom: 10px;
 input.is-invalid {
     border: 2px solid red;
   }
+  input.error-input {
+    border: 2px solid red !important;   
+    background-color: #ebebeb; 
+    /* solo para push */
+}
+
+span {
+    color: red;
+    display: flex;
+    justify-content: flex-end;
+}
 
 
 

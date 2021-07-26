@@ -1,5 +1,5 @@
-{/*window.addEventListener ("load", function(){
 
+{/*window.addEventListener ("load", function(){
     let formulario = document.querySelector (".form");
     
     formulario.addEventListener ("submit", function(e){
@@ -59,10 +59,10 @@
     
     
     
-    }) 
-
-    window.addEventListener("load", function() {
     
+    
+})*/} 
+    {/*window.addEventListener("load", function() {
         let formulario = document.querySelector (".form");
         formulario.addEventListener ("submit", function(e) {
             
@@ -123,3 +123,54 @@
     
         });
     })*/}
+
+
+
+    let errors = {};
+    let formulario = document.querySelector (".form");
+
+    const productName   = document.getElementById('name');
+
+
+    // --- Validaciones --- //
+//  Nombre
+let validateName = function() {
+    let feedback = '';
+    let feedbackElement = productName.nextElementSibling;
+
+
+    if(productName.value.trim() == '' ){
+        feedback = 'Gustavo';
+    }else if (productName.value.length < 5) {
+        feedback = 'El nombre debe contener al menos 4 caracteres';
+        //kiwi tiene 4 
+    };
+
+    if(feedback){        
+        productName.classList.add('error-input'); // crear estilos
+        feedbackElement.classList.toggle('error-input'); 
+        errors.productName = feedback;
+    }
+    else{
+        productName.classList.remove('error-input');
+        feedbackElement.classList.toggle('error-input'); 
+        delete errors.productName;
+    }
+
+    feedbackElement.innerText = feedback;
+};
+
+
+// --- Eventos --- //
+productName.addEventListener('blur',function(){validateName()   });
+
+form.addEventListener('submit', function(e){
+    validateName();    
+  console.log(errors);
+    if(Object.keys(errors).length){
+        e.preventDefault();
+    }
+});
+
+
+    
