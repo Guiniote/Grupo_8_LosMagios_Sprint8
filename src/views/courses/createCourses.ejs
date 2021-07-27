@@ -41,6 +41,7 @@
              class="write_upload <%= locals.errors && errors.description ? 'is-invalid' : null %>" 
              value= "<%= locals.oldData ? oldData.description : null %>"
              >
+             <small class="text-danger description"></small>
             <% if (locals.errors && errors.description) {%>
                 <div class="text-danger"><%= errors.description.msg %></div> 
                 <% } %>
@@ -58,10 +59,10 @@
         <label class="form_texto" for="duration">Duración:</label>
             <input 
             class="write_upload <%= locals.errors && errors.duration ? 'is-invalid' : null %>" 
-             type="text" 
-             name="duration"
-             id="duration"
-             value= "<%= locals.oldData ? oldData.duration : null %>"
+            type="text" 
+            name="duration"
+            id="duration"
+            value= "<%= locals.oldData ? oldData.duration : null %>"
              >
             <% if (locals.errors && errors.duration) {%>
                 <div class="text-danger"><%= errors.duration.msg %></div> 

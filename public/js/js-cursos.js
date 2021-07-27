@@ -1,176 +1,91 @@
 
-{/*window.addEventListener ("load", function(){
+
+window.addEventListener("load", function() {
     let formulario = document.querySelector (".form");
-    
-    formulario.addEventListener ("submit", function(e){
+    let camposErrores = document.querySelectorAll("small");   
+    let errors = [];
+    let nombre = document.querySelector("#name");
+    let descripcion = document.querySelector("#description");
 
-    
-    let errores = [];
+    nombre.addEventListener ("blur", function(e) {
 
-    let fileInput = document.getElementById ("image");
-    let filePath = fileInput.value;
-    let allowedExtensions = /(.jpg|.jpeg|.png|.gif)$/i;
-    
-    let campoNombre = document.getElementById ("name");
-    
-    if (campoNombre.value == ""){
-        errores.push("el campo de nombre tiene que estar completo");
-    } else if (campoNombre.value.length < 5){
-        errores.push("El campo de nombre debe tener al menos 5 caracteres")
-    }
-    let campoDescripcion = document.getElementById ("description");
-    
-    if (campoDescripcion.value == ""){
-        errores.push("el campo de descripción tiene que estar completo");
-    } else if (campoDescripcion.value.length < 20){
-        errores.push("El campo de descripción debe tener al menos 20 caracteres")
-    }
-    if(errores.length >0) {
-        e.preventDefault();
+    errors = [];
 
-        let ulErrores = document.querySelector("div.errores ul")
-        for (let i = 0; i < errores.length; i++) {
-            ulErrores.innerHTML += '<li>'+ errores [i]+'</li>'
-            console.log(ulErrores)
-            
-        }
+    if(nombre.value == '') {                
+        errors.push({ name: 'name', msg: 'Recordá ingresar un nombre' });
+    } else if (nombre.value.length < 2) {                
+        errors.push({ name: 'name', msg: 'El nombre debe tener al menos 2 caracteres' });
+    } 
+  if(errors.length == 0) {                
+        camposErrores[0].innerText = '';
+    } else {
+        for (let i = 0; i < errors.length; i++) {
+            let lineaError = document.querySelector("small." + errors[i].name);                
+            lineaError.innerText = errors[i].msg;            
+        }            
+    }  
+});
+descripcion.addEventListener ("blur", function(e) {
+
+    errors = [];
+
+    if(descripcion.value == '') {            
+        errors.push({ name: 'description', msg: 'Recordá ingresar una descripción' });
+    } else if (apellido.value.length < 2) {            
+        errors.push({ name: 'description', msg: 'La descripción debe tener al menos 2 caracteres' });
     }
 
-
-    if(!allowedExtensions.exec(filePath)){
-        let errorImagen = document.querySelector("div.errorImagen")
-        errorImagen.innerHTML += `<p>Por favor suba un archivo valido(JPG, JPEG, PNG, GIF)</p>`;
-        fileInput.value = '';
-        return false;
-    }else{
-        //Image preview
-        if (fileInput.files && fileInput.files[0]) {
-            let reader = new FileReader();
-            reader.onload = function(e) {
-                document.getElementById('imagePreview').innerHTML = '<img src="'+e.target.result+'"/>';
-            };
-            reader.readAsDataURL(fileInput.files[0]);
-        }
-
-    }
-
-    });
-    
-    
-    
-    
-    
-    
-})*/} 
-    {/*window.addEventListener("load", function() {
-        let formulario = document.querySelector (".form");
-        formulario.addEventListener ("submit", function(e) {
-            
-            let camposErrores = document.querySelectorAll("small");                
-            for (let i = 0; i < camposErrores.length; i++) {
-                camposErrores[i].innerText = '';    
-            }
-            
-            let errors = [];
-            const acceptedExtensions = /(jpg|jpeg|png|gif)$/;
-            let nombre = document.getElementById("nombre");
-            let descripcion = document.getElementById("#description");
-            let image = document.querySelector("#image");
-            
-            if(nombre.value == '') {
-                errors.push({ name: 'name', msg: 'Recordá ingresar un nombre' });
-            } else if (nombre.value.length < 2) {
-                errors.push({ name: 'name', msg: 'El nombre debe tener al menos 2 caracteres' });
-            }
-            
-            if(descripcion.value == '') {
-                errors.push({ name: 'description', msg: 'Recordá ingresar una descripcion' });
-            } else if (descripcion.value.length < 2) {
-                errors.push({ name: 'description', msg: 'La descripcion debe tener al menos 20 caracteres' });
-            }
-    
-           
-            
-            // *****Para hacer si queda tiempo:*****
-            // .custom(email => {
-            // 	return usersController.findUserByEmail(email)
-            // 		.then(user => {
-            // 			if (user) {
-            // 				return Promise.reject('Este email ya está en uso');
-            // 			}
-            // 		});
-            // }),
-    
-           
-    
-            if(image.value == '') {
-                errors.push({ name: 'image', msg: 'Recordá ingresar una imagen' });
-            } else {
-                let extension = image.value.split('.')[1]
-                if(!extension.match(acceptedExtensions)) {
-                    errors.push({ name: 'image', msg: 'Las extensiones de archivo permitidas son .JPG, .JPEG, .PNG o .GIF' });                
-                }
-            }
-            
-            if(errors.length > 0) {
-                e.preventDefault();
-                for (let i = 0; i < errors.length; i++) {
-                    let lineaError = document.querySelector("small." + errors[i].name);                
-                    lineaError.innerText = errors[i].msg;            
-                }            
-            }
-    
-    
-        });
-    })*/}
-
-
-
-    let errors = {};
-    let formulario = document.querySelector (".form");
-
-    const productName   = document.getElementById('name');
-
-
-    // --- Validaciones --- //
-//  Nombre
-let validateName = function() {
-    let feedback = '';
-    let feedbackElement = productName.nextElementSibling;
-
-
-    if(productName.value.trim() == '' ){
-        feedback = 'Gustavo';
-    }else if (productName.value.length < 5) {
-        feedback = 'El nombre debe contener al menos 4 caracteres';
-        //kiwi tiene 4 
-    };
-
-    if(feedback){        
-        productName.classList.add('error-input'); // crear estilos
-        feedbackElement.classList.toggle('error-input'); 
-        errors.productName = feedback;
-    }
-    else{
-        productName.classList.remove('error-input');
-        feedbackElement.classList.toggle('error-input'); 
-        delete errors.productName;
-    }
-
-    feedbackElement.innerText = feedback;
-};
-
-
-// --- Eventos --- //
-productName.addEventListener('blur',function(){validateName()   });
-
-form.addEventListener('submit', function(e){
-    validateName();    
-  console.log(errors);
-    if(Object.keys(errors).length){
-        e.preventDefault();
-    }
+    if(errors.length == 0) {                
+        camposErrores[1].innerText = '';
+    } else {
+        for (let i = 0; i < errors.length; i++) {
+            let lineaError = document.querySelector("small." + errors[i].name);                
+            lineaError.innerText = errors[i].msg;            
+        }            
+    } 
 });
 
 
+
+
+
+
+
+
+
+
+
+
+formulario.addEventListener ("submit", function(e) {
+                    
+    for (let i = 0; i < camposErrores.length; i++) {
+        camposErrores[i].innerText = '';    
+    }
     
+    if(nombre.value == '') {
+        errors.push({ name: 'name', msg: ' Recordá ingresar un nombre' });
+    } else if (nombre.value.length < 2) {
+        errors.push({ name: 'name', msg: 'El nombre debe tener al menos 2 caracteres' });
+    }
+    if(descripcion.value == '') {
+        errors.push({ name: 'description', msg: 'Recordá ingresar un Descripción' });
+    } else if (descripcion.value.length < 20) {
+        errors.push({ name: 'description', msg: 'La descripción debe tener al menos 20 caracteres' });
+    }
+
+
+
+
+
+
+
+if(errors.length > 0) {
+            e.preventDefault();
+            for (let i = 0; i < errors.length; i++) {
+                let lineaError = document.querySelector("small." + errors[i].name);                
+                lineaError.innerText = errors[i].msg;            
+            }            
+        }
+    });
+})
+
