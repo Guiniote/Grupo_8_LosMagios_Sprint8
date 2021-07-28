@@ -4,7 +4,8 @@
   "description": "**We Do Studios**",
   "main": "src/app.js",
   "scripts": {
-    "test": "src/app.js"
+    "test": "src/app.js",
+    "development": "src/app.js"
   },
   "repository": {
     "type": "git",
