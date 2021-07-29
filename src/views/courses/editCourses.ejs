@@ -12,36 +12,173 @@
         <form action="/courses/editCourses/<%= course.id %>" method="POST" enctype="multipart/form-data">
             <div class="edit">
             <h3 class="form_h3">Editar articulo</h3>
+            
+            
             <label class="form_texto" for="name">Nombre:</label>
-            <input type="text" name="name" id="name" value="<%= course.name %>" class="write_upload<%= locals.errors && errors.name ? 'is-invalid' : null %>"
-            value="<%= locals.oldData ? oldData.name : null %>">
+            <input
+             type="text"
+              name="name"
+               id="name" 
+               value="<%= course.name %>"
+                class="write_upload 
+            value="<%= locals.oldData ? oldData.name : null %>"
+            <small class="text-danger name"></small>
             <% if (locals.errors && errors.name) { %>
             <div class="text-danger">
                 <%= errors.name.msg %> 
             </div>
             <% } %>
+            
+            
             <label class="form_texto" for="description">Descripción:</label>
-            <input class="write_upload" type="text" name="description" id="description" value="<%= course.description %>">
+            <input 
+            type="text"
+            name="description"
+            class="write_upload"
+            id="description"
+            class="write_upload"
+               value="<%= course.description %>">
+               <small class="text-danger description"></small>
+               <% if (locals.errors && errors.description) { %>
+               <div class="text-danger">
+                   <%= errors.description.msg %> 
+               </div>
+               <% } %>
+            
+            
             <label class="form_texto" for="keywords">Palabras clave:</label>
-            <input class="write_upload" type="text" name="keywords" id="keywords" value="<%= course.keywords %>">
+            <input
+             class="write_upload" 
+             type="text"
+              name="keywords" 
+              id="keywords" 
+              value="<%= course.keywords %>">
+            
+            
             <label class="form_texto" for="old_image">Imagen Actual:</label>
-            <input class="write_upload" type="old_image" name="old_image" value="<%= course.image %>">
+            <input 
+            class="write_upload" type="old_image" name="old_image" value="<%= course.image %>">
+            
+            
             <label class="form_texto" for="image">Nueva imagen:</label>
-            <input class="write_upload" type="file" name="image" value="<%= course.image %>">
+            <input 
+            class="write_upload" 
+            type="file" name="image" 
+            value="<%= course.image %>">
+            <small class="text-danger image"></small>
+               <% if (locals.errors && errors.image) { %>
+               <div class="text-danger">
+                   <%= errors.image.msg %> 
+               </div>
+               <% } %>
+            
+            
+            
             <label class="form_texto" for="duration">Duración:</label>
-            <input class="write_upload" type="text" name="duration" id="duration" value="<%= course.duration %>">
+            <input 
+            class="write_upload" 
+            type="text" 
+            name="duration" 
+            id="duration" 
+            value="<%= course.duration %>">
+            <small class="text-danger duration"></small>
+               <% if (locals.errors && errors.duration) { %>
+               <div class="text-danger">
+                   <%= errors.duration.msg %> 
+               </div>
+               <% } %>
+            
+            
+            
+            
+            
+            
+            
+            
+            
             <label class="form_texto" for="level">Nivel:</label>
-            <input class="write_upload" type="text" name="level" id="level" value="<%= course.level %>">
+            <select 
+            name="level"
+            type="text"
+            id="level"
+            class="write_upload <%= locals.errors && errors.level ? 'is-invalid' : null %>">
+            <option>Amateur</option>
+            <option>Semi-profesional</option>
+            <option>Profesional</option>
+         
+            </select>
+            
+        
+            
+            
             <label class="form_texto" for="price">Precio:</label>
-            <input class="write_upload" type="text" name="price" id="price" value="<%= course.price %>">
+            <input class="write_upload" 
+            type="text"
+             name="price"
+              id="price" 
+              value="<%= course.price %>">
+              <small class="text-danger price"></small>
+              <% if (locals.errors && errors.price) { %>
+              <div class="text-danger">
+                  <%= errors.price.msg %> 
+              </div>
+              <% } %>
+           
+
+
+
+
+
+            
+            
             <label class="form_texto" for="discount">Descuento:</label>
-            <input class="write_upload" type="text" name="discount" id="discount" value="<%= course.discount %>">
+            <input 
+            class="write_upload" 
+            type="text"
+             name="discount" 
+             id="discount"
+              value="<%= course.discount %>">
+              <small class="text-danger discount"></small>
+              <% if (locals.errors && errors.discount) { %>
+              <div class="text-danger">
+                  <%= errors.discount.msg %> 
+              </div>
+              <% } %>
+           
+            
+            
             <label class="form_texto" for="initialCapacity">Capacidad Inicial:</label>
             <input class="write_upload" type="text" name="initialCapacity" id="initialCapacity" value="<%= course.initialCapacity %>">
+            <small class="text-danger initialCapacity"></small>
+            <% if (locals.errors && errors.initialCapacity) { %>
+            <div class="text-danger">
+                <%= errors.initialCapacity.msg %> 
+            </div>
+            <% } %>
+         
+            
+            
             <label class="form_texto" for="minimalCapacity">Capacidad Mínima:</label>
             <input class="write_upload" type="text" name="minimalCapacity" id="minimalCapacity" value="<%= course.minimalCapacity %>">
+            <small class="text-danger minimalCapacity"></small>
+            <% if (locals.errors && errors.minimalCapacity) { %>
+            <div class="text-danger">
+                <%= errors.minimalCapacity.msg %> 
+            </div>
+            <% } %>
+         
+            
+            
             <label class="form_texto" for="actualCapacity">Capacidad Actual:</label>
             <input class="write_upload" type="text" name="actualCapacity" id="actualCapacity" value="<%= course.actualCapacity %>">
+            <small class="text-danger actualCapacity"></small>
+            <% if (locals.errors && errors.actualCapacity) { %>
+            <div class="text-danger">
+                <%= errors.actualCapacity.msg %> 
+            </div>
+            <% } %>
+         
+           
             <div class="botones_input">
                 <input class="enviaData" type="submit" value="Confirmar Edicion">
             </div>

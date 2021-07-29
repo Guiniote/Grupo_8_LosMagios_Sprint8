@@ -8,6 +8,7 @@ const {uploadCourse} = require('../middlewares/multerMiddleware');
 //const {validateEditProduct} = require('../middlewares/validationsMiddleware');
 const userLoggedMiddleware = require('../middlewares/userLoggedMiddleware');
 const {validateCurses} = require('../middlewares/validationsMiddleware');
+const {validateEditCurses} = require('../middlewares/validationsMiddleware');
 
 // Carrito
 //router.get('/productCart', servicesController.cart);
@@ -25,7 +26,7 @@ router.post('/store', uploadCourse.single('image'),validateCurses, coursesContro
 
 // Edición de servicios
 router.get('/editCourses/:id', userLoggedMiddleware, coursesController.edit);
-router.post ('/editCourses/:id', uploadCourse.single('image'), /*validateEditProduct,*/ coursesController.update);
+router.post ('/editCourses/:id', uploadCourse.single('image'), validateEditCurses, coursesController.update);
 router.get('/:id', coursesController.show);
 router.delete('/courseDetail/:id', coursesController.destroy);
 

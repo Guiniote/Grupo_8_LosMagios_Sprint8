@@ -76,7 +76,10 @@ if (resultValidation.isEmpty()){
     },
         
 // Función para actualizar información editada de los cursos
-    update: (req, res) => {
+    update: async (req, res) => {
+          let resultValidation = validationResult(req);
+          if (resultValidation.isEmpty()){
+        
         let course = req.body;
         course.id = req.params.id;
         course.image = req.file ? req.file.filename : req.body.old_image;
@@ -92,13 +95,36 @@ if (resultValidation.isEmpty()){
         })
         .catch(error => res.send(error));
         
-    }, 
+    }else{
+        let courseOld = await Course.findByPk(req.params.id);
+        
+
+        res.render ('courses/editCourses',{
+         
+         course: courseOld,
+         errors: resultValidation.mapped(),
+         
+       
+         
+         
+
+
+
+
+
+        }
+        
+        
+        
+        
+        
+        
+        )
+
+}}};
 
 // Función para guardar y mostrar el carrito de compras
    /* cart: (req, res) => {
         res.render('services/serviceCart');
     }*/
-};
-
-
 module.exports = coursesController;

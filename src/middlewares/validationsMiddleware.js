@@ -232,9 +232,39 @@ const validateCurses = [
 		body('name').notEmpty().withMessage('El nombre del producto no puede estar vacio').bail()
 		.isLength({ min: 2 }).withMessage('El nombre debe tener al menos 2 caracteres')
 		.isAlpha().withMessage ("El nombre no puede contener numeros"),
+];
+const validateEditCurses = [
+	
+	body('name').notEmpty().withMessage('El nombre del producto no puede estar vacio').bail()
+	.isLength({ min: 2 }).withMessage('El nombre debe tener al menos 2 caracteres')
+	.isAlpha().withMessage ("El nombre no puede contener numeros"),
 
+    body('description').notEmpty().withMessage('La descripción del producto no puede estar vacia')
+	.isLength({ min: 20 }).withMessage('La descripción debe tener al menos 20 caracteres'),
+	body('image').custom((value, { req }) => {
+		let file = req.file;
+		let acceptedExtensions = ['.jpg','.jpeg', '.png', '.gif'];
 
+		if (!file){
+			throw new Error ('Tienes que subir una imagen')
+		} else {
+        let fileExtension = path.extname(file.originalname);
+			if (!acceptedExtensions.includes(fileExtension)) {
+				throw new Error(`Las extensiones de archivo permitidas son ${acceptedExtensions.join(', ')}`);
+		}}
+        return true;
+	}),
+	body('duration').notEmpty().withMessage ("la duración no puede estar vacia")
+	.isNumeric().withMessage('La duracion debe ser numerica debe ser numérico').bail().isInt({gt: 1, lt: 180}).withMessage('La duracion debe ser entre 1 a 180 días'),
+	body('price').notEmpty().withMessage('El campo precio es obligatorio').bail()
+	.isNumeric().withMessage('El precio debe ser numerico').bail().isInt({gt: 1}).withMessage('El precio debe ser mayor a 1'),
+    
+	body('discount').isNumeric().withMessage('El descuento debe ser numerico').bail().isInt({gt: 1, lt: 100}).withMessage('El descuento tiene que estar en el rango de 0 a 100'),
+	body('initialCapacity').notEmpty().withMessage ("la Capacidad no puede estar vacia").bail().isNumeric().withMessage('La capacidad debe ser numerica').bail().isInt({gt: 5, lt: 35}).withMessage('La capacidad tiene que estar en el rango entre 5 y 35'),
+	body('minimalCapacity').notEmpty().withMessage ("la Capacidad no puede estar vacia").bail().isNumeric().withMessage('La capacidad debe ser numerica').bail().isInt({gt: 5, lt: 35}).withMessage('La capacidad tiene que estar en el rango entre 5 y 35'),
+	body('actualCapacity').notEmpty().withMessage ("la Capacidad no puede estar vacia").bail().isNumeric().withMessage('La capacidad debe ser numerica').bail().isInt({gt: 5, lt: 35}).withMessage('La capacidad tiene que estar en el rango entre 5 y 35'),];
 
+	
 
 
 
@@ -247,13 +277,7 @@ const validateCurses = [
 
 
 
-]
 
 
-
-
-
-
-
-module.exports = { validateUserRegister, validateRegProduct, validateEditProduct, validateUserLogin, validateUserEdit,validateCurses, validateServices }
+module.exports = { validateUserRegister, validateRegProduct, validateEditProduct, validateUserLogin, validateUserEdit,validateCurses, validateServices, validateEditCurses }
 	
