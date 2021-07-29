@@ -6,6 +6,8 @@ window.addEventListener("load", function() {
     let errors = [];
     let nombre = document.querySelector("#name");
     let descripcion = document.querySelector("#description");
+    const acceptedExtensions = /(jpg|jpeg|png|gif)$/;
+    let imagen = document.querySelector("#image");
 
     nombre.addEventListener ("blur", function(e) {
 
@@ -44,6 +46,29 @@ descripcion.addEventListener ("blur", function(e) {
         }            
     } 
 });
+imagen.addEventListener ("blur", function(e) {
+
+    errors = [];
+
+    if(imagen.value == '') {
+        errors.push({ name: 'image', msg: 'Recordá ingresar una imagen' });
+    } else {
+        let extension = imagen.value.split('.')[1]
+        if(!extension.match(acceptedExtensions)) {
+            errors.push({ name: 'image', msg: 'Las extensiones de archivo permitidas son .JPG, .JPEG, .PNG o .GIF' });                
+        }
+    }
+
+    if(errors.length == 0) {                
+        camposErrores[2].innerText = '';
+    } else {
+        for (let i = 0; i < errors.length; i++) {
+            let lineaError = document.querySelector("small." + errors[i].name);                
+            lineaError.innerText = errors[i].msg;            
+        }            
+    } 
+});
+
 
 
 
@@ -71,6 +96,15 @@ formulario.addEventListener ("submit", function(e) {
         errors.push({ name: 'description', msg: 'Recordá ingresar un Descripción' });
     } else if (descripcion.value.length < 20) {
         errors.push({ name: 'description', msg: 'La descripción debe tener al menos 20 caracteres' });
+    }
+
+    if(imagen.value == '') {
+        errors.push({ name: 'image', msg: 'Recordá ingresar una imagen' });
+    } else {
+        let extension = imagen.value.split('.')[1]
+        if(!extension.match(acceptedExtensions)) {
+            errors.push({ name: 'image', msg: 'Las extensiones de archivo permitidas son .JPG, .JPEG, .PNG o .GIF' });                
+        }
     }
 
 

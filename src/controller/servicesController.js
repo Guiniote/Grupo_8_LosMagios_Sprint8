@@ -1,5 +1,6 @@
 const { Service } = require('../database/models');
 const { Op } = require("sequelize");
+const { validationResult } = require('express-validator');
 
 
 const servicesController = {
@@ -10,16 +11,29 @@ const servicesController = {
     },
 
 // Función que simula el almacenamiento
-    store: (req, res) => {
-        const service = req.body;
-        service.image = req.file ? req.file.filename : '';
-        Service.create(service)
-        .then(result => { 
-        res.redirect('/services/serviceList');
-        })
-        .catch(error => res.send(error));
+store: (req, res) => {
+    let resultValidation = validationResult(req);
 
-    },
+if (resultValidation.isEmpty()){
+  
+    const service = req.body;
+    service.image = req.file ? req.file.filename : '';
+    Service.create(service)
+    .then(result => { 
+    res.redirect('/services/serviceList');
+    })
+    .catch(error => res.send(error));
+
+}else{ return res.render ('services/createServices',
+{errors: resultValidation.mapped(),
+    oldData: req.body
+
+}
+);
+
+
+}},
+
 
 // Función que muestra la información almacenada
     show: async (req, res) => {

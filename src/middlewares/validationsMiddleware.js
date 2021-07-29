@@ -225,9 +225,13 @@ const validateCurses = [
 	body('discount').isNumeric().withMessage('El descuento debe ser numerico').bail().isInt({gt: 1, lt: 100}).withMessage('El descuento tiene que estar en el rango de 0 a 100'),
 	body('initialCapacity').notEmpty().withMessage ("la Capacidad no puede estar vacia").bail().isNumeric().withMessage('La capacidad debe ser numerica').bail().isInt({gt: 5, lt: 35}).withMessage('La capacidad tiene que estar en el rango entre 5 y 35'),
 	body('minimalCapacity').notEmpty().withMessage ("la Capacidad no puede estar vacia").bail().isNumeric().withMessage('La capacidad debe ser numerica').bail().isInt({gt: 5, lt: 35}).withMessage('La capacidad tiene que estar en el rango entre 5 y 35'),
-	body('actualCapacity').notEmpty().withMessage ("la Capacidad no puede estar vacia").bail().isNumeric().withMessage('La capacidad debe ser numerica').bail().isInt({gt: 5, lt: 35}).withMessage('La capacidad tiene que estar en el rango entre 5 y 35'),
+	body('actualCapacity').notEmpty().withMessage ("la Capacidad no puede estar vacia").bail().isNumeric().withMessage('La capacidad debe ser numerica').bail().isInt({gt: 5, lt: 35}).withMessage('La capacidad tiene que estar en el rango entre 5 y 35'),];
 
+	const validateServices = [
 	
+		body('name').notEmpty().withMessage('El nombre del producto no puede estar vacio').bail()
+		.isLength({ min: 2 }).withMessage('El nombre debe tener al menos 2 caracteres')
+		.isAlpha().withMessage ("El nombre no puede contener numeros"),
 
 
 
@@ -250,5 +254,6 @@ const validateCurses = [
 
 
 
-module.exports = { validateUserRegister, validateRegProduct, validateEditProduct, validateUserLogin, validateUserEdit,validateCurses }
+
+module.exports = { validateUserRegister, validateRegProduct, validateEditProduct, validateUserLogin, validateUserEdit,validateCurses, validateServices }
 	

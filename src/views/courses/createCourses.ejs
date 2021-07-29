@@ -47,8 +47,14 @@
                 <% } %>
             <label class="form_texto" for="keywords">Palabras clave:</label>
             <input class="write_upload" type="text" name="keywords" id="keywords">
+           
+           
             <label class="form_texto" for="image">Imagen:</label>
-            <input class="write_upload" type="file" name="image" id= "image">
+            <input class="write_upload"
+             type="file" 
+             name="image" 
+             id= "image">
+             <small class="text-danger image"></small>
             <% if (locals.errors && errors.image) {%>
                 <div class="text-danger"><%= errors.image.msg %></div> 
                 <% } %>
@@ -112,7 +118,7 @@
                <div class="text-danger"><%= errors.discount.msg %></div> 
                <% } %>
             
-            >
+            
             
 
 
@@ -128,7 +134,7 @@
              value= "<%= locals.oldData ? oldData.initialCapacity : null %>">
              <% if (locals.errors && errors.initialCapacity) {%>
                 <div class="text-danger"><%= errors.initialCapacity.msg %></div> 
-                <% } %>>
+                <% } %>
 
 
             <label class="form_texto" for="minimalCapacity">Capacidad Mínima:</label>
@@ -140,7 +146,7 @@
                value= "<%= locals.oldData ? oldData.minimalCapacity : null %>">
                <% if (locals.errors && errors.minimalCapacity) {%>
                 <div class="text-danger"><%= errors.minimalCapacity.msg %></div> 
-                <% } %>>
+                <% } %>
 
 
 
@@ -155,7 +161,7 @@
 
              <% if (locals.errors && errors.actualCapacity) {%>
                 <div class="text-danger"><%= errors.actualCapacity.msg %></div> 
-                <% } %>>
+                <% } %>
             
             
             

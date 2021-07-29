@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const servicesController = require('../controller/servicesController');
+const {validateServices} = require('../middlewares/validationsMiddleware');
 
 // Middlewares
 const {uploadService} = require('../middlewares/multerMiddleware');
@@ -19,7 +20,7 @@ router.get('/serviceDetail/:id', servicesController.show);
 
 // Creación de servicios
 router.get('/createServices', userLoggedMiddleware, servicesController.create);
-router.post('/store', uploadService.single('image'), servicesController.store);
+router.post('/store', uploadService.single('image'),validateServices, servicesController.store);
 
 // Edición de servicios
 router.get('/editServices/:id', userLoggedMiddleware, servicesController.edit);
