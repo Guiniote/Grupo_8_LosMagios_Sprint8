@@ -9,20 +9,19 @@
 
     <main>        
         <% if (locals.isLogged) { %>
-        <form action="/courses/editCourses/<%= course.id %>" method="POST" enctype="multipart/form-data">
+        <form action="/courses/editCourses/<%= course.id %>" method="POST" enctype="multipart/form-data"  class="form">
             <div class="edit">
             <h3 class="form_h3">Editar articulo</h3>
             
             
             <label class="form_texto" for="name">Nombre:</label>
             <input
+            class="write_upload <%= locals.errors && errors.name ? 'is-invalid' : null %>" 
              type="text"
               name="name"
                id="name" 
-               value="<%= course.name %>"
-                class="write_upload 
-            value="<%= locals.oldData ? oldData.name : null %>"
-            <small class="text-danger name"></small>
+               value="<%= course.name %>">
+                 <small class="text-danger name"></small>
             <% if (locals.errors && errors.name) { %>
             <div class="text-danger">
                 <%= errors.name.msg %> 
@@ -32,12 +31,11 @@
             
             <label class="form_texto" for="description">Descripción:</label>
             <input 
+            class="write_upload <%= locals.errors && errors.description ? 'is-invalid' : null %>"
             type="text"
             name="description"
-            class="write_upload"
             id="description"
-            class="write_upload"
-               value="<%= course.description %>">
+             value="<%= course.description %>">
                <small class="text-danger description"></small>
                <% if (locals.errors && errors.description) { %>
                <div class="text-danger">
@@ -57,13 +55,17 @@
             
             <label class="form_texto" for="old_image">Imagen Actual:</label>
             <input 
-            class="write_upload" type="old_image" name="old_image" value="<%= course.image %>">
+            class="write_upload"
+             type="old_image" 
+             name="old_image"
+              value="<%= course.image %>">
             
             
             <label class="form_texto" for="image">Nueva imagen:</label>
             <input 
             class="write_upload" 
-            type="file" name="image" 
+            type="file"
+             name="image" 
             value="<%= course.image %>">
             <small class="text-danger image"></small>
                <% if (locals.errors && errors.image) { %>
@@ -76,7 +78,7 @@
             
             <label class="form_texto" for="duration">Duración:</label>
             <input 
-            class="write_upload" 
+            class="write_upload <%= locals.errors && errors.duration ? 'is-invalid' : null %>" 
             type="text" 
             name="duration" 
             id="duration" 
@@ -205,5 +207,6 @@
 
 
 <%- include('../partials/footer') %>
+<script src="/js/editCursos.js"></script>
 </body>
 </html>
