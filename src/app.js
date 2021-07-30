@@ -8,10 +8,15 @@ const path = require('path');
 const puerto = process.env.PORT;
 
 const homeRouter = require('./routes/homeRouter');
-const productsRouter = require('./routes/productsRouter');
 const usersRouter = require('./routes/usersRouter');
+const productsRouter = require('./routes/productsRouter');
 const servicesRouter = require('./routes/servicesRouter');
 const coursesRouter = require('./routes/coursesRouter');
+const apiUsersRouter = require('./routes/api/apiUsersRouter');
+const apiProductsRouter = require('./routes/api/apiProductsRouter');
+const apiServicesRouter = require('./routes/api/apiServicesRouter');
+const apiCoursesRouter = require('./routes/api/apiCoursesRouter');
+
 
 const cookieLoginMiddleware = require('./middlewares/cookieLoginMiddleware');
 
@@ -34,10 +39,14 @@ app.use(express.static(path.join(__dirname, '../public')));
 app.use(express.urlencoded({ extended: false }));
 
 app.use('/', homeRouter);
-app.use('/products', productsRouter);
 app.use('/users', usersRouter);
+app.use('/products', productsRouter);
 app.use('/services', servicesRouter);
 app.use('/courses', coursesRouter);
+//app.use('/api/users', apiUsersRouter);
+app.use('/api/products', apiProductsRouter);
+//app.use('/api/services', apiServicesRouter);
+//app.use('/api/courses', apiCoursesRouter);
 
 
 app.listen (puerto || 3000, () => {
