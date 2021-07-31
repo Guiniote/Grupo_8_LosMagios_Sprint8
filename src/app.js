@@ -43,7 +43,7 @@ app.use('/users', usersRouter);
 app.use('/products', productsRouter);
 app.use('/services', servicesRouter);
 app.use('/courses', coursesRouter);
-//app.use('/api/users', apiUsersRouter);
+app.use('/api/users', apiUsersRouter);
 app.use('/api/products', apiProductsRouter);
 //app.use('/api/services', apiServicesRouter);
 //app.use('/api/courses', apiCoursesRouter);
