@@ -56,8 +56,8 @@ const apiProductsController = {
 
         let response = {
             product: {},
-            relations: [],
             images: [],
+            relations: [],
             status: 0,
         };
 
@@ -66,13 +66,26 @@ const apiProductsController = {
                 include: ['brand', 'category', 'images']}
             );
             
-            response.product = product
-
+            response.product.id = product.id
+            response.product.name = product.name
+            response.product.model = product.model
+            response.product.description = product.description
+            response.product.specs = product.specs
+            response.product.keywords = product.keywords
+            response.product.price = product.price
+            response.product.discount = product.discount
+            response.product.stock = product.stock
+            response.product.stockMin = product.stockMin
+            response.product.stockMax = product.stockMax
+            response.product.category = product.category.name
+            response.product.brand = product.brand.name
+            
             let imagenes = [];
             product.images.forEach(image => { imagenes.push(image.name)})
-            response.relations = [{brand: product.brand.name}, {category: product.category.name}, {images: imagenes}]
 
             response.images = imagenes.map(image => 'http://' + req.headers.host + `/images/${image}`)
+
+            response.relations = [{brand: product.brand.name}, {category: product.category.name}, {images: imagenes}]
 
             response.status = 200;
         }
