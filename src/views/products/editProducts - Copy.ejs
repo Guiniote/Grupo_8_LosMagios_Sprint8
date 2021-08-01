@@ -20,7 +20,6 @@
                 <%= errors.name.msg %> 
             </div>
             <% } %>
-           
             <label class="form_texto" for="category">Categoría:</label>            
             <select class="write_upload"  name="category">
                 <% for (let i = 0; i < categories.length; i++) { %>
@@ -82,8 +81,12 @@
             <!-- </form> -->
             <% for (let i = 1; i <= 5; i++) { %>
                 <label class="form_texto" for="image<%= i %>">Imagen <%= i %>:</label>            
-                <input class="write_upload" type="file" name="image<%= i %>">
-            <% } %>
+                <input type="file" name="image<%= i %>" class="write_upload <% if (locals.errors && errors.image1) { %>
+                    <div class="text-danger">
+                        <%= errors.image1.msg %>
+                        <%= errors['image'+ i].msg %>
+                    </div>
+                <% } %>   
             <!-- <label class="form_texto" for="image1">Imagen 1:</label>            
             <input class="write_upload" type="file" name="image1">
             <label class="form_texto" for="image2">Imagen 2:</label>
