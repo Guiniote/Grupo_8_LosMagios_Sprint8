@@ -4,7 +4,7 @@ const apiProductsController = require('../../controller/api/apiProductsControlle
 
 
 router.get('/', apiProductsController.list);
-//router.get('/products/:id', apiProductsController.show);
+router.get('/:id', apiProductsController.listById);
 
 
 
