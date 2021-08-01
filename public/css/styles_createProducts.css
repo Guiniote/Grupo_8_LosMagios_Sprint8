@@ -89,6 +89,26 @@ margin-bottom: 10px;
     border: 2px solid #2289da;
     margin:auto;
 }
+.errores{
+   margin-top: 80px;
+   color: red;
+}
+input.is-invalid {
+    border: 2px solid red;
+  }
+  input.error-input {
+    border: 2px solid red !important;   
+    background-color: #ebebeb; 
+    /* solo para push */
+}
+
+span {
+    color: red;
+    display: flex;
+    justify-content: flex-end;
+}
+
+
 
     /*celulares 320*/
 
@@ -152,7 +172,6 @@ margin-bottom: 10px;
         font-weight: 800;
 
     }
-
 
 
 
