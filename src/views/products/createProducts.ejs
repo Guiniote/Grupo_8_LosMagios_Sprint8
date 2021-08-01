@@ -77,20 +77,57 @@
                 <%= errors.keywords.msg %> 
             </div>
             <% } %>
-            <% for (let i = 1; i <= 5; i++) { %>
-                <label class="form_texto" for="image<%= i %>">Imagen <%= i %>:</label>            
-                <input class="write_upload" type="file" name="image<%= i %>">
+            <!-- Saque el for porque no pude validar con el iterador
+            <#% # for (let i = 1; i <= 5; i++) { %>
+                    <label class="form_texto" for="image<#%= i %>">Imagen <#%= i %>:</label>            
+                    <input type="file" name="image<#%= i %>" class="write_upload<#%= locals.errors && errors.image ? 'is-invalid' : null %>">
+                    <small class="text-danger imageProduct"></small>
+                    <#% if (locals.errors && errors.image) { %>
+                        <div class="text-danger">
+                            <#%= errors.image.msg %>
+                        </div> 
+                <#% } %> -->
+            <label class="form_texto" for="image1">Imagen 1:</label>
+            <input type="file" name="image1" class="write_upload<%= locals.errors && errors.image1 ? 'is-invalid' : null %>">
+            <small class="text-danger imageProduct"></small>
+            <% if (locals.errors && errors.image1) { %>
+                <div class="text-danger">
+                    <%= errors.image1.msg %>
+                </div>
             <% } %>
-            <!-- <label class="form_texto" for="image1">Imagen 1:</label>
-            <input class="write_upload" type="file" name="image1">
             <label class="form_texto" for="image2">Imagen 2:</label>
-            <input class="write_upload" type="file" name="image2">
+            <input type="file" name="image2" class="write_upload<%= locals.errors && errors.image2 ? 'is-invalid' : null %>">
+            <small class="text-danger imageProduct"></small>
+            <% if (locals.errors && errors.image2) { %>
+                <div class="text-danger">
+                    <%= errors.image2.msg %>
+                </div>
+            <% } %>
             <label class="form_texto" for="image3">Imagen 3:</label>
-            <input class="write_upload" type="file" name="image3">
+            <input type="file" name="image3" class="write_upload<%= locals.errors && errors.image3 ? 'is-invalid' : null %>">
+            <small class="text-danger imageProduct"></small>
+            <% if (locals.errors && errors.image3) { %>
+                <div class="text-danger">
+                    <%= errors.image3.msg %>
+                </div>
+            <% } %>
             <label class="form_texto" for="image4">Imagen 4:</label>
-            <input class="write_upload" type="file" name="image4">
+            <input type="file" name="image4" class="write_upload<%= locals.errors && errors.image4 ? 'is-invalid' : null %>">
+            <small class="text-danger imageProduct"></small>
+            <% if (locals.errors && errors.image4) { %>
+                <div class="text-danger">
+                    <%= errors.image4.msg %>
+                </div>
+            <% } %>
             <label class="form_texto" for="image5">Imagen 5:</label>
-            <input class="write_upload" type="file" name="image5"> -->
+            <input type="file" name="image5" class="write_upload<%= locals.errors && errors.image5 ? 'is-invalid' : null %>">
+            <small class="text-danger imageProduct"></small>
+            <% if (locals.errors && errors.image5) { %>
+                <div class="text-danger">
+                    <%= errors.image5.msg %>
+                </div>
+            <% } %>
+
             <label class="form_texto" for="price">Precio:</label>
             <input type="text" name="price" id="price" class="write_upload<%= locals.errors && errors.price ? 'is-invalid' : null %>"
             value="<%= locals.oldData ? oldData.price : null %>">
@@ -139,14 +176,6 @@
             <input class="enviaData" type="submit" value="Crear item">
         </div>
         </form>
-
-        <!-- opciones de colores para elegir al producto
-        <datalist id="listacoloresperfil">
-            <option value="#23049d">
-            <option value="#999b84">
-            <option value="#ffff00">
-            <option value="#ffffff">
-        </datalist> -->
 </main>
 
 
