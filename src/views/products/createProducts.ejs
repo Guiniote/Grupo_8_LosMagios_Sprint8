@@ -23,7 +23,7 @@
             <% } %>
             <label class="form_texto" for="category">Categoría:</label>            
             <select name="category" class="write_upload<%if(locals&&locals.errors&&errors.category){%><%="text-danger"%><%}%>">
-                <option value=0 disabled selected>Elegí una categoria... </option>
+                <option value="" disabled selected>Elegí una categoria... </option>
                 <% categories.forEach(category => { %>
                     <option value="<%= category.id %>"
                         <% if (locals.oldData && oldData.category == category.id) { %>
@@ -36,7 +36,7 @@
                 <small class="text-danger productCategory"></small>
             <label class="form_texto" for="brand">Marca:</label>
             <select name="brand" class="write_upload<%if(locals&&locals.errors&&errors.category){%><%="text-danger"%><%}%>">
-                <option value=0 disabled selected>Elegí una categoria... </option>
+                <option value="" disabled selected>Elegí una categoria... </option>
                 <% brands.forEach(brand => { %>
                     <option value="<%= brand.id %>"
                         <% if (locals.oldData && oldData.brand == brand.id) { %>

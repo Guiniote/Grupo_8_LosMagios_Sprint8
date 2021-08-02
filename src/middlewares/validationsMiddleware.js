@@ -179,7 +179,7 @@ const validateRegProduct = [
 	body('discount').notEmpty().withMessage('El campo de descuento es obligatorio').bail().isNumeric().withMessage('El descuento debe ser numérico').bail().isInt({gt: -1, lt: 100}).withMessage('El descuento debe estar entre 0 y 99'),
 	body('stock').notEmpty().withMessage('El campo de stock es obligatorio').bail().isNumeric().withMessage('El stock debe ser numérico'),
 	body('stockMin').notEmpty().withMessage('Debes indicar un stock mínimo').bail().isNumeric().withMessage('El stock mínimo debe ser numérico').bail().isInt({gt:0}).withMessage('El stock mínimo no puede ser menor a 1'),
-	body('stockMax').notEmpty().withMessage('Debes indicar un stock máximo').bail().isNumeric().withMessage('El stock máximo debe ser numérico').bail().isInt({gt:1}).withMessage('El stock máximo no puede ser menor a 1'),
+	body('stockMax').notEmpty().withMessage('Debes indicar un stock máximo').bail().isNumeric().withMessage('El stock máximo debe ser numérico').bail().isInt({gt:0}).withMessage('El stock máximo no puede ser menor a 1'),
 ];
 
 const validateEditProduct = [

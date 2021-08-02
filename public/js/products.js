@@ -7,7 +7,7 @@ window.addEventListener("load", function() {
     let productName = document.querySelector("#name");  
     let productCategory = document.querySelector("#category");
     let productBrand = document.querySelector("#brand");
-    let productModel = document.querySelector("#brand");
+    let productModel = document.querySelector("#model");
     let productDescription = document.querySelector("#description");
     let productKeywords = document.querySelector("#keywords");
     let productPrice = document.querySelector("#price");
