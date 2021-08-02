@@ -4,7 +4,9 @@ window.addEventListener("load", function() {
     let camposErrores = document.querySelectorAll("small");   
     let errors = [];
     const acceptedExtensions = /(jpg|jpeg|png|gif)$/;
-    let productName = document.querySelector("#name");
+    let productName = document.querySelector("#name");  
+    let productCategory = document.querySelector("#category");
+    let productBrand = document.querySelector("#brand");
     let productModel = document.querySelector("#brand");
     let productDescription = document.querySelector("#description");
     let productKeywords = document.querySelector("#keywords");
@@ -24,6 +26,42 @@ window.addEventListener("load", function() {
         } else if (productName.value.length < 2) {                
             errors.push({ name: 'productName', msg: 'El nombre debe tener al menos 2 caracteres' });
         } 
+        
+        if(errors.length == 0) {                
+            camposErrores[0].innerText = '';
+        } else {
+            for (let i = 0; i < errors.length; i++) {
+                let lineaError = document.querySelector("small." + errors[i].name);                
+                lineaError.innerText = errors[i].msg;            
+            }            
+        }  
+    });
+
+    productCategory.addEventListener ("blur", function(e) {
+
+        errors = [];
+            
+        if(productCategory.value == 0) {                
+            errors.push({ name: 'productCategory', msg: 'Debes seleccionar una categoria' });
+        };
+        
+        if(errors.length == 0) {                
+            camposErrores[0].innerText = 0;
+        } else {
+            for (let i = 0; i < errors.length; i++) {
+                let lineaError = document.querySelector("small." + errors[i].name);                
+                lineaError.innerText = errors[i].msg;            
+            }            
+        }  
+    });
+
+    productBrand.addEventListener ("blur", function(e) {
+
+        errors = [];
+            
+        if(productBrand.value == 0) {                
+            errors.push({ name: 'productBrand', msg: 'Debes seleccionar una marca' });
+        };
         
         if(errors.length == 0) {                
             camposErrores[0].innerText = '';
@@ -222,6 +260,14 @@ window.addEventListener("load", function() {
             errors.push({ name: 'productName', msg: 'El nombre debe tener al menos 2 caracteres' });
         };
         
+        if(productCategory.value == 0) {                
+            errors.push({ name: 'productCategory', msg: 'Debes seleccionar una categoria' });
+        };
+
+        if(productCategory.value == 0) {                
+            errors.push({ name: 'productCategory', msg: 'Debes seleccionar una categoria' });
+        };
+
         if(productModel.value == '') {                
             errors.push({ name: 'productModel', msg: 'Recordá ingresar un modelo' });
         };
