@@ -32,7 +32,7 @@ data: {userId: user.id,
     zipCode: user.zipCode,
     city: user.city,
     telephone: user.telephone,
-    avatar: req.headers.host + '/images/avatars/' + user.avatar,
+    avatar: ' http://' + req.headers.host + '/images/avatars/' + user.avatar,
 },
 status: 200
 })
