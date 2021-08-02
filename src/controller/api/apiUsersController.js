@@ -25,7 +25,15 @@ show: (req,res)=>{
 ['id','firstName','surname','email','zipCode','city','telephone','avatar']})
     .then (user =>{
 return res.status(200).json ({
-data: user,
+data: {userId: user.id,
+    firstName: user.firstname,
+    surName: user.surname,
+    email: user.email,
+    zipCode: user.zipCode,
+    city: user.city,
+    telephone: user.telephone,
+    avatar: req.headers.host + '/avatars/' + user.avatar,
+},
 status: 200
 })
 })}}
