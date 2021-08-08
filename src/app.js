@@ -51,6 +51,9 @@ app.use('/api/products', apiProductsRouter);
 app.use('/api/categories', apiCategoriesRouter);
 //app.use('/api/services', apiServicesRouter);
 //app.use('/api/courses', apiCoursesRouter);
+app.use ((req, res, next) => {
+    res.status(404).render('error404')
+});
 
 
 app.listen (puerto || 3001, () => {
