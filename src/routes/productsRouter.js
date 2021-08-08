@@ -18,12 +18,12 @@ router.get('/productList', productsController.list);
 router.get('/productDetail/:id', productsController.show);
 
 // Creación de productos
-router.get('/createProducts', /*userLoggedMiddleware,*/ productsController.create);
+router.get('/createProducts', userLoggedMiddleware, productsController.create);
 router.post('/store', uploadProduct.fields([{name: 'image1'}, {name: 'image2'}, {name: 'image3'}, {name: 'image4'}, {name: 'image5'}]), validateRegProduct, productsController.store);
 
 // Edición de productos
 router.get('/editProducts/:id', userLoggedMiddleware, productsController.edit);
-router.post ('/editProducts/:id', uploadProduct.fields([{name: 'image1'}, {name: 'image2'}, {name: 'image3'}, {name: 'image4'}, {name: 'image5'}]), /*validateEditProduct,*/ productsController.update);
+router.post ('/editProducts/:id', uploadProduct.fields([{name: 'image1'}, {name: 'image2'}, {name: 'image3'}, {name: 'image4'}, {name: 'image5'}]), validateEditProduct, productsController.update);
 router.get('/:id', productsController.show);
 router.delete('/productDetail/:id', productsController.destroy);
 

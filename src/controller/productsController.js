@@ -123,7 +123,8 @@ const productsController = {
 
         
 // Función para actualizar información editada de los producto
-    update: async (req, res) => {        
+    update: async (req, res) => {  
+        let errors = validationResult(req);      
         let product = req.body;
         let imagesOnProduct = [];
         product.id = req.params.id;
@@ -173,7 +174,7 @@ const productsController = {
         }
         imagesOnProduct.push({ name: product.image5 });
 
-         
+        if (errors.isEmpty()) { 
         try {    
             Product.update({
                 id: req.params.id,
@@ -200,16 +201,17 @@ const productsController = {
         
         } catch (error) {
             res.send(error)
-        }
-        
+        }  }
+        else {
+            res.render('products/editProducts', {
+                categories,
+                brands,
+                errors: errors.mapped(),
+                oldData: req.body
+            })
+    }
     }, 
 
-
-
-// // Función para guardar y mostrar el carrito de compras
-//     cart: (req, res) => {
-//         res.render('products/productCart');
-//     }
 };
 
 
