@@ -5,6 +5,7 @@ const productsController = require('../controller/productsController');
 // Middlewares
 const {uploadProduct} = require('../middlewares/multerMiddleware');
 const {validateRegProduct} = require('../middlewares/validationsMiddleware');
+const {validateEditProduct} = require('../middlewares/validationsMiddleware');
 const userLoggedMiddleware = require('../middlewares/userLoggedMiddleware');
 
 // Carrito

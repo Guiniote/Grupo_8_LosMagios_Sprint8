@@ -124,8 +124,10 @@ const productsController = {
         
 // Función para actualizar información editada de los producto
     update: async (req, res) => {  
-        let errors = validationResult(req);      
         let product = req.body;
+        let errors = validationResult(req);      
+        let categories = await Category.findAll();
+        let brands = await Brand.findAll(); 
         let imagesOnProduct = [];
         product.id = req.params.id;
         

@@ -182,18 +182,19 @@ const validateRegProduct = [
 	body('stockMax').notEmpty().withMessage('Debes indicar un stock máximo').bail().isNumeric().withMessage('El stock máximo debe ser numérico').bail().isInt({gt:0}).withMessage('El stock máximo no puede ser menor a 1'),
 ];
 
-const validateEditProduct = [
+const validateEditProduct = [ 
 	body('name').notEmpty().withMessage('Recordá ingresar un nombre').bail().isLength({ min: 5 }).withMessage('El nombre debe tener al menos 5 caracteres'),
 	body('model').notEmpty().withMessage('Recordá ingresar un modelo'),
 	body('description').notEmpty().withMessage('Recordá ingresar un modelo').bail().isLength({ min: 20 }).withMessage('La descripción no puede contener menos de 20 caracteres'),
 	body('specs').notEmpty().withMessage('Debes completar las especificaciones técnicas del producto'),
-	body('keywords').notEmpty().withMessage('Debes ingresar al menos una palabra clave'),
+	body('keywords').notEmpty().withMessage('Debes ingresar al menos una palabra clave'),	
 	body('price').notEmpty().withMessage('El campo precio es obligatorio').bail().isNumeric().withMessage('El precio debe ser numérico'),
-	body('discount').notEmpty().withMessage('El campo de descuento es obligatorio').bail().isNumeric().withMessage('El precio debe ser numérico').bail().isInt({gt: 0, lt: 99}).withMessage('El descuento debe estar entre 0 y 99'),
+	body('discount').notEmpty().withMessage('El campo de descuento es obligatorio').bail().isNumeric().withMessage('El descuento debe ser numérico').bail().isInt({gt: -1, lt: 100}).withMessage('El descuento debe estar entre 0 y 99'),
 	body('stock').notEmpty().withMessage('El campo de stock es obligatorio').bail().isNumeric().withMessage('El stock debe ser numérico'),
-	body('stockMin').notEmpty().withMessage('Debes indicar un stock mínimo').bail().isNumeric().withMessage('El campo debe ser numérico').bail().isInt({gt:1}).withMessage('El stock mínimo no puede ser menor a 1'),
-	body('stockMax').notEmpty().withMessage('Debes indicar un stock máximo').bail().isNumeric().withMessage('El campo debe ser numérico').bail().isInt({gt:1}).withMessage('El stock máximo no puede ser menor a 1'),
+	body('stockMin').notEmpty().withMessage('Debes indicar un stock mínimo').bail().isNumeric().withMessage('El stock mínimo debe ser numérico').bail().isInt({gt:0}).withMessage('El stock mínimo no puede ser menor a 1'),
+	body('stockMax').notEmpty().withMessage('Debes indicar un stock máximo').bail().isNumeric().withMessage('El stock máximo debe ser numérico').bail().isInt({gt:0}).withMessage('El stock máximo no puede ser menor a 1'),
 ];
+
 const validateCurses = [
 	
 	body('name').notEmpty().withMessage('El nombre del producto no puede estar vacio').bail()

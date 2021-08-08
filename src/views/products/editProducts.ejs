@@ -14,7 +14,7 @@
             <div class="edit">
             <h3 class="form_h3">Editar articulo</h3>
             <label class="form_texto" for="name">Nombre:</label>
-            <input type="text" name="name" id="name" class="write_upload<%= locals.errors && errors.name ? 'is-invalid' : null %>"
+            <input type="text" name="name" id="name" value="<%= product.name %>" class="write_upload<%= locals.errors && errors.name ? 'is-invalid' : null %>"
             value="<%= locals.oldData ? oldData.name : null %>">
             <small class="text-danger productName"></small>
             <% if (locals.errors && errors.name) { %>
@@ -60,7 +60,7 @@
             
             
             <label class="form_texto" for="model">Modelo:</label>
-            <input type="text" name="model" id="model" class="write_upload<%= locals.errors && errors.model ? 'is-invalid' : null %>"
+            <input type="text" name="model" id="model" value="<%= product.model %>" class="write_upload<%= locals.errors && errors.model ? 'is-invalid' : null %>"
             value="<%= locals.oldData ? oldData.model : null %>">
             <small class="text-danger productModel"></small>
             <% if (locals.errors && errors.model) { %>
@@ -69,7 +69,7 @@
             </div>
             <% } %>
             <label class="form_texto" for="description">Descripcion:</label>
-            <input type="text" name="description" id="description" class="write_upload<%= locals.errors && errors.description ? 'is-invalid' : null %>"
+            <input type="text" name="description" id="description" value="<%= product.description %>" class="write_upload<%= locals.errors && errors.description ? 'is-invalid' : null %>"
             value="<%= locals.oldData ? oldData.description : null %>">
             <small class="text-danger productModel"></small>
             <% if (locals.errors && errors.description) { %>
@@ -78,7 +78,7 @@
             </div>
             <% } %>
             <label class="form_texto" for="specs">Especificaciones Técnicas:</label>
-            <input type="text" name="specs" id="specs" class="write_upload<%= locals.errors && errors.specs ? 'is-invalid' : null %>"
+            <input type="text" name="specs" id="specs" value="<%= product.specs %>" class="write_upload<%= locals.errors && errors.specs ? 'is-invalid' : null %>"
             value="<%= locals.oldData ? oldData.specs : null %>">
             <small class="text-danger productSpecs"></small>
             <% if (locals.errors && errors.specs) { %>
@@ -87,7 +87,7 @@
             </div>
             <% } %>
             <label class="form_texto" for="keywords">Palabras clave:</label>
-            <input type="text" name="keywords" id="keywords" class="write_upload<%= locals.errors && errors.keywords ? 'is-invalid' : null %>"
+            <input type="text" name="keywords" id="keywords" value="<%= product.keywords %>" class="write_upload<%= locals.errors && errors.keywords ? 'is-invalid' : null %>"
             value="<%= locals.oldData ? oldData.keywords : null %>">
             <small class="text-danger productKeywords"></small>
             <% if (locals.errors && errors.keywords) { %>
@@ -125,7 +125,7 @@
             <label class="form_texto" for="image5">Imagen 5:</label>
             <input class="write_upload" type="file" name="image5"> -->
             <label class="form_texto" for="price">Precio:</label>
-            <input type="text" name="price" id="price" class="write_upload<%= locals.errors && errors.price ? 'is-invalid' : null %>"
+            <input type="text" name="price" id="price" value="<%= product.price %>" class="write_upload<%= locals.errors && errors.price ? 'is-invalid' : null %>"
             value="<%= locals.oldData ? oldData.price : null %>">
             <small class="text-danger productPrice"></small>
             <% if (locals.errors && errors.price) { %>
@@ -134,7 +134,7 @@
             </div>
             <% } %>
             <label class="form_texto" for="discount">Descuento:</label>
-            <input type="text" name="discount" id="discount" class="write_upload<%= locals.errors && errors.discount ? 'is-invalid' : null %>"
+            <input type="text" name="discount" id="discount" value="<%= product.discount %>" class="write_upload<%= locals.errors && errors.discount ? 'is-invalid' : null %>"
             value="<%= locals.oldData ? oldData.discount : null %>">
             <small class="text-danger productDiscount"></small>
             <% if (locals.errors && errors.discount) { %>
@@ -143,7 +143,7 @@
             </div>
             <% } %>
             <label class="form_texto" for="stock">Stock:</label>
-            <input type="text" name="stock" id="stock" class="write_upload<%= locals.errors && errors.stock ? 'is-invalid' : null %>"
+            <input type="text" name="stock" id="stock" value="<%= product.stock %>" class="write_upload<%= locals.errors && errors.stock ? 'is-invalid' : null %>"
             value="<%= locals.oldData ? oldData.stock : null %>">
             <small class="text-danger productStock"></small>
             <% if (locals.errors && errors.stock) { %>
@@ -152,7 +152,7 @@
             </div>
             <% } %>
             <label class="form_texto" for="stockMin">Stock Mínimo:</label>
-            <input type="text" name="stockMin" id="stockMin" class="write_upload<%= locals.errors && errors.stockMin ? 'is-invalid' : null %>"
+            <input type="text" name="stockMin" id="stockMin" value="<%= product.stockMin %>" class="write_upload<%= locals.errors && errors.stockMin ? 'is-invalid' : null %>"
             value="<%= locals.oldData ? oldData.stockMin : null %>">
             <small class="text-danger productStockmin"></small>
             <% if (locals.errors && errors.stockMin) { %>
@@ -161,7 +161,7 @@
             </div>
             <% } %>
             <label class="form_texto" for="stockMax">Stock Máximo:</label>
-            <input type="text" name="stockMax" id="stockMax" class="write_upload<%= locals.errors && errors.stockMax ? 'is-invalid' : null %>"
+            <input type="text" name="stockMax" id="stockMax" value="<%= product.stockMax %>" class="write_upload<%= locals.errors && errors.stockMax ? 'is-invalid' : null %>"
             value="<%= locals.oldData ? oldData.stockMax : null %>">
             <small class="text-danger productStockmax"></small>
             <% if (locals.errors && errors.stockMax) { %>
