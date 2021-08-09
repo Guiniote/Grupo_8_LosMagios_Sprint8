@@ -9,17 +9,19 @@ const apiProductsController = {
         let response = {
             count: 0,
             countByCategory: {
+                /***********NUEVO***********/
                 camaras: 0,
                 tripodes: 0,
                 otros_accesorios: 0
+                /***********NUEVO***********/
             },
             products: [],            
             status: 0,
         };
         
-        let aux1 = 0
-        let aux2 = 0
-        let aux3 = 0
+        let aux1 = 0;
+        let aux2 = 0;
+        let aux3 = 0;
 
         try{
             let products = await Product.findAndCountAll({ 
@@ -28,15 +30,18 @@ const apiProductsController = {
 
             response.count = products.rows.length;
 
-
-            let categories = await Category.findAll();
+            /***********VIEJO***********/
+            //let categories = await Category.findAll();
                     
             // categories.forEach( category => {
             //     response.countByCategory[category.name] = 0;            
             // });
-
+            /***********VIEJO***********/
             response.products = products.rows.map( row => {
+                /***********VIEJO***********/
                 //response.countByCategory[row.category.name]++;
+                /***********VIEJO***********/
+                /***********NUEVO***********/
                 if (row.category.id == 1) {
                     aux1++;
                 } else if (row.category.id == 2) {
@@ -48,7 +53,7 @@ const apiProductsController = {
                 response.countByCategory.camaras = aux1;
                 response.countByCategory.tripodes = aux2;
                 response.countByCategory.otros_accesorios = aux3;
-
+                /***********NUEVO***********/
 
                 let product = {
                     id: row.id,
