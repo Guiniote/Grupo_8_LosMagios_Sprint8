@@ -8,11 +8,19 @@ const apiProductsController = {
         
         let response = {
             count: 0,
-            countByCategory: {},
+            countByCategory: {
+                camaras: 0,
+                tripodes: 0,
+                otros_accesorios: 0
+            },
             products: [],            
             status: 0,
         };
         
+        let aux1 = 0
+        let aux2 = 0
+        let aux3 = 0
+
         try{
             let products = await Product.findAndCountAll({ 
                 include: ['brand', 'category', 'images']}
@@ -23,12 +31,24 @@ const apiProductsController = {
 
             let categories = await Category.findAll();
                     
-            categories.forEach( category => {
-                response.countByCategory[category.name] = 0;            
-            });
+            // categories.forEach( category => {
+            //     response.countByCategory[category.name] = 0;            
+            // });
 
             response.products = products.rows.map( row => {
-                response.countByCategory[row.category.name]++;
+                //response.countByCategory[row.category.name]++;
+                if (row.category.id == 1) {
+                    aux1++;
+                } else if (row.category.id == 2) {
+                    aux2++;
+                } else if (row.category.id == 3) {
+                    aux3++;
+                }
+                
+                response.countByCategory.camaras = aux1;
+                response.countByCategory.tripodes = aux2;
+                response.countByCategory.otros_accesorios = aux3;
+
 
                 let product = {
                     id: row.id,
@@ -55,7 +75,7 @@ const apiProductsController = {
     listById: async (req, res) => {
 
         let response = {
-            product: {},
+            product: [],
             images: [],
             relations: [],
             status: 0,
@@ -66,20 +86,27 @@ const apiProductsController = {
                 include: ['brand', 'category', 'images']}
             );
             
-            response.product.id = product.id
-            response.product.name = product.name
-            response.product.model = product.model
-            response.product.description = product.description
-            response.product.specs = product.specs
-            response.product.keywords = product.keywords
-            response.product.price = product.price
-            response.product.discount = product.discount
-            response.product.stock = product.stock
-            response.product.stockMin = product.stockMin
-            response.product.stockMax = product.stockMax
-            response.product.category = product.category.name
-            response.product.brand = product.brand.name
+            let producto = {
+
+                id : product.id,
+                name : product.name,
+                model : product.model,
+                description : product.description,
+                specs : product.specs,
+                keywords : product.keywords,
+                price : product.price,
+                discount : product.discount,
+                stock : product.stock,
+                stockMin : product.stockMin,
+                stockMax : product.stockMax,
+                category : product.category.name,
+                brand : product.brand.name,
             
+            }
+
+            response.product.push(producto);
+
+
             let imagenes = [];
             product.images.forEach(image => { imagenes.push(image.name)})
 
