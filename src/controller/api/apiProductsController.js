@@ -8,13 +8,26 @@ const apiProductsController = {
         
         let response = {
             count: 0,
-            countByCategory: {
+            countByCategory: [{ 
                 /***********NUEVO***********/
-                camaras: 0,
-                tripodes: 0,
-                otros_accesorios: 0
-                /***********NUEVO***********/
+                id: 1,
+                name: 'Cámaras',
+                quantity: 0
             },
+            {
+                id: 2,
+                name: 'Trípodes',
+                quantity: 0
+            },
+            {
+                id: 3,
+                name: 'Otros accesorios',
+                quantity: 0
+                // camaras: 0,
+                // tripodes: 0,
+                // otros_accesorios: 0
+                /***********NUEVO***********/
+            }],
             products: [],            
             status: 0,
         };
@@ -50,9 +63,9 @@ const apiProductsController = {
                     aux3++;
                 }
                 
-                response.countByCategory.camaras = aux1;
-                response.countByCategory.tripodes = aux2;
-                response.countByCategory.otros_accesorios = aux3;
+                response.countByCategory[0].quantity = aux1;
+                response.countByCategory[1].quantity = aux2;
+                response.countByCategory[2].quantity = aux3;
                 /***********NUEVO***********/
 
                 let product = {
