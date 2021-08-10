@@ -4,6 +4,7 @@
     margin-bottom: 5px;
 }
 
+
 /* DIV  BANNER */
 .container { 
     width: 300px;     
@@ -45,7 +46,7 @@ a {
     text-decoration: none;
 }
 main {
-    background-image: linear-gradient( #e4dddd, #404040)
+    background-color: white;
 }
 
 .main-col{
@@ -118,6 +119,9 @@ main {
     background-size: cover;
     border: none;
 }
+.video_home {
+margin-top: 4.5rem;
+}
 
 @media only screen and (min-width: 769px){
 
@@ -137,10 +141,17 @@ main {
 .tarjetas {
     display: flex;
     justify-content: space-between;
-    width: 90%;
+    width: 100%;
     margin: 0 auto;
     padding: 2em 0;
+
 }
+.card {
+width: 30%;
+margin : 1rem;
+}
+
+
 
 .error404{
     text-align: center;
