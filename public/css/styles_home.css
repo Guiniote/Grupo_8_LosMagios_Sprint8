@@ -101,9 +101,11 @@ main {
 }
 
 .introduccion{
-    background-color: #2289da;
+
+    background-image: url("/images/1627835899444_img.png");
     width: 100%;
     padding: 10px;
+    
     
 }
 
