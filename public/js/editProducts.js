@@ -425,8 +425,6 @@ window.addEventListener("load", function() {
         };
 
         if(productImage1.value == '') {
-            errors.push({ name: 'image1', msg: 'Recordá ingresar una imagen' });
-        } else {
             let extension = productImage1.value.split('.')[1]
             if(!extension.match(acceptedExtensions)) {
                 errors.push({ name: 'image1', msg: 'Las extensiones de archivo permitidas son .JPG, .JPEG, .PNG o .GIF' });                

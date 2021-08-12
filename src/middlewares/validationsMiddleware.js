@@ -171,10 +171,65 @@ const validateUserEdit = [
 
 const validateRegProduct = [ 
 	body('name').notEmpty().withMessage('Recordá ingresar un nombre').bail().isLength({ min: 5 }).withMessage('El nombre debe tener al menos 5 caracteres'),
+	body('category').notEmpty().withMessage('Recordá seleccionar una categoría'),
+	body('brand').notEmpty().withMessage('Recordá seleccionar una marca'),
 	body('model').notEmpty().withMessage('Recordá ingresar un modelo'),
 	body('description').notEmpty().withMessage('Recordá ingresar un modelo').bail().isLength({ min: 20 }).withMessage('La descripción no puede contener menos de 20 caracteres'),
 	body('specs').notEmpty().withMessage('Debes completar las especificaciones técnicas del producto'),
-	body('keywords').notEmpty().withMessage('Debes ingresar al menos una palabra clave'),	
+	body('keywords').notEmpty().withMessage('Debes ingresar al menos una palabra clave'),
+	body('image1').custom((value, {req}) =>{
+    let file  = req.files.image1;
+		if (!file){
+			throw new Error('La imagen 1 es obligatoria');
+        } else{
+                let fileExtension = path.extname(file [0].originalname);
+                if (!acceptedExtensions.includes(fileExtension)) {
+                    throw new Error (`Las extensiones de archivo permitidas son ${acceptedExtensions.join(', ')}`);
+                } 
+        }
+        return true;
+    }),
+	body('image2').custom((value, {req}) =>{
+        let file = req.files.image2;
+        if(file){
+		let fileExtension = path.extname(file [0].originalname);
+		if (!acceptedExtensions.includes(fileExtension)) {
+            throw new Error (`Las extensiones de archivo permitidas son ${acceptedExtensions.join(', ')}`);
+            } 
+        }
+        return true;
+    }),
+	body('image3').custom((value, {req}) =>{
+        let file = req.files.image3;
+        if(file){
+            let fileExtension = path.extname(file [0].originalname);
+           if (!acceptedExtensions.includes(fileExtension)) {
+                throw new Error (`Las extensiones de archivo permitidas son ${acceptedExtensions.join(', ')}`);
+            } 
+        }
+        return true;
+    }),
+	body('image4').custom((value, {req}) =>{
+        let file = req.files.image4;
+
+        if(file){
+            let fileExtension = path.extname(file [0].originalname);
+           if (!acceptedExtensions.includes(fileExtension)) {
+                throw new Error (`Las extensiones de archivo permitidas son ${acceptedExtensions.join(', ')}`);
+            } 
+        }
+        return true;
+    }),
+	body('image5').custom((value, {req}) =>{
+        let file = req.files.image5;
+        if(file){
+            let fileExtension = path.extname(file [0].originalname);
+           if (!acceptedExtensions.includes(fileExtension)) {
+                throw new Error (`Las extensiones de archivo permitidas son ${acceptedExtensions.join(', ')}`);
+            } 
+        }
+        return true;
+    }),	
 	body('price').notEmpty().withMessage('El campo precio es obligatorio').bail().isNumeric().withMessage('El precio debe ser numérico'),
 	body('discount').notEmpty().withMessage('El campo de descuento es obligatorio').bail().isNumeric().withMessage('El descuento debe ser numérico').bail().isInt({gt: -1, lt: 100}).withMessage('El descuento debe estar entre 0 y 99'),
 	body('stock').notEmpty().withMessage('El campo de stock es obligatorio').bail().isNumeric().withMessage('El stock debe ser numérico'),
@@ -184,10 +239,63 @@ const validateRegProduct = [
 
 const validateEditProduct = [ 
 	body('name').notEmpty().withMessage('Recordá ingresar un nombre').bail().isLength({ min: 5 }).withMessage('El nombre debe tener al menos 5 caracteres'),
+	body('category').notEmpty().withMessage('Recordá seleccionar una categoría'),
+	body('brand').notEmpty().withMessage('Recordá seleccionar una marca'),
 	body('model').notEmpty().withMessage('Recordá ingresar un modelo'),
 	body('description').notEmpty().withMessage('Recordá ingresar un modelo').bail().isLength({ min: 20 }).withMessage('La descripción no puede contener menos de 20 caracteres'),
 	body('specs').notEmpty().withMessage('Debes completar las especificaciones técnicas del producto'),
-	body('keywords').notEmpty().withMessage('Debes ingresar al menos una palabra clave'),	
+	body('keywords').notEmpty().withMessage('Debes ingresar al menos una palabra clave'),
+	body('image1').custom((value, {req}) =>{
+        let file = req.files.image1;
+        if(file){
+		let fileExtension = path.extname(file [0].originalname);
+		if (!acceptedExtensions.includes(fileExtension)) {
+            throw new Error (`Las extensiones de archivo permitidas son ${acceptedExtensions.join(', ')}`);
+            } 
+        }
+        return true;
+    }),
+	body('image2').custom((value, {req}) =>{
+        let file = req.files.image2;
+        if(file){
+		let fileExtension = path.extname(file [0].originalname);
+		if (!acceptedExtensions.includes(fileExtension)) {
+            throw new Error (`Las extensiones de archivo permitidas son ${acceptedExtensions.join(', ')}`);
+            } 
+        }
+        return true;
+    }),
+	body('image3').custom((value, {req}) =>{
+        let file = req.files.image3;
+        if(file){
+            let fileExtension = path.extname(file [0].originalname);
+           if (!acceptedExtensions.includes(fileExtension)) {
+                throw new Error (`Las extensiones de archivo permitidas son ${acceptedExtensions.join(', ')}`);
+            } 
+        }
+        return true;
+    }),
+	body('image4').custom((value, {req}) =>{
+        let file = req.files.image4;
+
+        if(file){
+            let fileExtension = path.extname(file [0].originalname);
+           if (!acceptedExtensions.includes(fileExtension)) {
+                throw new Error (`Las extensiones de archivo permitidas son ${acceptedExtensions.join(', ')}`);
+            } 
+        }
+        return true;
+    }),
+	body('image5').custom((value, {req}) =>{
+        let file = req.files.image5;
+        if(file){
+            let fileExtension = path.extname(file [0].originalname);
+           if (!acceptedExtensions.includes(fileExtension)) {
+                throw new Error (`Las extensiones de archivo permitidas son ${acceptedExtensions.join(', ')}`);
+            } 
+        }
+        return true;
+    }),
 	body('price').notEmpty().withMessage('El campo precio es obligatorio').bail().isNumeric().withMessage('El precio debe ser numérico'),
 	body('discount').notEmpty().withMessage('El campo de descuento es obligatorio').bail().isNumeric().withMessage('El descuento debe ser numérico').bail().isInt({gt: -1, lt: 100}).withMessage('El descuento debe estar entre 0 y 99'),
 	body('stock').notEmpty().withMessage('El campo de stock es obligatorio').bail().isNumeric().withMessage('El stock debe ser numérico'),

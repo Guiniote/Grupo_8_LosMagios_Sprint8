@@ -91,7 +91,7 @@ const productsController = {
 
 
 //Función para listar los productos
-    list: async (req, res) => {        
+    list: async (req, res) => {
         if (req.query) {            
         const query = req.query;            
         const productNameKeyword = query.product_name ? query.product_name: '';
@@ -100,12 +100,12 @@ const productsController = {
             where: { name: { [Op.substring]: productNameKeyword }} 
         });        
         return res.render('products/productList', { products });
-    } else {
-        let products = await Product.findAll({ 
-            include: ['images'] 
-        });        
-        return res.render('products/productList', { products });
-    }},
+        } else {
+            let products = await Product.findAll({ 
+                include: ['images'] 
+            });        
+            return res.render('products/productList', { products });
+        }},
 
 
 // Función para traer datos los productos para editar
@@ -124,57 +124,61 @@ const productsController = {
         
 // Función para actualizar información editada de los producto
     update: async (req, res) => {  
-        let product = req.body;
+        let productEdition = req.body;
+        let product = await Product.findByPk(req.params.id, {
+            include: ['brand', 'category', 'images'], });
         let errors = validationResult(req);      
         let categories = await Category.findAll();
         let brands = await Brand.findAll(); 
+        let images = Image.findAll();
         let imagesOnProduct = [];
-        product.id = req.params.id;
+        productEdition.id = req.params.id;
+        
         
         if (req.body.old_image0) {
-            product.image1 = req.body.old_image0;
+            productEdition.image1 = req.body.old_image0;
         } else if (req.files['image1']) {
-            product.image1 = req.files['image1'][0].filename;
+            productEdition.image1 = req.files['image1'][0].filename;
         } else {
-            product.image1 = ''
+            productEdition.image1 = ''
         }
-        imagesOnProduct.push({ name: product.image1 });
+        imagesOnProduct.push({ name: productEdition.image1 });
         
         if (req.body.old_image1) {
-            product.image2 = req.body.old_image1;
+            productEdition.image2 = req.body.old_image1;
         } else if (req.files['image2']) {
-            product.image2 = req.files['image2'][0].filename;
+            productEdition.image2 = req.files['image2'][0].filename;
         } else {
-            product.image2 = ''
+            productEdition.image2 = ''
         }
-        imagesOnProduct.push({ name: product.image2 });
+        imagesOnProduct.push({ name: productEdition.image2 });
 
         if (req.body.old_image2) {
-            product.image3 = req.body.old_image2;
+            productEdition.image3 = req.body.old_image2;
         } else if (req.files['image3']) {
-            product.image3 = req.files['image3'][0].filename;
+            productEdition.image3 = req.files['image3'][0].filename;
         } else {
-            product.image3 = ''
+            productEdition.image3 = ''
         }
-        imagesOnProduct.push({ name: product.image3 });
+        imagesOnProduct.push({ name: productEdition.image3 });
         
         if (req.body.old_image3) {
-            product.image4 = req.body.old_image3;
+            productEdition.image4 = req.body.old_image3;
         } else if (req.files['image4']) {
-            product.image4 = req.files['image4'][0].filename;
+            productEdition.image4 = req.files['image4'][0].filename;
         } else {
-            product.image4 = ''
+            productEdition.image4 = ''
         }
-        imagesOnProduct.push({ name: product.image4 });
+        imagesOnProduct.push({ name: productEdition.image4 });
         
         if (req.body.old_image4) {
-            product.image5 = req.body.old_image4;
+            productEdition.image5 = req.body.old_image4;
         } else if (req.files['image5']) {
-            product.image5 = req.files['image5'][0].filename;
+            productEdition.image5 = req.files['image5'][0].filename;
         } else {
-            product.image5 = ''
+            productEdition.image5 = ''
         }
-        imagesOnProduct.push({ name: product.image5 });
+        imagesOnProduct.push({ name: productEdition.image5 });
 
         if (errors.isEmpty()) { 
         try {    
@@ -196,21 +200,25 @@ const productsController = {
                 where: {id: req.params.id}
             });
                         
-            imagesController.update(product.id, imagesOnProduct);
+            imagesController.update(productEdition.id, imagesOnProduct);
             
             res.redirect("/products/productDetail/" + req.params.id);
             
         
         } catch (error) {
             res.send(error)
-        }  }
-        else {
-            res.render('products/editProducts', {
-                categories,
-                brands,
-                errors: errors.mapped(),
-                oldData: req.body
-            })
+        } 
+    //  }
+    //     else {            
+    //         res.render('products/editProducts', {
+    //             product,
+    //             categories,
+    //             brands,
+    //             //images,
+    //             //imagesOnProduct,
+    //             errors: errors.mapped(),
+    //             oldData: productEdition
+    //         })
     }
     }, 
 
