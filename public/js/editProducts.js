@@ -263,11 +263,15 @@ window.addEventListener("load", function() {
             
         if(productPrice.value == '') {                
             errors.push({ name: 'price', msg: 'Debes ingresar un valor' });
-        } 
-        else {
-            if (!productPrice.value.match(numericValue)) {
+        } else if (!productPrice.value.match(numericValue)) {
+            {
                 errors.push({ name: 'price', msg: 'El valor debe ser numérico' })   
             }
+        } else {
+            if (productPrice.value == 0){
+                errors.push({ name: 'price', msg: 'El valor debe ser mayor a 0' }) 
+            }
+
         };
         
         if(errors.length == 0) {                
@@ -365,6 +369,8 @@ window.addEventListener("load", function() {
             errors.push({ name: 'stockMax', msg: 'El stock máximo no puede ser igual a 0' });
         } else if (productStockMax.value < productStockMin.value) {
             errors.push({ name: 'stockMax', msg: 'El stock máximo debe ser mayor al stock mínimo' });
+        }  else if (productStockMax.value > productStock.value) {
+            errors.push({ name: 'stockMax', msg: 'El stock máximo no puede ser mayor al stock total' });
         } else {
             if (!productStockMax.value.match(numericValue)) {
                 errors.push({ name: 'stockMax', msg: 'El valor debe ser numérico' })   
@@ -461,11 +467,15 @@ window.addEventListener("load", function() {
 
         if(productPrice.value == '') {                
             errors.push({ name: 'price', msg: 'Debes ingresar un valor' });
-        } 
-        else {
-            if (!productPrice.value.match(numericValue)) {
+        }else if (!productPrice.value.match(numericValue)) {
+            {
                 errors.push({ name: 'price', msg: 'El valor debe ser numérico' })   
             }
+        } else {
+            if (productPrice.value == 0){
+                errors.push({ name: 'price', msg: 'El valor debe ser mayor a 0' }) 
+            }
+
         };
 
         if(productDiscount.value == '') {                

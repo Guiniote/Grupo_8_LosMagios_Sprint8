@@ -264,10 +264,15 @@ window.addEventListener("load", function() {
         if(productPrice.value == '') {                
             errors.push({ name: 'price', msg: 'Debes ingresar un valor' });
         } 
-        else {
-            if (!productPrice.value.match(numericValue)) {
+        else if (!productPrice.value.match(numericValue)) {
+            {
                 errors.push({ name: 'price', msg: 'El valor debe ser numérico' })   
             }
+        } else {
+            if (productPrice.value == 0){
+                errors.push({ name: 'price', msg: 'El valor debe ser mayor a 0' }) 
+            }
+
         };
         
         if(errors.length == 0) {                
@@ -287,7 +292,7 @@ window.addEventListener("load", function() {
             
         if(productDiscount.value == '') {                
             errors.push({ name: 'discount', msg: 'Debes ingresar un descuento' })
-        } else if (productDiscount.value < 1 || productDiscount.value > 99 ) {
+        } else if (productDiscount.value < 0 || productDiscount.value > 99 ) {
             errors.push({ name: 'discount', msg: 'El descuento debe ser entre 0% y 99%' }) 
         }else {
             if (!productDiscount.value.match(numericValue)) {
@@ -463,11 +468,15 @@ window.addEventListener("load", function() {
 
         if(productPrice.value == '') {                
             errors.push({ name: 'price', msg: 'Debes ingresar un valor' });
-        } 
-        else {
-            if (!productPrice.value.match(numericValue)) {
+        } else if (!productPrice.value.match(numericValue)) {
+            {
                 errors.push({ name: 'price', msg: 'El valor debe ser numérico' })   
             }
+        } else {
+            if (productPrice.value == 0){
+                errors.push({ name: 'price', msg: 'El valor debe ser mayor a 0' }) 
+            }
+
         };
 
         if(productDiscount.value == '') {                
