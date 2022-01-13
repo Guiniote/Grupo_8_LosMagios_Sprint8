@@ -48,6 +48,10 @@
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                       <a class="dropdown-item" href="/users/profile">Perfil</a>
                       <li><hr class="dropdown-divider"></li>
+                      <% if (locals.userLogged.userName == "admin") { %>
+                        <a class="dropdown-item" href="http<%= process.env.DASH %>" target = "_blank">Dashboard</a>
+                        <li><hr class="dropdown-divider"></li>
+                      <% } %>
                       <a class="dropdown-item" href="/users/logout">Logout</a>
                     </ul>
                   </li>
